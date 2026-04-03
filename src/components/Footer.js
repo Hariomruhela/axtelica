@@ -1,4 +1,3 @@
-// import { Mail, MapPin, Phone } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
@@ -6,36 +5,34 @@ const Footer = () => {
     <footer
       className="relative border-t border-white/10 h-full"
       style={{
-    backgroundImage: "url('/footerbg.png')",
-    backgroundSize: "contain",
-    // backgroundPosition: "center",
-  }}
+        backgroundImage: "url('/footerbg.png')",
+        backgroundSize: "contain",
+      }}
     >
-      {/* 🔥 Overlay (IMPORTANT) */}
-      
-
-      <div className="relative  max-w-7xl mx-auto px-6 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12">
           
           {/* Brand */}
           <div>
-            <img className="rounded-lg h-24"
-             src="/Axtelicalogo.png" alt="footer_logo "/>
-            {/* <h2 className="text-white font-bold text-xl mb-4">AXTELICA</h2> */}
+            <img
+              className="rounded-lg h-24"
+              src="/Axtelicalogo.png"
+              alt="footer_logo"
+            />
 
             <p className="text-sm mt-4 text-gray-300 mb-6">
               Enterprise data & AI solutions for modern businesses.
             </p>
 
+            {/* ✅ FIXED ICON BUTTONS */}
             <div className="flex gap-3">
               {[FaLinkedin, FaGithub].map((Icon, i) => (
-                <a
+                <button
                   key={i}
-                  href="#"
-                  className="w-9 h-9 rounded-lg  flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition"
                 >
                   <Icon className="w-4 h-4" />
-                </a>
+                </button>
               ))}
             </div>
           </div>
@@ -64,7 +61,6 @@ const Footer = () => {
                 "Webinars",
               ],
             },
-            
           ].map((col) => (
             <div key={col.title}>
               <h4 className="text-white font-semibold mb-4">
@@ -74,35 +70,17 @@ const Footer = () => {
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-gray-300 hover:text-white transition"
-                    >
+                    {/* ✅ FIXED HERE */}
+                    <button className="text-sm text-gray-300 hover:text-white transition text-left">
                       {link}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
 
-          {/* Contact */}
-          {/* <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-
-            <div className="space-y-3">
-              {[
-                { icon: Mail, text: "hello@axtelica.com" },
-                { icon: Phone, text: "+1 (555) 123-4567" },
-                { icon: MapPin, text: "San Francisco, CA" },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-gray-300 text-sm">
-                  <Icon className="w-4 h-4 text-cyan-400" />
-                  {text}
-                </div>
-              ))}
-            </div>
-          </div> */}
+          {/* Contact (optional) */}
         </div>
 
         {/* Bottom */}
@@ -113,9 +91,12 @@ const Footer = () => {
 
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((t) => (
-              <a key={t} href="#" className="text-xs text-gray-400 hover:text-white">
+              <button
+                key={t}
+                className="text-xs text-gray-400 hover:text-white"
+              >
                 {t}
-              </a>
+              </button>
             ))}
           </div>
         </div>
