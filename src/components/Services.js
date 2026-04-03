@@ -1,29 +1,26 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import {
-  ArrowRight,
-} from "lucide-react";
-import { 
-  FaDatabase,        // Data
-  FaCloud,           // Cloud
-  FaRobot,           // AI
-  FaChartLine,       // Analytics
-  FaRocket,          // Accelerator
-  FaIndustry         // Transformation / Enterprise
+  FaDatabase,
+  FaCloud,
+  FaRobot,
+  FaChartLine,
+  FaRocket,
+  FaIndustry,
 } from "react-icons/fa";
-
 
 const services = [
   {
-    icon: FaDatabase ,
+    icon: FaDatabase,
     title: "Data Integration & Engineering",
     description:
-      "Build robust ETL/ELT  pipelines and centralized data lakes that ensure high data quality and accessibility",
+      "Build robust ETL/ELT pipelines and centralized data lakes that ensure high data quality and accessibility",
   },
   {
     icon: FaCloud,
     title: "Cloud Data Platforms",
     description:
-      "Migrate and optimize your infrastructure on AWS, Azure, or Gcp for infinite scalability and performance.",
+      "Migrate and optimize your infrastructure on AWS, Azure, or GCP for infinite scalability and performance.",
   },
   {
     icon: FaRobot,
@@ -33,11 +30,10 @@ const services = [
   },
   {
     icon: FaChartLine,
-    title: "Business Intelligence ",
+    title: "Business Intelligence",
     description:
       "Transform complex datasets into interactive, real-time dashboards for executive decision-making.",
   },
-  
   {
     icon: FaRocket,
     title: "Solution Accelerators",
@@ -52,7 +48,6 @@ const services = [
   },
 ];
 
-// ✅ JS version (no TypeScript)
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i) => ({
@@ -61,12 +56,12 @@ const fadeUp = {
     transition: { delay: i * 0.1, duration: 0.5 },
   }),
 };
-// gradient-to-b from-[#231E59] via-[#041f47] to-[#231E59]
+
 const Services = () => {
   return (
     <section className="py-10 bg-[#0e1231]">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,7 +73,7 @@ const Services = () => {
             Innovation Driven Data & Cloud <br /> Solutions
           </h1>
 
-          <p className="Paragraph  text-gray-400 full  mx-auto">
+          <p className="Paragraph text-gray-400 mx-auto">
             We provide end-to-end engineering services to modernize your technology stack and accelerate digital transformation
           </p>
         </motion.div>
@@ -106,25 +101,27 @@ const Services = () => {
               </h3>
 
               {/* Description */}
-              <p className=".card-desc-service  leading-relaxed">
+              <p className="card-desc-service leading-relaxed">
                 {service.description}
               </p>
 
-              {/* Link */}
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 .card-desc-service mt-2 mb-1 text-cyan-400 font-medium hover:gap-3 transition-all"
+              {/* ✅ FIXED BUTTON */}
+              <button
+                className="inline-flex items-center gap-2 mt-2 mb-1 text-cyan-400 font-medium hover:gap-3 transition-all"
               >
-                Explore Service <ArrowRight className=" w-4 h-4" />
-              </a>
+                Explore Service <ArrowRight className="w-4 h-4" />
+              </button>
             </motion.div>
           ))}
         </div>
-        <div className="flex pt-5  justify-end">
-  <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full shadow-md hover:from-purple-600 hover:to-blue-500 transition-all duration-300">
-    All Services
-  </button>
-</div>
+
+        {/* Bottom Button */}
+        <div className="flex pt-5 justify-end">
+          <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full shadow-md hover:from-purple-600 hover:to-blue-500 transition-all duration-300">
+            All Services
+          </button>
+        </div>
+
       </div>
     </section>
   );
