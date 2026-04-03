@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.animated-border {
+  fill: transparent;
+  stroke: #00f5ff;
+  stroke-width: 2;
+  stroke-dasharray: 200;
+  animation: borderMove 5s  linear infinite;
+}
+
+@keyframes borderMove {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+/*Hedinings for Hero Section text */
+.H1{
+  @apply text-[56px]  font-medium leading-tight mb-6  text-white font-poppins
+} 
+.H2{
+  @apply   text-5xl font-medium tracking-wide font-poppins  
+}
+.H3{
+@apply text-[30px] text-3xl font-medium
+}
+
+.Paragraph{
+ @apply text-[18px] font-poppins
+}
+
+/*css  for service card and why choose section */
+.card-title {
+  @apply text-[30px] font-semibold font-poppins text-white mb-1;
+}
+.card-desc {
+  @apply text-[18px] font-poppins text-gray-400 ;
+}
+
+
+
+/* css for service section */
+.heading-primary-service{
+  @apply text-[48px] font-poppins font-semibold
+}
+
+.card-title-service{
+  @apply text-[18px] font-semibold font-poppins text-white mb-2;
+}
+.card-desc-service {
+  @apply text-[14px] font-poppins text-gray-400 ;
+}
+/* css for card AI Innovation Hub  */
+/* Headings */
+.heading-primary {
+  @apply text-[48px]  font-poppins;
+}
+
+.heading-secondary {
+  @apply text-[18px] font-medium font-poppins  mt-2
+}
+
+/* why choose Axtelica */
+.heading-primary-about{
+  @apply text-[36px] font-medium font-poppins;
+}
+.heading-secondary-about{
+  @apply text-[30px] font-semibold font-poppins  mt-2
+}

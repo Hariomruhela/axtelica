@@ -1,0 +1,131 @@
+:root {
+  --bg-dark: #242938;
+  --bg-card: #1a1f2e;
+  --accent-blue: #2ebcf7;
+  --text-gray: #a0a6b5;
+  --white: #ffffff;
+}
+
+/* Navbar Basics */
+.navbar {
+  display: flex;
+  gap: 30px;
+  font-family: 'Poppins', sans-serif; /* changed from Inter */
+  padding: 20px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Mega Menu */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: -100px;
+  width: 700px;
+  background-color: var(--bg-dark);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu-content {
+  display: flex;
+  gap: 40px;
+}
+
+.links-column {
+  flex: 1;
+}
+
+.column-title {
+  color: var(--text-gray);
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.links-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li {
+  margin-bottom: 18px;
+}
+
+.link-list a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.link-list a::before {
+  content: "::";
+  color: var(--accent-blue);
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+/* CTA Card */
+.cta-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+  width: 280px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-card h3 {
+  color: var(--white);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
