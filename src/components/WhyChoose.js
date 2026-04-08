@@ -17,7 +17,7 @@ const WhyChoose = () => {
     backgroundPosition: "center",
   }}
      className="py-16 ">
-      <div className="max-w-7xl mx-auto leading-tight">
+      <div className="max-w-[1650px] pl-4 mx-auto leading-tight">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ const WhyChoose = () => {
             We don't just implement technology, we engineer competitive advantages. Our approach combines deep technical expertise with business acumen.
           </p>
         </motion.div></div>
-<div className="max-w-7xl mx-auto ">
+<div className="max-w-[1650px] mx-auto ">
         <motion.div
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ const WhyChoose = () => {
     <div className="flex  min-h-[320px] w-full">
       
       {/* Features */}
-      <div className="grid grid-cols-2  gap-y-10 p-5 relative z-10">
+      <div className="grid grid-cols-4  gap-y-10 p-5 relative z-10">
         {features.map((feat, i) => (
           <motion.div
             key={feat.title}
@@ -50,19 +50,19 @@ const WhyChoose = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="flex flex-col gap-1"
+            className="flex flex-col gap-1 justify-center px-5"
           >
             <h3 className="card-title text-foreground">{feat.title}</h3>
-            <p className="card-desc text-white leading-relaxed max-w-[75%]">{feat.description}</p>
+            <p className="card-desc leading-tight text-white  max-w-[75%]">{feat.description}</p>
           </motion.div>
         ))}
       </div>
 
       {/* Blob */}
       <div className="relative hidden lg:block  top-0 right-5  ">
-        <img className="h-full w-full "
+        {/* <img className="h-full w-full "
         src="assets/about_img.png " alt="aboutimage"
-        />
+        /> */}
         {/* <div
           className="absolute right-10 top-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-white/90"
           style={{

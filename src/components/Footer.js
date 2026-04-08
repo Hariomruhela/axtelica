@@ -9,7 +9,7 @@ const Footer = () => {
         backgroundSize: "contain",
       }}
     >
-      <div className="relative max-w-7xl mx-auto px-6 py-16">
+      <div className="relative max-w-[1650px] mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12">
           
           {/* Brand */}

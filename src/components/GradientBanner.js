@@ -2,10 +2,10 @@ import React from "react";
 
 const GradientBanner = () => {
   return (
-    <div className="w-full py-6 px-4 bg-gradient-to-r from-purple-700 via-purple-600 to-cyan-500 flex items-center justify-end">
+    <div className="w-full py-6 px-2 bg-gradient-to-r from-purple-700 via-purple-600 to-cyan-500 flex items-center justify-end">
       
       {/* Content */}
-      <div className="flex items-center  gap-4">
+      <div className="w-full mx-auto flex items-center justify-end  mr-32   gap-14">
         
         {/* Arrow Icon (SVG) */}
         <div className="opacity-90">

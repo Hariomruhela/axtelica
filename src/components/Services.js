@@ -82,14 +82,18 @@ const Services = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <motion.div
-              key={service.title}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-cyan-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
-            >
+  key={service.title}
+  custom={i}
+  initial="hidden"
+  whileInView="visible"
+  whileHover={{ scale: 1.05 }}
+  viewport={{ once: true }}
+  variants={fadeUp}
+  
+  className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+  hover:border-cyan-400/30 transition-all duration-300 
+  hover:shadow-lg hover:shadow-cyan-500/10"
+>
               {/* Icon */}
               <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center mb-5 hover:bg-cyan-500/10 transition">
                 <service.icon className="w-12 h-12 text-cyan-400" />
@@ -101,7 +105,7 @@ const Services = () => {
               </h3>
 
               {/* Description */}
-              <p className="card-desc-service leading-relaxed">
+              <p className="card-desc-service leading-tight">
                 {service.description}
               </p>
 

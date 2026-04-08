@@ -4,7 +4,7 @@ import Hero from '../components/Hero'
 import Services from '../components/Services'
 // import Solutions from '../components/Solutions'
 import WhyChoose from '../components/WhyChoose'
-import TechStack from '../components/TechStack'
+// import TechStack from '../components/TechStack'
 import CTA from '../components/CTA'
 import Footer from '../components/Footer'
 import GradientBanner from '../components/GradientBanner'
@@ -20,7 +20,7 @@ const Home = () => {
         <NavbarDemo/>
         <Hero/>
         <GradientBanner/>
-        <TechStack/>
+        {/* <TechStack/> */}
         <WhyChoose/>
         <Services/>
         <AIHub/>

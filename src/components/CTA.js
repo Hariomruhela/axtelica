@@ -12,12 +12,13 @@ const CTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-[60px] font-medium font-poppins  mb-2">
+        <div className="leading-tight">
+          <h2 className="text-[60px] font-medium font-poppins">
             Ready to Transform Your
           </h2>
-          <h2 className="text-[60px] font-medium font-poppins text-gradient mb-8">
+          <h2 className="text-[60px] font-medium font-poppins text-gradient mb-4">
             Data Strategy?
-          </h2>
+          </h2></div>
           <p className="text-white text-[16px] font-medium font-poppins  mb-4 ">partner with axtelica to build the Intelligent Infrastructure your enterprise needs to thrive in the AI era.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <button className=" text-[16px] font-medium font-poppins  bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full shadow-md hover:from-purple-600 hover:to-blue-500 transition-all duration-300">Start a Projects</button>
