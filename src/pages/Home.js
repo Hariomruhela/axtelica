@@ -7,7 +7,7 @@ import WhyChoose from '../components/WhyChoose'
 // import TechStack from '../components/TechStack'
 import CTA from '../components/CTA'
 import Footer from '../components/Footer'
-import GradientBanner from '../components/GradientBanner'
+// import GradientBanner from '../components/GradientBanner'
 import AIHub from '../components/AIHub'
 import Insights from '../components/Insights'
 import FAQ from '../components/FAQ'
@@ -19,17 +19,18 @@ const Home = () => {
         {/* <Navbar/> */}
         <NavbarDemo/>
         <Hero/>
-        <GradientBanner/>
+        {/* <GradientBanner/> */}
         {/* <TechStack/> */}
         <WhyChoose/>
         <Services/>
         <AIHub/>
+        <CTA/>
         <Insights/>
         <FAQ/>
         {/* <Solutions/>
         <WhyChoose/> */}
         
-        <CTA/>
+        
         <Footer/>
     </div>
   )

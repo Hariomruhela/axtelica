@@ -51,7 +51,7 @@ const Insights = () => {
   );
 
   return (
-    <section className="relative top-20 h-[450px]  bg-[#f5f5f5]">
+    <section className="relative top-20 h-[500px]  bg-[#f5f5f5]">
       {/* Header */}
       <div className="bg-white w-full">
         <div className="max-w-[1650px] pl-4 mx-auto flex justify-between items-center mb-10 py-5">

@@ -1,5 +1,5 @@
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-
+import { FaLinkedin, FaGithub,FaFacebookF,FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   return (
     <footer
@@ -9,14 +9,14 @@ const Footer = () => {
         backgroundSize: "contain",
       }}
     >
-      <div className="relative max-w-[1650px] mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-12">
+      <div className="relative max-w-[1650px] mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-7 gap-6">
           
           {/* Brand */}
-          <div>
+          <div className=" col-span-2">
             <img
-              className="rounded-lg h-24"
-              src="/Axtelicalogo.png"
+              className="rounded-lg "
+              src="/assets/Logo_header_white.png"
               alt="footer_logo"
             />
 
@@ -25,16 +25,7 @@ const Footer = () => {
             </p>
 
             {/* ✅ FIXED ICON BUTTONS */}
-            <div className="flex gap-3">
-              {[FaLinkedin, FaGithub].map((Icon, i) => (
-                <button
-                  key={i}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition"
-                >
-                  <Icon className="w-4 h-4" />
-                </button>
-              ))}
-            </div>
+            
           </div>
 
           {/* Links */}
@@ -53,21 +44,39 @@ const Footer = () => {
               ],
             },
             {
-              title: "Resources",
+              title: "AI Innovation Hub",
+              links: [
+                "Infinisight",
+                "optimaorbit",
+                "Axtream",
+                
+              ],
+            },
+            {
+              title: "Case Studies",
+              links: [
+                
+                "Success Stories",
+                "Client Projects",
+                
+              ],
+            }, 
+            {
+              title: "Insights",
               links: [
                 "Blog",
-                "Case Studies",
-                "Documentation",
-                "Webinars",
+                "Articles",
+                "Whitepappers",
+                
               ],
             },
           ].map((col) => (
             <div key={col.title}>
-              <h4 className="text-white font-semibold mb-4">
+              <h4 className="text-white font-semibold text-right mb-4">
                 {col.title}
               </h4>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-right">
                 {col.links.map((link) => (
                   <li key={link}>
                     {/* ✅ FIXED HERE */}
@@ -79,13 +88,23 @@ const Footer = () => {
               </ul>
             </div>
           ))}
+          
 
           {/* Contact (optional) */}
         </div>
-
+            <div className="flex gap-6 justify-end">
+              {[FaXTwitter,FaLinkedin, FaInstagram, FaFacebookF,].map((Icon, i) => (
+                <button
+                  key={i}
+                  className="  rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition"
+                >
+                  <Icon className="w-7 h-7   md:mt-8" />
+                </button>
+              ))}
+            </div>
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-400">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row  items-center gap-4">
+          <p className="text-xs text-gray-100">
             © 2024 Axtelica. All rights reserved.
           </p>
 
@@ -93,7 +112,7 @@ const Footer = () => {
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((t) => (
               <button
                 key={t}
-                className="text-xs text-gray-400 hover:text-white"
+                className="text-xs text-gray-100 hover:text-white"
               >
                 {t}
               </button>

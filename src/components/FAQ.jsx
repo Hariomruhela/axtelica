@@ -33,13 +33,15 @@ const FAQ = () => {
 
   return (
     <section
-      className=" max-h-[750px] mx-auto bg-no-repeat bg-left bg-cover md:bg-contain  py-36"
+      className=" max-h-[750px]  mx-auto bg-no-repeat bg-left mt-9 bg-cover md:bg-contain  py-24"
       style={{
-        backgroundImage: "url('/assets/FAQ_BG.jpg')",
+        backgroundImage: "url('/assets/logo_bg_faq.jpg')",
       }}
     >
       <div className="max-w-[1650px] pl-4 mx-auto ">
-        
+         <div className="text-center">
+        <h1 className="text-5xl font-bold font-poppins text-black mt-9 mb-10"> Frequntly asked questions  ?</h1>
+      </div>
         {/* GRID LAYOUT */}
         <div className="grid md:grid-cols-2 gap-16 ">
           
@@ -61,7 +63,7 @@ transformation helps businesses achieves us tainable successin the digital age.
             {faqs.map((item, index) => (
               <div
                 key={index}
-                className="border-t border-gray-300 pt-9 pb-4 cursor-pointer group"
+                className="border-t border-gray-300 pt-4 pb-6 cursor-pointer group"
                 onClick={() => toggle(index)}
               >
                 <div className="relative -left-10   flex   items-center">
@@ -82,7 +84,7 @@ transformation helps businesses achieves us tainable successin the digital age.
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    activeIndex === index ? "max-h-40 mt-3" : "max-h-0"
+                    activeIndex === index ? "max-h-40 mt-1" : "max-h-0"
                   }`}
                 >
                   <p className="text-gray-900 font-poppins text-sm md:text-base">

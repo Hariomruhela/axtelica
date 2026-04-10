@@ -88,10 +88,10 @@ export default function Chatbot() {
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-9 right-6 w-14 h-14 flex items-center justify-center
-        rounded-full bg-purple-600 text-white text-2xl cursor-pointer
+        rounded-full bg-white text-white text-2xl cursor-pointer
         shadow-lg hover:scale-110 transition z-50"
       >
-        <img src="/45612.png" alt="tQwhite" className="w-15 h-10 rounded-full pt-3 object-cover"/>
+        <img src="/assets/chat_icon.png" alt="tQwhite" className="  p-2 object-cover"/>
       </div>
 
       {/* 💬 Chat Window */}
@@ -104,7 +104,7 @@ export default function Chatbot() {
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-white/10 border-b border-white/20">
           <div className="flex">
-            <img src="/45612.png" alt="chatbot_hearder_logo"
+            <img src="/assets/chat_icon.png" alt="chatbot_hearder_logo"
             className="w-7 h-7 "/>
             <span className="flex pt-1 pl-1 font-semibold text-white">Hi I'm Quito - Your AI Assistant</span>
           </div>

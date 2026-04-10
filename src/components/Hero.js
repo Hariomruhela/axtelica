@@ -15,11 +15,11 @@ const Hero = () => {
     // <TechBackground>
 
       <section   style={{
-    backgroundImage: "url('/assets/hero_banner.png')",
+    backgroundImage: "url('/assets/hero_banner_new.png')",
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
-  className="flex py-36 justify-center px-6">
+  className=" flex py-48  justify-center px-6">
         
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center   ">
@@ -31,7 +31,7 @@ const Hero = () => {
               transition={{ duration: 0.7 }}
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-1 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur">
+              <div className="inline-flex items-center gap-1 px-4 py-2 mb-2 rounded-full bg-white/5 border border-white/10 backdrop-blur">
               {/* SVG Border */}
   <svg
     className="absolute inset-0 w-full h-full pointer-events-none "

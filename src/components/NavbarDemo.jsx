@@ -10,19 +10,26 @@ const NavbarDemo = () => {
   // ✅ NEW: scroll behavior
   const [showNavbar, setShowNavbar] = useState(true);
   const lastScrollY = useRef(0);
-
+const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef(null);
 
   // 🔥 Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      
 
+        // 👇 background change logic
+    if (currentScrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
       // prevent flicker
       if (Math.abs(currentScrollY - lastScrollY.current) < 10) return;
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        setShowNavbar(false); // scroll down
+        setShowNavbar(true); // scroll down
       } else {
         setShowNavbar(true); // scroll up
       }
@@ -36,7 +43,11 @@ const NavbarDemo = () => {
 
   // ✅ Navbar item
   const navItem =
-    "px-0 py-2 text-[#1f2937] font-medium text-[20px] font-Poppins flex items-center gap-1 cursor-pointer hover:text-cyan-500 transition";
+    `px-0 py-2 text-[#1f2937] font-medium text-[20px] font-Poppins flex items-center gap-1 cursor-pointer hover:text-cyan-500 transition  ${
+  scrolled
+    ? "text-[#1f2937] hover:text-cyan-500"
+    : "text-white hover:text-cyan-300"
+}`;
 
   // 🔥 MENU DATA
   const dropdownItems = {
@@ -77,14 +88,20 @@ const NavbarDemo = () => {
   return (
     <motion.div
       initial={{ y: 0 }}
-      animate={{ y: showNavbar ? 0 : -140 }}
-      transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-      className="w-full sticky top-0 z-50 bg-white"
+       animate={{ y: showNavbar ? 0 : -200 }}
+       transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+      className={`fixed  left-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-white backdrop-blur-md shadow-md top-0 h-32 py-6"
+          : "bg-transparent top-10"
+      }
+}`}
     >
       {/* NAVBAR */}
-      <div className=" max-w-[1650px] mx-auto flex justify-items-end justify-between pl-4 md:pl-3 py-0">
+      <div className=" max-w-[1650px] mx-auto flex justify-items-end justify-between pl-4 md:pl-2  py-3">
         {/* LOGO */}
-        <img src="/Axt_logo.jpg" alt="logo" className="object-contain" />
+        {scrolled?(<img src="/assets/Logo_header.png" alt="logo" className="object-contain" />):(<img src="/assets/Logo_header_white.png" alt="logo" className="object-contain" />)}
+        
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-9 ">
@@ -108,8 +125,8 @@ const NavbarDemo = () => {
 
           <div className={navItem}>Insights</div>
 
-          <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-5 py-2 rounded-full text-sm hover:scale-105 transition">
-            Book Demo
+          <button className="bg-[#FF3366] text-white px-5 py-2 rounded-lg  text-[18px] font-poppins hover:scale-105 transition">
+            Request a Demo
           </button>
         </div>
 

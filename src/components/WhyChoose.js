@@ -1,79 +1,96 @@
 import { motion } from "framer-motion";
-import { Database, Cloud, Bot, Zap } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 const features = [
-  { icon: Database, title: "Deep Data Expertise", description: "Decades of combined experience in complex data engineering." },
-  { icon: Cloud, title: "Cloud Native", description: "Architectures built specifically for modern cloud environments." },
-  { icon: Bot, title: "AI Driven", description: "Machine learning embedded into the core of our solutions." },
-  { icon: Zap, title: "Cost Optimized", description: "FinOps practices that maximize ROI on cloud spend." },
+  {
+    icon: ChevronRight,
+    title: "Deep Data Expertise",
+    description:
+      "Decades of combined experience in complex data engineering.",
+  },
+  {
+    icon: ChevronRight,
+    title: "AI Driven",
+    description:
+      "Machine learning embedded into the core of our solutions.",
+  },
+  {
+    icon: ChevronRight,
+    title: "Cloud Native",
+    description:
+      "Architectures built specifically for modern cloud environments.",
+  },
+  {
+    icon: ChevronRight,
+    title: "Cost Optimized",
+    description:
+      "FinOps practices that maximize ROI on cloud spend.",
+  },
 ];
 
 const WhyChoose = () => {
   return (
-    <section
-    style={{
-    backgroundImage: "url('/assets/why_axtelica_BG.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
-     className="py-16 ">
-      <div className="max-w-[1650px] pl-4 mx-auto leading-tight">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className=" mb-16"
-        >
-          <h2 className="heading-primary-about text-white">Why Choose Axtelica</h2>
-          <p className="heading-secondary  text-white mt-0 max-w-5xl ">
-            We don't just implement technology, we engineer competitive advantages. Our approach combines deep technical expertise with business acumen.
-          </p>
-        </motion.div></div>
-<div className="max-w-[1650px] mx-auto ">
-        <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="relative rounded-2xl p-[1px] bg-gradient-to-b from-purple-500 to-gray-400"
->
-  <div className="rounded-2xl bg-[#070730] backdrop-blur-xl overflow-hidden">
-    
-    {/* Your existing content */}
-    <div className="flex  min-h-[320px] w-full">
+    <section className="bg-white py-6">
       
-      {/* Features */}
-      <div className="grid grid-cols-4  gap-y-10 p-5 relative z-10">
-        {features.map((feat, i) => (
-          <motion.div
-            key={feat.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="flex flex-col gap-1 justify-center px-5"
-          >
-            <h3 className="card-title text-foreground">{feat.title}</h3>
-            <p className="card-desc leading-tight text-white  max-w-[75%]">{feat.description}</p>
-          </motion.div>
-        ))}
-      </div>
+      <div className="max-w-[1650px] mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center">
+        
+        {/* LEFT CONTENT */}
+        <div>
+          {/* Heading */}
+          <h2 className="heading-primary-about text-black">
+            Why Choose Axtelica 
+          </h2>
 
-      {/* Blob */}
-      <div className="relative hidden lg:block  top-0 right-5  ">
-        {/* <img className="h-full w-full "
-        src="assets/about_img.png " alt="aboutimage"
-        /> */}
-        {/* <div
-          className="absolute right-10 top-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-white/90"
-          style={{
-            borderRadius: '30% 0% 30% 30% / 50% 0% 40% 50%',
-          }}
-        /> */}
-      </div>
+          {/* Description */}
+          <p className="heading-secondary  text-black mt-1 max-w-4xl">
+            We don't just implement technology; we engineer competitive
+            advantages. Our approach combines deep technical expertise with
+            business acumen.
+          </p>
 
-    </div>
-  </div>
-</motion.div>
+          {/* Features Grid */}
+          <div className="mt-20 grid sm:grid-cols-2 gap-14">
+            {features.map((feat, i) => {
+              const Icon = feat.icon;
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex gap-3"
+                >
+                  {/* Arrow / Icon */}
+                  <div className="text-gray-500 mt-1 pt-1">
+                    <img src="assets/arrow_icon.png" alt="arrow_icon.png"/>
+                    {/* <Icon size={28} /> */}
+                  </div>
+
+                  {/* Text */}
+                  <div>
+                    <h4 className="card-title text-black">
+                      {feat.title}
+                    </h4>
+                    <p className="card-desc leading-tight text-black  max-w-[80%]">
+                      {feat.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="flex justify-center">
+          <img
+            src="/assets/why_ch_img.jpg" // 👈 replace with your image
+            alt="why choose"
+            className="max-w-full h-auto"
+          />
+        </div>
       </div>
     </section>
   );
