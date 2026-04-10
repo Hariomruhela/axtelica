@@ -96,9 +96,9 @@ const Footer = () => {
               {[FaXTwitter,FaLinkedin, FaInstagram, FaFacebookF,].map((Icon, i) => (
                 <button
                   key={i}
-                  className="  rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition"
+                  className="  rounded-lg flex items-center justify-center text-gray-300 hover:text-white  transition"
                 >
-                  <Icon className="w-7 h-7   md:mt-8" />
+                  <Icon className="w-7 h-7   " />
                 </button>
               ))}
             </div>
