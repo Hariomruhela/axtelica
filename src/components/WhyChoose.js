@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+// import { ChevronRight } from "lucide-react";
 
 const features = [
   {
@@ -51,7 +51,7 @@ const WhyChoose = () => {
           {/* Features Grid */}
           <div className="mt-20 grid sm:grid-cols-2 gap-14">
             {features.map((feat, i) => {
-              const Icon = feat.icon;
+              // const Icon = feat.icon;
 
               return (
                 <motion.div
