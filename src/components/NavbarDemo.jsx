@@ -43,7 +43,7 @@ const [scrolled, setScrolled] = useState(false);
 
   // ✅ Navbar item
   const navItem =
-    `px-0 py-2 text-[#1f2937] font-medium text-[20px] font-Poppins flex items-center gap-1 cursor-pointer hover:text-cyan-500 transition  ${
+    `px-0 py-2 text-[#1f2937] font-medium sm:font-semibold  sm:text-[10px] md:text[16px] lg:text-[18px] xl:text-[20px] font-Poppins flex items-center sm:gap-4 md:gap-2 lg-gap-3  cursor-pointer hover:text-cyan-500 transition  ${
   scrolled
     ? "text-[#1f2937] hover:text-cyan-500"
     : "text-white hover:text-cyan-300"
@@ -90,7 +90,7 @@ const [scrolled, setScrolled] = useState(false);
       initial={{ y: 0 }}
        animate={{ y: showNavbar ? 0 : -200 }}
        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-      className={`fixed  left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed  left-0 w-full sm:w-[100%] z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white backdrop-blur-md shadow-md top-0 h-32 py-6"
           : "bg-transparent top-10"
@@ -104,7 +104,7 @@ const [scrolled, setScrolled] = useState(false);
         
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-9 ">
+        <div className="hidden md:flex items-center gap-9 md:gap-8 sm:gap-4  ">
           <div className={navItem}>Company</div>
 
           {Object.keys(dropdownItems).map((key) => (
@@ -125,7 +125,7 @@ const [scrolled, setScrolled] = useState(false);
 
           <div className={navItem}>Insights</div>
 
-          <button className="bg-[#FF3366] text-white px-5 py-2 rounded-lg  text-[18px] font-poppins hover:scale-105 transition">
+          <button className="bg-[#FF3366] text-white px-5 py-2 rounded-lg sm:text-[10px] sm:px-1 md:px-5  md:text-[18px] font-poppins hover:scale-105 transition">
             Request a Demo
           </button>
         </div>
@@ -149,7 +149,7 @@ const [scrolled, setScrolled] = useState(false);
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="absolute left-1/3 -translate-x-1/2 top-full mt-4 w-[90%] max-w-5xl mx-auto bg-[#242938] text-white rounded-2xl shadow-2xl border border-white/10 z-40"
+            className="absolute left-1/4 -translate-x-1/2 top-full mt-4 w-[90%] max-w-5xl mx-auto bg-[#242938] text-white rounded-2xl shadow-2xl border border-white/10 z-40"
           >
             <div className="px-6 md:px-10 py-8 flex flex-col md:flex-row gap-10">
               <div className="flex-1">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronRight,  MoveRight, MoveLeft } from "lucide-react";
+import { ChevronRight, MoveRight, MoveLeft } from "lucide-react";
 
 const insights = [
   {
@@ -31,7 +31,14 @@ const insights = [
 
 const Insights = () => {
   const [startIndex, setStartIndex] = useState(0);
-  const visibleCount = 3;
+
+  // ✅ Responsive visible count
+  const visibleCount =
+    typeof window !== "undefined" && window.innerWidth < 768
+      ? 1
+      : window.innerWidth < 1024
+      ? 2
+      : 3;
 
   const handleNext = () => {
     if (startIndex + visibleCount < insights.length) {
@@ -51,70 +58,76 @@ const Insights = () => {
   );
 
   return (
-    <section className="relative top-20 h-[500px]  bg-[#f5f5f5]">
+    <section className="bg-[#f5f5f5] pb-10 md:pb-16">
+      
       {/* Header */}
       <div className="bg-white w-full">
-        <div className="max-w-[1650px] pl-4 mx-auto flex justify-between items-center mb-10 py-5">
-          <h2 className="text-[48px] font-poppins text-black">
+        <div className="max-w-[1650px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 py-5 pt-14">
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins text-black">
             Insights
           </h2>
 
-          <button className="border border-purple-400 text-[24px] font-poppins font-medium text-black px-5 py-2 rounded-full flex items-center gap-2 hover:bg-purple-100 transition">
+          <button className="border border-purple-400 text-sm sm:text-base md:text-lg font-medium text-black px-4 py-2 rounded-full flex items-center gap-2 hover:bg-purple-100 transition">
             Explore all insights <ChevronRight size={16} />
           </button>
         </div>
       </div>
 
-      <div className="pb-12 max-w-[1650px] pl-4 mx-auto">
-        <h2 className="text-[30px] font-semibold font-poppins text-black mb-6">
+      <div className="max-w-[1650px] mx-auto px-4 sm:px-6 mt-8">
+        
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold font-poppins text-black mb-6">
           Latest articles
         </h2>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visibleItems.map((item, index) => (
-            <div key={index} className="flex gap-5 items-start">
+            <div key={index} className="flex gap-4 items-start">
+              
               <img
                 src={item.image}
                 alt="insight"
-                className="object-cover rounded-md"
+                className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-md flex-shrink-0"
               />
 
-              <div className="mt-2">
-                <span className="text-[12px] font-poppins bg-[#722bfe] text-white px-3 py-1 rounded-full">
+              <div>
+                <span className="text-[10px] sm:text-xs bg-[#722bfe] text-white px-2 py-1 rounded-full">
                   {item.tag}
                 </span>
 
-                <h3 className="mt-2 px-2 text-[22px] max-w-[60%] font-poppins font-medium leading-tight text-black pt-4">
+                <h3 className="mt-2 text-base sm:text-lg md:text-xl font-medium leading-tight text-black">
                   {item.title}
                 </h3>
 
-                <button className="text-[16px] font-poppins font-medium text-gray-700 mb-2 mt-3 px-2 hover:text-black hover:bg-gray-200 rounded-full flex items-center gap-1">
+                <button className="text-sm sm:text-base font-medium text-gray-700 mt-2 hover:text-black flex items-center gap-1">
                   Read Report{" "}
-                  <ChevronRight size={24} color={"#722bfe"} />
+                  <ChevronRight size={20} color={"#722bfe"} />
                 </button>
               </div>
             </div>
           ))}
         </div>
 
-       <div className="absolute max-w-7xl mx-32 flex right-52 justify-end gap-6 mt-20 text-black">
-  <button
-    onClick={handlePrev}
-    disabled={startIndex === 0}
-    className="p-3 rounded-full  text-gray-700 hover:bg-gray-200 disabled:cursor-not-allowed"
-  >
-    <MoveLeft size={28} />
-  </button>
+        {/* Navigation Buttons */}
+        <div className="flex justify-center sm:justify-end gap-4 mt-8">
+          <button
+            onClick={handlePrev}
+            disabled={startIndex === 0}
+            className="p-3 rounded-full text-gray-700 hover:bg-gray-200 disabled:opacity-40"
+          >
+            <MoveLeft size={24} />
+          </button>
 
-  <button
-    onClick={handleNext}
-    disabled={startIndex + visibleCount >= insights.length}
-    className="p-3 rounded-full  text-gray-700 hover:bg-gray-200 disabled:cursor-not-allowed"
-  >
-    <MoveRight size={28} />
-  </button>
-</div>
+          <button
+            onClick={handleNext}
+            disabled={startIndex + visibleCount >= insights.length}
+            className="p-3 rounded-full text-gray-700 hover:bg-gray-200 disabled:opacity-40"
+          >
+            <MoveRight size={24} />
+          </button>
+        </div>
+
       </div>
     </section>
   );

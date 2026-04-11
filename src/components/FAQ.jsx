@@ -33,7 +33,7 @@ const FAQ = () => {
 
   return (
     <section
-      className=" max-h-[750px]  mx-auto bg-no-repeat bg-left mt-9 bg-cover md:bg-contain  py-24"
+      className=" h-full md:max-h-[750px]  mx-auto bg-no-repeat bg-left mt-9 bg-cover md:bg-contain  py-24"
       style={{
         backgroundImage: "url('/assets/logo_bg_faq.jpg')",
       }}

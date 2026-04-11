@@ -19,7 +19,7 @@ const Hero = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
-  className=" flex py-48  justify-center px-6">
+  className=" flex py-48  justify-center  px-6">
         
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center   ">

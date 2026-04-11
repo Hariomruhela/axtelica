@@ -98,11 +98,11 @@ export default function Chatbot() {
       {isOpen ? (
         <div
           className="fixed bottom-24 right-6 w-[420px] h-[420px]
-          backdrop-blur-xl bg-white/10 border border-white/20
+          backdrop-blur-xl bg-white border border-white/20
           rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-white/10 border-b border-white/20">
+          <div className="flex items-center justify-between px-4 py-3 bg-blue-600 border-b border-white/20">
           <div className="flex">
             <img src="/assets/chat_icon.png" alt="chatbot_hearder_logo"
             className="w-7 h-7 "/>
@@ -134,7 +134,7 @@ export default function Chatbot() {
                 )}
 
                 {msg.file && (
-                  <div className="ml-auto bg-white p-2 rounded-lg max-w-[70%]">
+                  <div className="ml-auto bg-white   p-2 rounded-lg max-w-[70%]">
                     {msg.file.type.startsWith("image") ? (
                       <img
                         src={msg.fileURL}
@@ -146,7 +146,7 @@ export default function Chatbot() {
                         href={msg.fileURL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 underline"
+                        className="text-black underline"
                       >
                         📎 {msg.file.name}
                       </a>
@@ -171,11 +171,11 @@ export default function Chatbot() {
 
 
           {/* Input */}
-          <div className="p-2 border-t border-white/20 flex gap-2">
+          <div className="p-2 border-t bg-white/15 border-white/20 flex gap-2">
           {/* File Upload */}
             <button
               onClick={() => fileInputRef.current.click()}
-              className="text-white text-lg"
+              className="text-gray-800 text-lg"
             >
               <FaPaperclip />
             </button>
@@ -191,12 +191,12 @@ export default function Chatbot() {
               placeholder="Type a message..."
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 bg-white/10 text-white placeholder-white/60
+              className="flex-1 bg-white/10 text-gray-700 placeholder-gray-700
               px-3 py-2 rounded-lg outline-none focus:ring-2 focus:ring-cyan-400"
             />
              <button
               onClick={() => setShowEmoji(!showEmoji)}
-              className="text-white text-lg"
+              className="text-gray-700 text-lg"
             >
               <FaSmile />
             </button>
@@ -209,12 +209,10 @@ export default function Chatbot() {
           </div>
            
           
-          <span className="text-white/60 text-center pt-2">prowerd by Techquitoes</span>
+          <span className="text-black text-center pt-2">prowerd by Techquitoes</span>
         </div>
 
-      ):<div className="fixed bottom-9   right-16  rounded-lg bg-white px-5 py-2 ">
-        <span className="text-black  font-sm" >Chat with Us <span className="text-3xl pt-3"> 👋</span></span>
-      </div>}
+      ):""}
       
     </>
   );

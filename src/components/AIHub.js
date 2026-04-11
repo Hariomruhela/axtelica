@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+// import { ArrowRight } from "lucide-react";
 import React from "react";
 
 const products = [
@@ -8,18 +8,9 @@ const products = [
     description:
       "The Universal Enterprise Platform Powering Growth Across Every Function and Industry",
     
-    image: "/assets/Prd_bg01.png",
+    image: "/assets/prod_card_bg.png",
     unlockImage: "/assets/unlock_btn.png",
-    buttonImage: "/assets/get_a_demo_btnnew.png",
-  },
-  {
-    title: "Optima Orbit",
-    description:
-      "An AI-powered business platform that unifies growth, operations, automation, and insights in one connected ecosystem.Built for modern businesses to improve execution, increase productivity, and drive smarter decisions",
-    description2:
-      "Build for modern businesses to improve execution, increase productivity, and drive smarter decisions.",
-    image: "/assets/Prd_bg02.png",
-    buttonImage: "/assets/get_a_demo_btnnew.png",
+    buttonImage: "/assets/start_free_trial_btn.png",
   },
   {
     title: "Axtream",
@@ -27,9 +18,19 @@ const products = [
       "Axtream Real-Time Data Integration, Quality, and Intelligence.",
     description2:
       "Axtream helps businesses connect data from applications, databases, APIs, and streaming platforms to enable faster decisions, trusted reporting, and AI - ready operations.",
-    image: "/assets/Prd_bg03.png",
-    buttonImage: "/assets/get_a_demo_btnnew.png",
+    image: "/assets/prod_card_bg.png",
+    buttonImage: "/assets/start_free_trial_btn.png",
   },
+  {
+    title: "Optima Orbit",
+    description:
+      "An AI-powered business platform that unifies growth, operations, automation, and insights in one connected ecosystem.Built for modern businesses to improve execution, increase productivity, and drive smarter decisions",
+    description2:
+      "Build for modern businesses to improve execution, increase productivity, and drive smarter decisions.",
+    image: "/assets/prod_card_bg.png",
+    buttonImage: "/assets/start_free_trial_btn.png",
+  },
+  
 ];
 
 const AIHub = () => {
@@ -68,7 +69,7 @@ const AIHub = () => {
               }}
             >
               {/* Overlay */}
-              <div
+              {/* <div
                 className={`absolute inset-0 ${
                   i === 0
                     ? "bg-purple-900/60"
@@ -76,7 +77,7 @@ const AIHub = () => {
                     ? "bg-indigo-900/60"
                     : "bg-blue-900/60"
                 }`}
-              ></div>
+              ></div> */}
 
               {/* Content */}
               <div className="relative z-10 flex flex-col h-full justify-between">
@@ -115,29 +116,17 @@ const AIHub = () => {
                 </div>
 
                 {/* Button */}
-                <div className="mt-6 flex justify-end">
-                   <button className="flex items-center gap-4 bg-gradient-to-r from-[#b5b0ec] to-[#d7d2f6] text-white pl-3  rounded-full shadow-md hover:scale-105 transition-all duration-300">
-      
-      {/* Text */}
-      <span className="text-lg font-medium py-2 text-white">
-        Get a Demo
-      </span>
-
-      {/* Arrow Circle */}
-      <div className="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600">
-        <ArrowRight size={28} className="text-white" />
-      </div>
-      
-    </button>
-                  {/* <button className="rounded-full border border-gray-200 overflow-hidden">
+                <div className="mt-6 hover:scale-105 rounded-full flex justify-end">
+                  
+                  <button className="  overflow-hidden">
                     {item.buttonImage && (
                       <img
                         src={item.buttonImage}
                         alt="btn"
-                        className="w-[140px] md:w-[160px]"
+                        className=" "
                       />
                     )}
-                  </button> */}
+                  </button>
                 </div>
                
               </div>
@@ -147,7 +136,7 @@ const AIHub = () => {
                 <img
                   src="/assets/PRD_01_img.png"
                   alt="preview"
-                  className="absolute -bottom-20 right-[28px] w-[200px] md:w-[450px] z-20 pointer-events-none transition-transform duration-500 hover:scale-105"
+                  className="absolute -bottom-1 text-center right-[24px] sm:w-[350px] w-[330px] md:w-[450px] z-20 pointer-events-none transition-transform duration-500 hover:scale-105"
                 />
               )}
             </div>
