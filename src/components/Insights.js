@@ -58,7 +58,7 @@ const Insights = () => {
   );
 
   return (
-    <section className="bg-[#f5f5f5] pb-10 md:pb-16">
+    <section className="bg-[#f5f5f5] h-full md:h-[500px] pb-10 md:pb-16">
       
       {/* Header */}
       <div className="bg-white w-full">
@@ -88,15 +88,15 @@ const Insights = () => {
               <img
                 src={item.image}
                 alt="insight"
-                className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-md flex-shrink-0"
+                className=" object-cover rounded-md flex-shrink-0"
               />
 
-              <div>
-                <span className="text-[10px] sm:text-xs bg-[#722bfe] text-white px-2 py-1 rounded-full">
+              <div className="mt-2">
+                <span className="text-[12px] lg:text-[12px] md:text-[11px] sm:text-xs bg-[#722bfe] text-white px-2 py-1 rounded-full">
                   {item.tag}
                 </span>
 
-                <h3 className="mt-2 text-base sm:text-lg md:text-xl font-medium leading-tight text-black">
+                <h3 className="mt-2 px-2 text-[22px] max-w-[70%] font-poppins font-medium leading-tight text-black pt-2">
                   {item.title}
                 </h3>
 
