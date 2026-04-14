@@ -80,7 +80,7 @@ const Footer = () => {
                 {col.links.map((link) => (
                   <li key={link}>
                     {/* ✅ FIXED HERE */}
-                    <button className="text-sm text-gray-300 hover:text-white transition text-left">
+                    <button className="text-sm text-gray-300 hover:text-white transition text-right">
                       {link}
                     </button>
                   </li>

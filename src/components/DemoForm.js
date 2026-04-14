@@ -113,7 +113,7 @@ const DemoForm = () => {
             </div>
 
             {/* Footer text */}
-            <p className="md:col-span-2 text-xs text-gray-500 mt-2 leading-relaxed">
+            <p className="md:col-span-2 text-sm font-poppins text-gray-500 mt-2 leading-relaxed">
               By clicking Request a Demo, I agree to the use of my personal data
               in accordance with Axtelica Privacy Notice. This site is protected
               by reCAPTCHA and the Privacy Policy and Terms of Service apply.

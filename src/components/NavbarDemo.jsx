@@ -114,7 +114,7 @@ const [scrolled, setScrolled] = useState(false);
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-9 md:gap-8 sm:gap-4  ">
-         <Link to="/"> <div className={navItem}>Company</div> </Link>
+         <Link to="/about"> <div className={navItem}>Company</div> </Link>
 
           {Object.keys(dropdownItems).map((key) => (
             <div

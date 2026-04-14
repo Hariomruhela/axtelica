@@ -74,7 +74,7 @@ export const productsData = {
     button: "Request a Demo",
     tabs: {
       overview: {
-        title: "Infinisight transforms raw enterprise data into powerful insights using AI and automation.",
+        title: "Infinisight transforms raw enterprise data into powerful insights .",
         description: "Axtream is Axtelica's  intelligent data platform to ingest, validate and activate across enterpise systems in real time.",
         image: [
           "/assets/CS_01.png",
