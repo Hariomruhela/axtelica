@@ -61,7 +61,7 @@ const AIHub = () => {
           {products.map((item, i) => (
             <div
               key={i}
-              className="relative rounded-2xl overflow-hidden text-white p-6 flex flex-col justify-between min-h-[450px] hover:scale-105 transition duration-300"
+              className="relative rounded-2xl overflow-hidden text-white p-6 flex flex-col justify-between min-h-[500px] hover:scale-105 transition duration-300"
               style={{
                 backgroundImage: `url(${item.image})`,
                 backgroundSize: "cover",
@@ -116,7 +116,7 @@ const AIHub = () => {
                 </div>
 
                 {/* Button */}
-                <div className="mt-6 hover:scale-105 rounded-full flex justify-end">
+                <div className="mt-10 -mb-2 hover:scale-105 rounded-full flex justify-end">
                   
                   <button className="  overflow-hidden">
                     {item.buttonImage && (
@@ -136,7 +136,7 @@ const AIHub = () => {
                 <img
                   src="/assets/PRD_01_img.png"
                   alt="preview"
-                  className="absolute -bottom-1 text-center right-[24px] sm:w-[350px] w-[330px] md:w-[450px] z-20 pointer-events-none transition-transform duration-500 hover:scale-105"
+                  className="absolute bottom-20  left-14 text-center  sm:w-[350px] w-[330px] md:h-[240px] md:w-[376px] z-20 pointer-events-none transition-transform duration-500 hover:scale-105"
                 />
               )}
             </div>

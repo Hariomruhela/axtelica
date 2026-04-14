@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarDemo = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMobile, setActiveMobile] = useState(null);
   const [hovered, setHovered] = useState(null);
-
+const navigate = useNavigate();
   // ✅ NEW: scroll behavior
   const [showNavbar, setShowNavbar] = useState(true);
   const lastScrollY = useRef(0);
@@ -54,24 +55,30 @@ const [scrolled, setScrolled] = useState(false);
     services: {
       title: "SERVICES",
       columns: [
-        ["Data & Analytics", "AI & Machine Learning"],
-        ["Cloud Solutions", "Agile & DevOps"],
+        [{name:"Data & Analytics"}, {name:"AI & Machine Learning"}],
+        [{name:"Cloud Solutions"}, {name:"Agile & DevOps"}],
       ],
     },
     ai: {
       title: "AI INNOVATION HUB",
-      columns: [["Infinisight", "Optimaorbit"], ["Axtream"]],
+      columns: [
+  [
+    { name: "Infinisight", path: "product/infinisight" },
+    { name: "Optimaorbit", path: "product/optimaorbit" }
+  ],
+  [{ name: "Axtream",path:"/product/axtream" }]
+]
     },
     industries: {
       title: "INDUSTRIES",
       columns: [
-        ["Finance", "Retail"],
-        ["Healthcare", "Manufacturing"],
+        [{name:"Finance"},{name: "Retail"}],
+        [{name:"Healthcare"}, {name:"Manufacturing"}],
       ],
     },
     case: {
       title: "CASE STUDIES",
-      columns: [["Success Stories"], ["Client Projects"]],
+      columns: [[{name:"Success Stories"}], [{name:"Client Projects"}]],
     },
   };
 
@@ -98,14 +105,16 @@ const [scrolled, setScrolled] = useState(false);
 }`}
     >
       {/* NAVBAR */}
+      
       <div className=" max-w-[1650px] mx-auto flex justify-items-end justify-between pl-4 md:pl-2  py-3">
         {/* LOGO */}
+        <Link to="/">
         {scrolled?(<img src="/assets/Logo_header.png" alt="logo" className="object-contain" />):(<img src="/assets/Logo_header_white.png" alt="logo" className="object-contain" />)}
-        
+        </Link>
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-9 md:gap-8 sm:gap-4  ">
-          <div className={navItem}>Company</div>
+         <Link to="/"> <div className={navItem}>Company</div> </Link>
 
           {Object.keys(dropdownItems).map((key) => (
             <div
@@ -161,14 +170,15 @@ const [scrolled, setScrolled] = useState(false);
                   {dropdownItems[hovered].columns.map((col, i) => (
                     <div key={i} className="space-y-4">
                       {col.map((item, j) => (
-                        <div
-                          key={j}
-                          className="flex items-center text-[18px] hover:text-cyan-400 cursor-pointer"
-                        >
-                          <span className="text-cyan-400 mr-3">::</span>
-                          {item}
-                        </div>
-                      ))}
+                    <div
+                      key={j}
+                      onClick={() => item.path && navigate(item.path)}
+                      className="flex items-center text-[18px] hover:text-cyan-400 cursor-pointer"
+                    >
+                      <span className="text-cyan-400 mr-3">::</span>
+                      {item.name}
+                    </div>
+                  ))}
                     </div>
                   ))}
                 </div>

@@ -33,7 +33,7 @@ const FAQ = () => {
 
   return (
     <section
-      className=" h-full md:max-h-[750px]  mx-auto bg-no-repeat bg-left mt-9 bg-cover md:bg-contain  py-24"
+      className=" h-full md:max-h-[750px]  mx-auto bg-no-repeat bg-left mt-9 lg:mt-1 bg-cover md:bg-contain   md:py-24"
       style={{
         backgroundImage: "url('/assets/logo_bg_faq.jpg')",
       }}
@@ -63,7 +63,7 @@ transformation helps businesses achieves us tainable successin the digital age.
             {faqs.map((item, index) => (
               <div
                 key={index}
-                className="border-t border-gray-300 pt-4 pb-6 cursor-pointer group"
+                className="border-t border-gray-300 pt-6 pb-6 cursor-pointer group"
                 onClick={() => toggle(index)}
               >
                 <div className="relative -left-10   flex   items-center">
