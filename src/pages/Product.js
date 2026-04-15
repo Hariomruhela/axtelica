@@ -35,18 +35,18 @@ const Product = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-white">
+              <h1 className="H1 ">
                 {data.name}
               </h1>
             </motion.div>
 
             {/* RIGHT */}
             <motion.div>
-              <h2 className="text-2xl md:text-4xl mb-6 font-bold text-white">
+              <h2 className="H2">
                 {data.heroTitle}
               </h2>
 
-              <button className="bg-[#FF3366] text-white px-5 py-2 rounded-lg">
+              <button className=" Paragraph bg-[#FF3366] mt-5 text-white px-5 py-2 rounded-lg">
                 {data.button}
               </button>
             </motion.div>
@@ -57,7 +57,7 @@ const Product = () => {
       {/* SECTION TEXT */}
       <div className="py-12 md:py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-2xl md:text-4xl text-center font-bold font-poppins text-black">
+          <h1 className="heading-secondary text-center  font-poppins text-gray-600">
             {data.description}
           </h1>
         </div>

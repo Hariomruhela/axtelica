@@ -68,12 +68,12 @@ const ProductSection = ({ data }) => {
         {/* RIGHT CONTENT */}
        <div>
   {/* TABS (fixed) */}
-  <div className="flex gap-12 px-6 py-3 w-[80%] mb-6 border-2 border-gray-400 bg-gray-100 rounded-full">
+  <div className="flex gap-14 px-6 py-3 w-[90%] mb-6 border-2 border-gray-400 bg-gray-100 rounded-full">
     {tabs.map((tab) => (
       <button
         key={tab.key}
         onClick={() => setActiveTab(tab.key)}
-        className={`px-4 py-2 rounded-full text-sm md:text-base transition ${
+        className={`px-4 py-2 rounded-full  font-poppins text-lg md:text-lg transition ${
           activeTab === tab.key
             ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
             : "text-gray-600 hover:bg-gray-200"
@@ -86,24 +86,25 @@ const ProductSection = ({ data }) => {
 
   {/* 🔥 CONTENT WRAPPER (important) */}
   <div className="min-h-[300px]">
-    <h2 className="text-2xl md:text-4xl font-semibold text-black mb-4">
+    <h2 className="card-title font-semibold text-black mb-4">
       {tabData.title}
     </h2>
 
-    <p className="text-gray-700 mb-6">
+    <p className="Paragraph text-gray-700 mb-6">
       {tabData.description}
     </p>
 
-    <ul className="space-y-2 mb-6 text-black">
+    <ul className="space-y-2 mb-6 Paragraph text-gray-700">
+      <h4 className="text-gray-800 Paragraph font-poppins">key value point</h4>
       {tabData.points?.map((point, index) => (
-        <li key={index} className="flex items-start gap-2">
+        <li key={index} className="flex   items-start gap-2">
           <span>•</span> {point}
         </li>
       ))}
     </ul>
   </div>
 
-  <button className="bg-pink-500 text-white px-6 py-3 rounded-lg">
+  <button className="Paragraph bg-pink-500 text-white px-6 py-3 rounded-lg">
     Request a Demo
   </button>
 </div>

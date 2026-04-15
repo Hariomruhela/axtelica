@@ -7,11 +7,11 @@ const DemoForm = () => {
         
         {/* LEFT CONTENT */}
         <div>
-          <h1 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-6 leading-tight">
+          <h1 className="heading-primary font-poppins text-gray-900 mb-6 leading-tight">
             Experience Axtelica <br /> Firsthand
           </h1>
 
-          <p className="text-gray-600 mb-6 text-lg">
+          <p className=" heading-secondary text-gray-600 mb-6 text-lg">
             Request a demo with a Axtelica AI product expert to see how you can:
           </p>
 
@@ -22,7 +22,7 @@ const DemoForm = () => {
               "Improve data quality and trust",
               "Detect anomalies and operational risks",
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
+              <li key={i} className="flex Paragraph items-start gap-3">
                 <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-400 text-sm">
                   ✓
                 </span>
@@ -38,7 +38,7 @@ const DemoForm = () => {
             
             {/* First Name */}
             <div>
-              <label className="text-sm text-gray-600">First Name*</label>
+              <label className="Paragraph text-gray-600">First Name*</label>
               <input
                 type="text"
                 className="w-full border border-gray-300 rounded-md p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-pink-400"
@@ -47,7 +47,7 @@ const DemoForm = () => {
 
             {/* Last Name */}
             <div>
-              <label className="text-sm text-gray-600">Last Name*</label>
+              <label className="Paragraph text-gray-600">Last Name*</label>
               <input
                 type="text"
                 className="w-full border border-gray-300 rounded-md p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-pink-400"
@@ -56,7 +56,7 @@ const DemoForm = () => {
 
             {/* Company */}
             <div>
-              <label className="text-sm text-gray-600">Company*</label>
+              <label className="Paragraph text-gray-600">Company*</label>
               <input
                 type="text"
                 className="w-full border border-gray-300 rounded-md p-2 mt-1"
@@ -65,7 +65,7 @@ const DemoForm = () => {
 
             {/* Email */}
             <div>
-              <label className="text-sm text-gray-600">Business Email*</label>
+              <label className="Paragraph text-gray-600">Business Email*</label>
               <input
                 type="email"
                 className="w-full border border-gray-300 rounded-md p-2 mt-1"
@@ -74,7 +74,7 @@ const DemoForm = () => {
 
             {/* Phone */}
             <div>
-              <label className="text-sm text-gray-600">Phone*</label>
+              <label className="Paragraph text-gray-600">Phone*</label>
               <input
                 type="text"
                 className="w-full border border-gray-300 rounded-md p-2 mt-1"
@@ -83,7 +83,7 @@ const DemoForm = () => {
 
             {/* Employees */}
             <div>
-              <label className="text-sm text-gray-600">Employees*</label>
+              <label className="Paragraph text-gray-600">Employees*</label>
               <select className="w-full border border-gray-300 text-gray-900 rounded-md p-2 mt-1">
                 <option>Select...</option>
                 <option>1-10</option>
@@ -94,7 +94,7 @@ const DemoForm = () => {
 
             {/* Country */}
             <div className="md:col-span-2">
-              <label className="text-sm text-gray-900">Country*</label>
+              <label className="Paragraph text-gray-900">Country*</label>
               <select className="w-full border border-gray-300 text-gray-900 rounded-md p-2 mt-1">
                 <option>Select...</option>
                 <option>India</option>
@@ -106,14 +106,14 @@ const DemoForm = () => {
             <div className="md:col-span-2  mt-4">
               <button
                 type="submit"
-                className="px-6 bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-full text-lg font-medium transition"
+                className="px-6 Paragraph bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-full text-lg font-medium transition"
               >
                 Get a Demo
               </button>
             </div>
 
             {/* Footer text */}
-            <p className="md:col-span-2 text-sm font-poppins text-gray-500 mt-2 leading-relaxed">
+            <p className="md:col-span-2 Paragraph font-poppins text-gray-500 mt-2 leading-relaxed">
               By clicking Request a Demo, I agree to the use of my personal data
               in accordance with Axtelica Privacy Notice. This site is protected
               by reCAPTCHA and the Privacy Policy and Terms of Service apply.

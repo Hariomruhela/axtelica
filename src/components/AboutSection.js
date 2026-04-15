@@ -25,18 +25,18 @@ const AboutSection = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="  py-32 md:py-48  px-1"
+        className="  py-32 md:py-32  px-1"
       >
-        <div className="max-w-7xl mx-auto  flex flex-col ">
-            <p className="uppercase tracking-widest text-sm font-bold font-poppins mb-4 text-white">Why Axtelica</p>
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-6 max-w-3xl text-white font-poppins">
+        <div className="max-w-[1650px] mx-auto px-4 mt-9 flex flex-col ">
+            <p className=" uppercase tracking-widest text-lg font-bold font-poppins mb-4 text-white">Why Axtelica</p>
+        <h1 className="H1 font-bold leading-tight mb-6 max-w-3xl text-white font-poppins">
           Real-Time Data Integration, Quality, and Intelligence
         </h1>
-        <p className="max-w-3xl text-gray-200 font-poppins">
+        <p className="max-w-6xl mt-5 H3 text-gray-200 text-left font-poppins">
           At Axtelica, we believe technology is more than just tools—it's the
           foundation of modern business success. We are a forward-thinking IT
           solutions company dedicated to helping businesses grow, innovate, and
-          thrive in the digital era
+          thrive in the digital era.
         </p>
         </div>
       </section>
@@ -44,10 +44,10 @@ const AboutSection = () => {
       {/* SERVICES SECTION */}
       <section className="max-w-[1650px] mx-auto py-20 px-6 md:px-4 grid md:grid-cols-2 gap-24 ">
         <div className="pt-12 ">
-          <h2 className="text-xl font-bold font-poppins mb-6">
+          <h2 className="heading-primary-about font-poppins mb-6">
             We specialize in a wide range of IT services, including:
           </h2>
-          <ul className="space-y-3 text-gray-700">
+          <ul className="space-y-3 Paragraph text-gray-700">
             {[
               "Website Design & Development",
               "Mobile App Development",
@@ -62,7 +62,7 @@ const AboutSection = () => {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-gray-600 font-poppins">
+          <p className="Paragraph mt-6 text-gray-600 font-poppins">
             Our expert team combines creativity with cutting-edge technology to
             deliver solutions that are not only functional but also future-ready.
           </p>
@@ -100,14 +100,14 @@ const AboutSection = () => {
         {item.title}
       </h3>
 
-      <p className="text-gray-600 font-poppins text-lg mt-2 max-w-[200px]">
+      <p className= "Paragraph text-gray-600 font-poppins text-lg mt-2 max-w-[300px]">
         {item.desc}
       </p>
     </div>
   ))}
         </div>
 
-        <p className="mt-20 text-3xl max-w-6xl font-poppins mx-auto">
+        <p className="mt-20 heading-primary-about max-w-6xl font-poppins mx-auto">
           To empower businesses with innovative technology solutions that drive
           efficiency, growth, and long-term success.
         </p>
@@ -116,7 +116,7 @@ const AboutSection = () => {
       {/* ABOUT DETAIL */}
       <section className="max-w-[1650px] mx-auto pb-10 px-4 md:px-2 grid md:grid-cols-2 gap-24 items-center">
         <div className="">
-          <p className="text-gray-900 text-[16px] md:text-[20px] font-medium font-poppins mb-6">
+          <p className="text-gray-900 Paragraph leading-normal font-poppins mb-6">
             Axtelica is a professional IT services company focused on delivering
             high-quality technology solutions to businesses worldwide. With
             expertise in software development, cloud computing, and digital
@@ -147,22 +147,22 @@ const AboutSection = () => {
         </div>
 
         <div className="md:ml-16">
-          <h2 className="text-2xl md:text-3xl font-poppins font-semibold mb-4">
+          <h2 className="heading-primary-about font-poppins font-semibold mb-4">
             Imagine: your data working in a system made for your business
           </h2>
-          <p className="text-gray-600 text-lg font-poppins font-normal mb-6">
+          <p className="text-gray-600 Paragraph font-poppins font-normal mb-6">
             That’s what we bring to the table. With custom-built products and
             proven strategies that align with top organizational priorities. we work to understand exactly what makes your enterprise run-- and then help it run faster.
           </p>
 
           <div className="flex gap-10">
             <div>
-              <h4 className="font-semibold">Services</h4>
+              <h4 className=" Paragraph font-semibold">Services</h4>
               <p className="text-purple-700 cursor-pointer">Explore →</p>
             </div>
             <div>
-              <h4 className="font-semibold">Partners</h4>
-              <p className="text-purple-700 cursor-pointer">Explore →</p>
+              <h4 className=" Paragraph font-semibold">Partners</h4>
+              <p className="Paragraph text-purple-700 cursor-pointer">Explore →</p>
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@ const AboutSection = () => {
 
       {/* FOOT TEXT */}
       <section className="text-center py-16 px-6 md:px-16">
-        <p className="text-2xl font-poppins max-w-3xl mx-auto">
+        <p className="Paragraph font-poppins max-w-5xl mx-auto">
           At Axtelica, we don’t just build software we build lasting
           partnerships. Your success is our priority. And we are commited to delivering excellence in every project.
         </p>
