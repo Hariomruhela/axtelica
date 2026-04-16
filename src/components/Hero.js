@@ -14,7 +14,8 @@ const Hero = () => {
   return (
     // <TechBackground>
 
-      <section   style={{
+      <section 
+        style={{
     backgroundImage: "url('/assets/hero_banner_new.png')",
     backgroundSize: "cover",
     backgroundPosition: "center",

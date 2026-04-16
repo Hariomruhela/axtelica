@@ -12,6 +12,13 @@ export const productsData = {
       "Detect anomalies and operational risks",
       "Power dashboards , analytics and AI use cases"
     ],
+     image: [
+          "/assets/axtream01.png",
+          "/assets/axtream02.png",
+          "/assets/axtream03.png",
+         
+
+        ],
     tabs: {
       overview: {
         title: "Real-Time Data Integration, Quality, and Intelligence",
@@ -33,10 +40,10 @@ export const productsData = {
         title: "Key Features of Axtream Integration, Quality. ",
         description: "Powerful tools for data engineering.",
         image: [
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png"
+          "/assets/axtream01.png",
+          "/assets/axtream02.png",
+          "/assets/axtream03.png",
+         
 
         ],
         points: [

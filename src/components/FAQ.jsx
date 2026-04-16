@@ -40,7 +40,7 @@ const FAQ = () => {
     >
       <div className="max-w-[1650px] pl-4 mx-auto ">
          <div className="text-center">
-        <h1 className="text-5xl font-bold font-poppins text-black mt-9 mb-10"> Frequntly asked questions  ?</h1>
+        <h1 className="text-5xl font-bold font-poppins text-black mt-0 mb-10"> Frequntly asked questions  ?</h1>
       </div>
         {/* GRID LAYOUT */}
         <div className="grid md:grid-cols-2 gap-16 ">
@@ -66,7 +66,7 @@ transformation helps businesses achieves us tainable successin the digital age.
                 className="border-t border-gray-300 pt-6 pb-6 cursor-pointer group"
                 onClick={() => toggle(index)}
               >
-                <div className="relative -left-10   flex   items-center">
+                <div className="relative    flex   items-center">
                    <ChevronDown
                     size={26}
                     className={`transition-all duration-300 ${

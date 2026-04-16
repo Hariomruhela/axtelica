@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const tabs = [
   { key: "overview", label: "Overview" },
@@ -10,28 +11,26 @@ const ProductSection = ({ data }) => {
   const [activeTab, setActiveTab] = useState("overview");
   const [currentImage, setCurrentImage] = useState(0);
 
-  // ✅ safe access (important)
   const tabData = data?.tabs?.[activeTab];
 
-  // 🔥 Auto slide effect (ALWAYS called)
+  // 🔥 Auto slide (fixed)
   useEffect(() => {
-    if (!tabData?.image) return;
+    if (!data?.image) return;
 
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
-        prev === tabData.image.length - 1 ? 0 : prev + 1
+        prev === data.image.length - 1 ? 0 : prev + 1
       );
     }, 2500);
 
     return () => clearInterval(interval);
-  }, [tabData]);
+  }, [data]);
 
-  // 🔥 Reset when tab changes
+  // 🔥 Reset on tab change
   useEffect(() => {
     setCurrentImage(0);
   }, [activeTab]);
 
-  // ✅ NOW conditionals (after hooks)
   if (!data || !data.tabs) {
     return <div className="text-center py-20">No Data Found</div>;
   }
@@ -41,24 +40,37 @@ const ProductSection = ({ data }) => {
   }
 
   return (
-    <section className="py-16 px-4 md:px-8 bg-white">
+    <section className="py-16 px-4 md:px-8 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
-        
-        {/* IMAGE SLIDER */}
-        <div className="relative rounded-2xl bg-gradient-to-r from-purple-300 to-gray-300 p-4 overflow-hidden">
-          <img
-            src={tabData.image?.[currentImage]}
-            alt="product"
-            className="rounded-xl w-full h-[400px] object-cover transition-all duration-700"
-          />
 
-          {/* Dots */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            {tabData.images?.map((_, i) => (
+        {/* LEFT - IMAGE */}
+        <div>
+          <div className="relative h-[400px]  rounded-2xl bg-gradient-to-r from-purple-300 to-gray-300 p-4 overflow-hidden ">
+            
+            <AnimatePresence mode="normal">
+              <motion.img
+                key={currentImage}
+                src={data.image?.[currentImage]}
+                alt="product"
+                initial={{ opacity: 1, x: 100, scale: 1.05 }}
+               animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 1, x: -120, scale: 0.95 }}
+                transition={{ duration: 1 }}
+                className="absolute inset-0 w-[590px] h-full object-center rounded-xl"
+              />
+            </AnimatePresence>
+
+          </div>
+
+          {/* DOTS */}
+          <div className="flex justify-center mt-6 gap-2">
+            {data.image?.map((_, i) => (
               <div
                 key={i}
-                className={`w-2 h-2 rounded-full ${
-                  i === currentImage ? "bg-white" : "bg-white/50"
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  i === currentImage
+                    ? "bg-gray-700 scale-125"
+                    : "bg-gray-400"
                 }`}
               />
             ))}
@@ -66,48 +78,60 @@ const ProductSection = ({ data }) => {
         </div>
 
         {/* RIGHT CONTENT */}
-       <div>
-  {/* TABS (fixed) */}
-  <div className="flex gap-14 px-6 py-3 w-[90%] mb-6 border-2 border-gray-400 bg-gray-100 rounded-full">
-    {tabs.map((tab) => (
-      <button
-        key={tab.key}
-        onClick={() => setActiveTab(tab.key)}
-        className={`px-4 py-2 rounded-full  font-poppins text-lg md:text-lg transition ${
-          activeTab === tab.key
-            ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-            : "text-gray-600 hover:bg-gray-200"
-        }`}
-      >
-        {tab.label}
-      </button>
-    ))}
-  </div>
+        <div>
+          {/* TABS */}
+          <div className="flex gap-6 px-4 py-2 w-fit mb-6 border border-gray-300 bg-gray-100 rounded-full">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-4 py-2 rounded-full text-sm md:text-base transition ${
+                  activeTab === tab.key
+                    ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+                    : "text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-  {/* 🔥 CONTENT WRAPPER (important) */}
-  <div className="min-h-[300px]">
-    <h2 className="card-title font-semibold text-black mb-4">
-      {tabData.title}
-    </h2>
+          {/* CONTENT ANIMATION */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="min-h-[300px]"
+            >
+              <h2 className="text-2xl font-semibold text-black mb-4">
+                {tabData.title}
+              </h2>
 
-    <p className="Paragraph text-gray-700 mb-6">
-      {tabData.description}
-    </p>
+              <p className="text-gray-700 mb-6">
+                {tabData.description}
+              </p>
 
-    <ul className="space-y-2 mb-6 Paragraph text-gray-700">
-      <h4 className="text-gray-800 Paragraph font-poppins">key value point</h4>
-      {tabData.points?.map((point, index) => (
-        <li key={index} className="flex   items-start gap-2">
-          <span>•</span> {point}
-        </li>
-      ))}
-    </ul>
-  </div>
+              <ul className="space-y-2 mb-6 text-gray-700">
+                <h4 className="text-gray-800 font-medium">
+                  Key value points
+                </h4>
+                {tabData.points?.map((point, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span>•</span> {point}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </AnimatePresence>
 
-  <button className="Paragraph bg-pink-500 text-white px-6 py-3 rounded-lg">
-    Request a Demo
-  </button>
-</div>
+          <button className="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition">
+            Request a Demo
+          </button>
+        </div>
+
       </div>
     </section>
   );

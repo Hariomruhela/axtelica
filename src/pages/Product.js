@@ -24,9 +24,9 @@ const Product = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="flex py-32 md:py-48 justify-center px-6"
+        className="flex py-32 md:py-12 justify-center px-6"
       >
-        <div className="max-w-7xl mx-auto w-full">
+        <div className="max-w-7xl mx-auto w-full mt-24">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             
             {/* LEFT */}
@@ -55,9 +55,9 @@ const Product = () => {
       </div>
 
       {/* SECTION TEXT */}
-      <div className="py-12 md:py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="heading-secondary text-center  font-poppins text-gray-600">
+      <div className="py-12 md:py-16 ">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="H2 text-center px-5  font-poppins text-gray-900">
             {data.description}
           </h1>
         </div>

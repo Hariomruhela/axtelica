@@ -5,47 +5,46 @@ import {
   FaCloud,
   FaRobot,
   FaChartLine,
-  FaRocket,
-  FaIndustry,
+  
 } from "react-icons/fa";
 
 const services = [
   {
     icon: FaDatabase,
-    title: "Data Integration & Engineering",
+    title: "AI Business Solutions",
     description:
-      "Build robust ETL/ELT pipelines and centralized data lakes that ensure high data quality and accessibility",
+      "We design AI-powered solutions for operational, analytical, and decision-making challenges — from fraud detection to commercial analytics. Each solution is scoped around your specific business problem, not a template.",
   },
   {
     icon: FaCloud,
-    title: "Cloud Data Platforms",
+    title: "Intelligent Platforms",
     description:
-      "Migrate and optimize your infrastructure on AWS, Azure, or GCP for infinite scalability and performance.",
+      "We build scalable platforms that unify your data, automation logic, and AI capabilities into a single business experience — so your teams stop switching between tools and start making decisions.",
   },
   {
     icon: FaRobot,
-    title: "AI & Automation Solutions",
+    title: "AI Business Agents",
     description:
-      "Deploy custom machine learning models and intelligent agents to automate complex business workflows.",
+      "We create intelligent agents that go beyond question-answering. They capture requirements, validate data, surface insights, and support workflow execution — functioning as digital colleagues inside your existing processes.",
   },
   {
     icon: FaChartLine,
-    title: "Business Intelligence",
+    title: "Product Accelerators",
     description:
-      "Transform complex datasets into interactive, real-time dashboards for executive decision-making.",
+      "We use reusable components and modular architectures to reduce build time, lower costs, and accelerate deployment. What takes others months, we deliver in weeks.",
   },
-  {
-    icon: FaRocket,
-    title: "Solution Accelerators",
-    description:
-      "Pre-built frameworks and industry-specific data models to reduce time-to-market by up to 60%.",
-  },
-  {
-    icon: FaIndustry,
-    title: "Digital Transformation",
-    description:
-      "Strategic consulting to align your technology investments with long-term business objectives",
-  },
+  // {
+  //   icon: FaRocket,
+  //   title: "Real-Time Operational Visibility",
+  //   description:
+  //     "Monitor performance, detect anomalies, and respond to issues before they escalate — with live intelligence across your critical business operations. From KPI dashboards to automated alerts, visibility becomes a competitive advantage.",
+  // },
+  // {
+  //   icon: FaIndustry,
+  //   title: "Digital Transformation",
+  //   description:
+  //     "Strategic consulting to align your technology investments with long-term business objectives",
+  // },
 ];
 
 const fadeUp = {
@@ -70,16 +69,16 @@ const Services = () => {
           className="text-center mb-16"
         >
           <h1 className="heading-primary-service text-white mb-4">
-            Innovation Driven Data & Cloud Solutions
+           What We Build
           </h1>
 
           <p className="Paragraph text-gray-400 mx-auto">
-            We provide end-to-end engineering services to modernize your technology stack and accelerate digital transformation
+           We specialize in four areas — each designed to solve a distinct category of business problem.
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 ">
           {services.map((service, i) => (
            <motion.div
   key={service.title}
@@ -95,7 +94,7 @@ const Services = () => {
   <div className="rounded-2xl ">
     
     {/* Inner Card */}
-    <div className="rounded-2xl bg-[#0e1231] p-6 h-[250px] 
+    <div className="rounded-2xl bg-[#0e1231] p-6 h-[270px] 
     backdrop-blur-xl transition-all duration-300 
     group-hover:shadow-lg group-hover:shadow-cyan-500/10">
       
@@ -109,7 +108,7 @@ const Services = () => {
       </div> */}
 
       {/* Title */}
-      <h3 className="card-title-service">
+      <h3 className="card-title-service ">
         {service.title}
       </h3>
 
@@ -125,6 +124,12 @@ const Services = () => {
       </button>
     </div>
   </div>
+   {/* 🔥 BOTTOM HOVER LINE (MAIN EFFECT) */}
+    <div className="absolute bottom-0 left-0 h-[2px] w-0 
+      bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500
+      transition-all duration-700 group-hover:w-full"
+    />
+  
 </motion.div>
           ))}
         </div>

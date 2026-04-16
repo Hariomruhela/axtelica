@@ -58,7 +58,7 @@ const Insights = () => {
   );
 
   return (
-    <section className="bg-[#f5f5f5] h-full md:h-[500px] pb-10 md:pb-16">
+    <section className="bg-[#f5f5f5] h-full md:h-[500px] pb-10 md:pb-10">
       
       {/* Header */}
       <div className="bg-white w-full">
@@ -81,7 +81,7 @@ const Insights = () => {
         </h2>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {visibleItems.map((item, index) => (
             <div key={index} className="flex gap-4 items-start">
               

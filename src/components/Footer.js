@@ -14,14 +14,14 @@ const Footer = () => {
           
           {/* Brand */}
           <div className=" col-span-2">
-            <img
+            {/* <img
               className="rounded-lg "
               src="/assets/Logo_header_white.png"
               alt="footer_logo"
-            />
+            /> */}
 
-            <p className="text-sm mt-4 text-gray-300 mb-6">
-              Enterprise data & AI solutions for modern businesses.
+            <p className="text-lg font-poppins mt-4 text-gray-300 mb-6">
+              Axtelica — Intelligent platforms, business-ready agents, and AI solutions built for enterprises that run on data.
             </p>
 
             {/* ✅ FIXED ICON BUTTONS */}

@@ -4,27 +4,27 @@ import { motion } from "framer-motion";
 const features = [
   {
     icon: ChevronRight,
-    title: "Deep Data Expertise",
+    title: "AI-Powered Solutions",
     description:
-      "Decades of combined experience in complex data engineering.",
+      "Purpose-built to solve real operational, analytical, and decision-making problems — not generic demos.",
   },
   {
     icon: ChevronRight,
-    title: "AI Driven",
+    title: "Scalable Platforms",
     description:
-      "Machine learning embedded into the core of our solutions.",
+      "Unified platforms that combine data, automation, and AI so your teams have everything in one place",
   },
   {
     icon: ChevronRight,
-    title: "Cloud Native",
+    title: "Intelligent Agents",
     description:
-      "Architectures built specifically for modern cloud environments.",
+      "Business agents that structure work, validate data, surface insights, and execute workflows without manual effort",
   },
   {
     icon: ChevronRight,
-    title: "Cost Optimized",
+    title: "Cost-Smart Delivery",
     description:
-      "FinOps practices that maximize ROI on cloud spend.",
+      "Modular components and reusable architecture cut build time and reduce overhead — so AI adoption fits your budget",
   },
 ];
 
@@ -32,17 +32,17 @@ const WhyChoose = () => {
   return (
     <section className="bg-white py-6">
       
-      <div className="max-w-[1650px] mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center">
+      <div className="max-w-[1650px] mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
         
         {/* LEFT CONTENT */}
         <div>
           {/* Heading */}
           <h2 className="heading-primary-about text-black">
-            Why Choose Axtelica 
+            Why Organizations Choose Axtelica 
           </h2>
 
           {/* Description */}
-          <p className="heading-secondary  text-black mt-1 max-w-4xl">
+          <p className="heading-secondary  text-black mt-1 max-w-5xl">
             We don't just implement technology; we engineer competitive
             advantages. Our approach combines deep technical expertise with
             business acumen.

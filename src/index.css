@@ -23,7 +23,7 @@
   @apply text-[56px]  font-medium leading-tight mb-6  text-white font-poppins
 } 
 .H2{
-  @apply   text-5xl font-medium tracking-wide font-poppins  
+  @apply   text-[47px] font-semibold tracking-wide font-poppins  leading-[56px]
 }
 .H3{
 @apply text-[30px] text-3xl font-medium
