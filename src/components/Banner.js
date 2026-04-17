@@ -148,12 +148,12 @@ const Banner = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center py-12 sm:py-16 md:py-20">
+      <div className="relative z-10 h-full flex items-center py-16 sm:py-20 md:py-24 lg:mt-12">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Heading */}
-          <h1 className="animate-reveal delay-1 text-white font-bold leading-tight tracking-tight text-[clamp(28px,5vw,56px)] max-w-3xl">
-            AI Solutions Builder for Modern Business
+          <h1 className="animate-reveal delay-1 text-white font-bold leading-tight tracking-tight text-[clamp(28px,5vw,52px)] max-w-3xl">
+            AI Solutions Builder for<br/> Modern Business
           </h1>
 
           {/* Subheading */}
