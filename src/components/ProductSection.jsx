@@ -47,7 +47,16 @@ const ProductSection = ({ data }) => {
         <div>
           <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-r from-purple-300 to-gray-300 p-4 overflow-hidden">
             
-            <AnimatePresence mode="normal"> <motion.img key={currentImage} src={data.image?.[currentImage]} alt="product" initial={{ opacity: 1, x: 100, scale: 1.05 }} animate={{ opacity: 1, x: 0, scale: 1 }} exit={{ opacity: 1, x: -120, scale: 0.95 }} transition={{ duration: 1 }} className="absolute inset-0 w-full h-full object-center rounded-xl" /> </AnimatePresence>
+            <AnimatePresence mode="normal">
+               <motion.img key={currentImage} 
+               src={data.image?.[currentImage]}
+                alt="product"
+                 initial={{ opacity: 1, x: 100, scale: 1.05 }} 
+                 animate={{ opacity: 1, x: 0, scale: 1 }} 
+                 exit={{ opacity: 1, x: -120, scale: 0.95 }} 
+                 transition={{ duration: 1 }}
+                  className="absolute inset-0 w-full h-full object-center rounded-xl" />
+                   </AnimatePresence>
 
           </div>
 

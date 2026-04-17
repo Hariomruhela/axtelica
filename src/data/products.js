@@ -5,13 +5,7 @@ export const productsData = {
     description:
       " Axtream helps businesses connect  data from applications, databases, files, APIs and  Streaming platforms to enable faster decisions, trusted reporting, and AI-ready operation.",
     button: "Schedule a Consultation",
-    points: [
-      "Connect data from multiple sources",
-      "Ingest batch and real-time data",
-      "Improve data quality and trust",
-      "Detect anomalies and operational risks",
-      "Power dashboards , analytics and AI use cases"
-    ],
+    
      image: [
           "/assets/axtream01.png",
           "/assets/axtream02.png",
@@ -23,12 +17,7 @@ export const productsData = {
       overview: {
         title: "Real-Time Data Integration, Quality, and Intelligence",
         description: "Axtream is Axtelica's  intelligent data platform to ingest, validate and activate across enterpise systems in real time.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/Prd_bg01.png",
-          "/assets/Prd_bg01.png",
-
-        ],
+        
         points: [
           "Connect multiple sources",
           "Real-time ingestion",
@@ -39,13 +28,7 @@ export const productsData = {
       features: {
         title: "Key Features of Axtream Integration, Quality. ",
         description: "Powerful tools for data engineering.",
-        image: [
-          "/assets/axtream01.png",
-          "/assets/axtream02.png",
-          "/assets/axtream03.png",
-         
-
-        ],
+        
         points: [
           "AI-powered pipelines",
           "Auto data validation",
@@ -56,12 +39,7 @@ export const productsData = {
       benefits: {
         title: "Benefits of Axtream  Quality, and Intelligence",
         description: "Improve decision making with real-time insights.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png"
-
-        ],
+       
         points: [
           "Faster decisions",
           "Better accuracy",
@@ -77,35 +55,31 @@ export const productsData = {
     description:
       "Infinisight enables AI-powered analytics and smarter decision making.",
     
-    image: "/assets/CS_01.png",
+    image: [
+          "/assets/axtream01.png",
+          "/assets/axtream02.png",
+          "/assets/axtream03.png",
+         
+
+        ],
     button: "Request a Demo",
     tabs: {
       overview: {
         title: "Infinisight transforms raw enterprise data into powerful insights .",
         description: "Axtream is Axtelica's  intelligent data platform to ingest, validate and activate across enterpise systems in real time.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/Prd_bg01.png",
-          "/assets/Prd_bg01.png",
-
-        ],
+        
         points: [
           "Connect multiple sources",
           "Real-time ingestion",
           "High scalability",
         ],
       },
+      
 
       features: {
         title: "Key Features of Axtream Integration, Quality. ",
         description: "Powerful tools for data engineering.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png"
-
-        ],
+       
         points: [
           "AI-powered pipelines",
           "Auto data validation",
@@ -116,12 +90,7 @@ export const productsData = {
       benefits: {
         title: "Benefits of Axtream  Quality, and Intelligence",
         description: "Improve decision making with real-time insights.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png"
-
-        ],
+        
         points: [
           "Faster decisions",
           "Better accuracy",
@@ -138,18 +107,19 @@ export const productsData = {
       "Optimaorbit helps businesses streamline workflows and automate operations.",
     sectionTitle:
       "Optimize workflows, reduce costs, and enhance operational efficiency with intelligent automation.",
-    image: "/assets/CS_01.png",
+    image: [
+          "/assets/axtream01.png",
+          "/assets/axtream02.png",
+          "/assets/axtream03.png",
+         
+
+        ],
     button: "Get Started",
    tabs: {
       overview: {
         title: "Infinisight transforms raw enterprise data into powerful insights using AI and automation.",
         description: "Axtream is Axtelica's  intelligent data platform to ingest, validate and activate across enterpise systems in real time.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/Prd_bg01.png",
-          "/assets/Prd_bg01.png",
-
-        ],
+        
         points: [
           "Connect multiple sources",
           "Real-time ingestion",
@@ -160,13 +130,7 @@ export const productsData = {
       features: {
         title: "Key Features of Axtream Integration, Quality. ",
         description: "Powerful tools for data engineering.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png"
-
-        ],
+        
         points: [
           "AI-powered pipelines",
           "Auto data validation",
@@ -177,12 +141,7 @@ export const productsData = {
       benefits: {
         title: "Benefits of Axtream  Quality, and Intelligence",
         description: "Improve decision making with real-time insights.",
-        image: [
-          "/assets/CS_01.png",
-          "/assets/CS_01.png",
-          "/assets/CS_01.png"
-
-        ],
+        
         points: [
           "Faster decisions",
           "Better accuracy",

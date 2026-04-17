@@ -20,7 +20,7 @@ const Product = () => {
 
       {/* HERO */}
       <section
-        className="relative bg-cover bg-center py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8"
+        className="relative bg-cover bg-center  py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8"
         style={{
           backgroundImage: "url('/assets/hero_banner_new.png')",
         }}
@@ -28,7 +28,7 @@ const Product = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto">
+        <div className="relative z-10 max-w-[1400px] mt-10 mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {/* LEFT */}

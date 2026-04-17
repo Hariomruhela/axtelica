@@ -40,10 +40,13 @@ const Footer = () => {
           {[
             {
               title: "Company",
-              links: ["About Us", "Case Studies", "Insights", "Careers"],
+              links: ["About Axtelica", "Why Choose Axtelica", "Leadership Team", "contact Us"], 
+
+
+
             },
             {
-              title: "Services",
+              title: "Solution",
               links: [
                 "Data Engineering",
                 "Cloud Platforms",
@@ -65,14 +68,14 @@ const Footer = () => {
             },
           ].map((col) => (
             <div key={col.title}>
-              <h4 className="text-white font-semibold mb-4 text-sm sm:text-base">
+              <h4 className="text-white text-right font-semibold mb-4 text-sm sm:text-base">
                 {col.title}
               </h4>
 
-              <ul className="space-y-2">
+              <ul className="space-y-2 text-right">
                 {col.links.map((link) => (
                   <li key={link}>
-                    <button className="text-sm text-gray-400 hover:text-white transition">
+                    <button className="text-sm text-gray-400 hover:text-white  transition">
                       {link}
                     </button>
                   </li>

@@ -48,7 +48,7 @@ const NavbarDemo = () => {
   `;
 
   const dropdownItems = {
-    services: {
+    solution: {
       title: "SERVICES",
       columns: [
         [{ name: "Data & Analytics" }, { name: "AI & Machine Learning" }],
@@ -58,11 +58,11 @@ const NavbarDemo = () => {
     ai: {
       title: "AI INNOVATION HUB",
       columns: [
-        [
+        [{ name: "Axtream", path: "/product/axtream" },
           { name: "Infinisight", path: "/product/infinisight" },
-          { name: "Optimaorbit", path: "/product/optimaorbit" },
+          { name: "Intelligent Business Agents", path: "/product/optimaorbit" },
         ],
-        [{ name: "Axtream", path: "/product/axtream" }],
+        
       ],
     },
     industries: {
@@ -91,14 +91,14 @@ const NavbarDemo = () => {
     <motion.div
       animate={{ y: showNavbar ? 0 : -120 }}
       transition={{ duration: 0.3 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed  left-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/90 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+          : "bg-transparent top-10"
       }`}
     >
       {/* NAVBAR */}
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[70px] flex items-center justify-between">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 lg:py-8 min-h-[70px] flex items-center justify-between">
         
         {/* LOGO */}
         <Link to="/">

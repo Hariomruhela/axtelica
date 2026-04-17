@@ -80,9 +80,9 @@ const Services = () => {
             >
               {/* Card */}
               <div className="h-full rounded-2xl bg-[#0e1231] p-6 sm:p-8 
-              border border-white/10 backdrop-blur-xl 
+               backdrop-blur-xl 
               transition-all duration-300 
-              group-hover:shadow-lg group-hover:shadow-cyan-500/10">
+              group-hover:shadow-sm ">
 
                 {/* Top Gradient Line */}
                 <div className="h-[1px] w-full bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 rounded-full"></div>
@@ -99,7 +99,7 @@ const Services = () => {
 
                 {/* Button */}
                 <button className="inline-flex items-center gap-2 mt-4 text-cyan-400 font-medium hover:gap-3 transition-all">
-                  Explore Service <ArrowRight className="w-4 h-4" />
+                  More Details <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
@@ -115,7 +115,7 @@ const Services = () => {
         {/* Bottom Button */}
         <div className="flex pt-10 justify-center sm:justify-end">
           <button className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-full shadow-md hover:scale-105 transition">
-            Explore Service <ArrowUpRight className="w-5 h-5" />
+            Explore Solutions <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>
 

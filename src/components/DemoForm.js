@@ -75,7 +75,7 @@ const DemoForm = () => {
               <label className="block text-sm text-gray-600 mb-1">
                 Country*
               </label>
-              <select className="w-full border border-gray-300 rounded-md px-3 py-3 text-sm">
+              <select className="w-full border text-gray-500 border-gray-300 rounded-md px-3 py-3 text-sm">
                 <option>Select...</option>
                 <option>India</option>
                 <option>USA</option>

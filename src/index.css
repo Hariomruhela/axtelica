@@ -1,73 +1,97 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.animated-border {
-  fill: transparent;
-  stroke: #00f5ff;
-  stroke-width: 2;
-  stroke-dasharray: 200;
-  animation: borderMove 5s  linear infinite;
+
+/* =========================
+   Animated Border
+========================= */
+.animated-border { fill: transparent; stroke: #00f5ff; stroke-width: 2; stroke-dasharray: 200; animation: borderMove 5s linear infinite; } @keyframes borderMove { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 1000; } }
+
+/* =========================
+   TYPOGRAPHY (RESPONSIVE)
+========================= */
+
+/* Hero Headings */
+.H1 {
+  @apply text-[clamp(28px,5vw,56px)] font-medium leading-tight mb-4 sm:mb-6 text-white font-poppins;
 }
 
-@keyframes borderMove {
-  from {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: 1000;
-  }
+.H2 {
+  @apply text-[clamp(22px,4vw,42px)] font-semibold leading-snug font-poppins;
 }
 
-/*Hedinings for Hero Section text */
-.H1{
-  @apply text-[56px]  font-medium leading-tight mb-6  text-white font-poppins
-} 
-.H2{
-  @apply   text-[47px] font-semibold tracking-wide font-poppins  leading-[56px]
-}
-.H3{
-@apply text-[30px] text-3xl font-medium
+.H3 {
+  @apply text-[clamp(18px,3vw,28px)] font-medium;
 }
 
-.Paragraph{
- @apply text-[18px] font-poppins
+.Paragraph {
+  @apply text-[clamp(14px,1.5vw,18px)] font-poppins leading-relaxed;
 }
 
-/*css  for service card and why choose section */
+/* =========================
+   CARD (Why Choose + General)
+========================= */
+
 .card-title {
-  @apply text-[24px] font-semibold font-poppins  mb-1;
+  @apply text-[clamp(18px,2vw,24px)] font-semibold font-poppins mb-1;
 }
+
 .card-desc {
-  @apply text-[16px] font-poppins text-gray-900 ;
+  @apply text-[clamp(14px,1.5vw,16px)] font-poppins text-gray-700 leading-relaxed;
 }
 
+/* =========================
+   SERVICES SECTION
+========================= */
 
-
-/* css for service section */
-.heading-primary-service{
-  @apply text-[48px] font-poppins font-semibold
+.heading-primary-service {
+  @apply text-[clamp(26px,4vw,48px)] font-poppins font-semibold;
 }
 
-.card-title-service{
-  @apply text-[18px] font-semibold font-poppins text-white mb-4;
+.card-title-service {
+  @apply text-[clamp(16px,2vw,18px)] font-semibold font-poppins text-white mb-3;
 }
+
 .card-desc-service {
-  @apply text-[14px] font-poppins text-gray-400 ;
+  @apply text-[clamp(13px,1.5vw,15px)] font-poppins text-gray-400 leading-relaxed;
 }
-/* css for card AI Innovation Hub  */
-/* Headings */
+
+/* =========================
+   AI HUB / GENERAL HEADINGS
+========================= */
+
 .heading-primary {
-  @apply text-[48px]  font-poppins;
+  @apply text-[clamp(26px,4vw,48px)] font-poppins font-semibold;
 }
 
 .heading-secondary {
-  @apply text-[20px] font-medium font-poppins  mt-2
+  @apply text-[clamp(16px,2vw,20px)] font-medium font-poppins mt-2;
 }
 
-/* why choose Axtelica */
-.heading-primary-about{
-  @apply text-[36px] font-medium font-poppins;
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.heading-primary-about {
+  @apply text-[clamp(18px,2vw,35px)] font-medium font-poppins;
 }
-.heading-secondary-about{
-  @apply text-[30px] font-semibold font-poppins  mt-2
+
+.heading-secondary-about {
+  @apply text-[clamp(20px,2.5vw,30px)] font-semibold font-poppins mt-2;
 }
+
+ @keyframes revealIn {
+          0% { opacity: 0; transform: translateY(15px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-reveal { opacity: 0; animation: revealIn 1s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.45s; }
+
+
+/* delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }

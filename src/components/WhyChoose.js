@@ -30,7 +30,7 @@ const features = [
 
 const WhyChoose = () => {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
+    <section className="bg-white py-8 sm:py-12 lg:py-16">
       
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         

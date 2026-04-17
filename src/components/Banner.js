@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { useLocation } from "react-router-dom";
 
 const Banner = () => {
   const mountRef = useRef(null);
+  const location = useLocation(); // 🔥 for re-trigger animation
 
   useEffect(() => {
     const container = mountRef.current;
@@ -22,7 +24,7 @@ const Banner = () => {
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
-    // ✅ RESPONSIVE PARTICLES
+    // --- PARTICLES ---
     const isMobile = window.innerWidth < 768;
     const AMOUNTX = isMobile ? 60 : 120;
     const AMOUNTY = isMobile ? 40 : 80;
@@ -67,7 +69,6 @@ const Banner = () => {
       size: isMobile ? 3 : 5,
       vertexColors: true,
       transparent: true,
-      opacity: 1,
       blending: THREE.AdditiveBlending,
       depthTest: false,
     });
@@ -75,7 +76,7 @@ const Banner = () => {
     const particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // ✅ CAMERA
+    // --- CAMERA ---
     const setCamera = () => {
       if (window.innerWidth < 768) {
         camera.position.set(0, 250, 800);
@@ -85,7 +86,7 @@ const Banner = () => {
       camera.lookAt(0, 0, 0);
     };
 
-    // ✅ RESIZE HANDLER
+    // --- RESIZE ---
     const updateSize = () => {
       const width = container.clientWidth;
       const height = container.clientHeight;
@@ -125,7 +126,6 @@ const Banner = () => {
 
     window.addEventListener("resize", updateSize);
 
-    // --- CLEANUP ---
     return () => {
       window.removeEventListener("resize", updateSize);
       container.removeChild(renderer.domElement);
@@ -136,8 +136,10 @@ const Banner = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[clamp(500px,65vh,700px)] overflow-hidden bg-[radial-gradient(circle_at_20%_50%,#0a0b1e_0%,#010103_100%)]">
-      
+    <section
+      key={location.pathname} // 🔥 forces animation on route change
+      className="relative w-full h-[clamp(500px,65vh,700px)] overflow-hidden bg-[radial-gradient(circle_at_20%_50%,#0a0b1e_0%,#010103_100%)]"
+    >
       {/* Background */}
       <div
         ref={mountRef}
@@ -148,37 +150,31 @@ const Banner = () => {
       {/* Content */}
       <div className="relative z-10 h-full flex items-center py-12 sm:py-16 md:py-20">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-4 text-[10px] sm:text-xs tracking-[0.25em] text-[#00f2ff] uppercase">
-            <div className="w-6 sm:w-8 h-[1px] bg-[#00f2ff]" />
-            AI SOLUTIONS BUILDER FOR ENTERPRISE
-          </div>
 
           {/* Heading */}
-          <h1 className="text-white font-bold leading-tight tracking-tight text-[clamp(28px,5vw,56px)] max-w-3xl">
-            Your Data Is Already Valuable. <br />
-            Axtelica Makes It Work.
+          <h1 className="animate-reveal delay-1 text-white font-bold leading-tight tracking-tight text-[clamp(28px,5vw,56px)] max-w-3xl">
+            AI Solutions Builder for Modern Business
           </h1>
 
           {/* Subheading */}
-          <p className="mt-6 font-semibold bg-gradient-to-r from-[#00f2ff] via-[#4a5dff] to-[#d442f5] bg-clip-text text-transparent text-[clamp(16px,2.5vw,28px)] max-w-2xl">
+          <p className="animate-reveal delay-2 mt-6 font-semibold bg-gradient-to-r from-[#00f2ff] via-[#4a5dff] to-[#d442f5] bg-clip-text text-transparent text-[clamp(16px,2.5vw,28px)] max-w-2xl">
             Axtelica builds practical AI-powered solutions, intelligent
             platforms, and business-ready agents...
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-10 w-full sm:w-auto">
-            
-            <button className="w-full sm:w-auto bg-[#ff3b6a] text-white px-6 py-3 rounded-md font-semibold text-sm md:text-base transition hover:-translate-y-1 hover:shadow-lg">
+          <div
+            className="animate-reveal delay-3 flex flex-col sm:flex-row gap-4 mt-10"
+          >
+            <button className="bg-[#ff3b6a] text-white font-semibold px-8 py-3.5 rounded-md text-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,59,106,0.4),0_0_15px_rgba(0,210,255,0.2)] flex items-center gap-2 group">
               See How We Solve It
             </button>
 
-            <button className="w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold text-sm md:text-base hover:bg-white/5">
+            <button className="w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold hover:bg-white/5 transition">
               Talk to an AI Expert
             </button>
-
           </div>
+
         </div>
       </div>
     </section>
