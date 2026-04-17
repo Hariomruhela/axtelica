@@ -41,24 +41,13 @@ const ProductSection = ({ data }) => {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5f5f5]">
-      
       <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
         {/* LEFT - IMAGE */}
         <div>
           <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-r from-purple-300 to-gray-300 p-4 overflow-hidden">
             
-            <AnimatePresence mode="normal"> 
-              <motion.img 
-              key={currentImage} 
-              src={data.image?.[currentImage]} 
-              alt="product"
-              initial={{ opacity: 1, x: 100, scale: 1.05 }} 
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 1, x: -120, scale: 0.95 }} 
-              transition={{ duration: 1 }} 
-              className="absolute inset-0 w-full h-full object-center rounded-xl" />
-              </AnimatePresence>
+            <AnimatePresence mode="normal"> <motion.img key={currentImage} src={data.image?.[currentImage]} alt="product" initial={{ opacity: 1, x: 100, scale: 1.05 }} animate={{ opacity: 1, x: 0, scale: 1 }} exit={{ opacity: 1, x: -120, scale: 0.95 }} transition={{ duration: 1 }} className="absolute inset-0 w-full h-full object-center rounded-xl" /> </AnimatePresence>
 
           </div>
 
@@ -79,17 +68,18 @@ const ProductSection = ({ data }) => {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="flex flex-col h-full">
-          {/* TABS */}
-          <div className="flex gap-6 px-4 py-2  mb-6 border border-gray-300 bg-gray-100 rounded-full">
+        <div className="flex flex-col items-start h-full">
+          
+          {/* ✅ TABS (FIXED WIDTH) */}
+          <div className="inline-flex w-fit gap-2 px-2 py-2 mb-6 border border-gray-300 bg-gray-100 rounded-full">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm transition ${
                   activeTab === tab.key
-                    ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md"
+                    : "text-gray-600 hover:bg-gray-200"
                 }`}
               >
                 {tab.label}
@@ -121,7 +111,10 @@ const ProductSection = ({ data }) => {
                 </h4>
 
                 {tabData.points?.map((point, index) => (
-                  <div key={index} className="flex items-start gap-2 text-sm sm:text-base text-gray-700">
+                  <div
+                    key={index}
+                    className="flex items-start gap-2 text-sm sm:text-base text-gray-700"
+                  >
                     <span className="mt-1">•</span>
                     {point}
                   </div>
@@ -130,11 +123,11 @@ const ProductSection = ({ data }) => {
             </motion.div>
           </AnimatePresence>
 
-          <button className="w-auto sm:w-auto bg-pink-500 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-pink-600 hover:scale-105 transition">
-  Request a Demo
-</button>
+          {/* ✅ BUTTON (FIXED WIDTH) */}
+          <button className="w-fit self-start bg-pink-500 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-pink-600 hover:scale-105 transition">
+            Request a Demo
+          </button>
         </div>
-
       </div>
     </section>
   );
