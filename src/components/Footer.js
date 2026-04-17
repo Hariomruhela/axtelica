@@ -1,31 +1,39 @@
-import { FaLinkedin,FaFacebookF,FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+
 const Footer = () => {
   return (
     <footer
-      className="relative border-t border-white/10 h-full"
-      style={{
-        backgroundImage: "url('/footerbg.png')",
-        backgroundSize: "contain",
-      }}
+      className="relative border-t  bg-cover bg-center"
+      style={{ backgroundImage: "url('/footerbg.png')", backgroundSize: "contain", }}
     >
-      <div className="relative max-w-[1650px] mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-7 gap-6">
+      {/* 🔥 Overlay */}
+      {/* <div className="absolute inset-0 bg-black/80" /> */}
+
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-10">
           
           {/* Brand */}
-          <div className=" col-span-2">
-            {/* <img
-              className="rounded-lg "
-              src="/assets/Logo_header_white.png"
-              alt="footer_logo"
-            /> */}
-
-            <p className="text-lg font-poppins mt-4 text-gray-300 mb-6">
+          <div className="lg:col-span-2">
+            <p className="text-base sm:text-lg text-gray-300 mb-6 max-w-md">
               Axtelica — Intelligent platforms, business-ready agents, and AI solutions built for enterprises that run on data.
             </p>
 
-            {/* ✅ FIXED ICON BUTTONS */}
-            
+            {/* Social Icons */}
+            <div className="flex gap-5 mt-4">
+              {[FaXTwitter, FaLinkedin, FaInstagram, FaFacebookF].map(
+                (Icon, i) => (
+                  <button
+                    key={i}
+                    className="text-gray-300 hover:text-white transition"
+                  >
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </button>
+                )
+              )}
+            </div>
           </div>
 
           {/* Links */}
@@ -45,42 +53,26 @@ const Footer = () => {
             },
             {
               title: "AI Innovation Hub",
-              links: [
-                "Infinisight",
-                "optimaorbit",
-                "Axtream",
-                
-              ],
+              links: ["Infinisight", "OptimaOrbit", "Axtream"],
             },
             {
               title: "Case Studies",
-              links: [
-                
-                "Success Stories",
-                "Client Projects",
-                
-              ],
-            }, 
+              links: ["Success Stories", "Client Projects"],
+            },
             {
               title: "Insights",
-              links: [
-                "Blog",
-                "Articles",
-                "Whitepappers",
-                
-              ],
+              links: ["Blog", "Articles", "Whitepapers"],
             },
           ].map((col) => (
             <div key={col.title}>
-              <h4 className="text-white font-semibold text-right mb-4">
+              <h4 className="text-white font-semibold mb-4 text-sm sm:text-base">
                 {col.title}
               </h4>
 
-              <ul className="space-y-3 text-right">
+              <ul className="space-y-2">
                 {col.links.map((link) => (
                   <li key={link}>
-                    {/* ✅ FIXED HERE */}
-                    <button className="text-sm text-gray-300 hover:text-white transition text-right">
+                    <button className="text-sm text-gray-400 hover:text-white transition">
                       {link}
                     </button>
                   </li>
@@ -88,35 +80,26 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-          
-
-          {/* Contact (optional) */}
         </div>
-            <div className="flex gap-6 justify-end">
-              {[FaXTwitter,FaLinkedin, FaInstagram, FaFacebookF,].map((Icon, i) => (
-                <button
-                  key={i}
-                  className="  rounded-lg flex items-center justify-center text-gray-300 hover:text-white  transition"
-                >
-                  <Icon className="w-7 h-7   " />
-                </button>
-              ))}
-            </div>
+
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row  items-center gap-4">
-          <p className="text-xs text-gray-100">
+        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          
+          <p className="text-xs text-gray-400 text-center md:text-left">
             © 2024 Axtelica. All rights reserved.
           </p>
 
-          <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((t) => (
-              <button
-                key={t}
-                className="text-xs text-gray-100 hover:text-white"
-              >
-                {t}
-              </button>
-            ))}
+          <div className="flex flex-wrap justify-center md:justify-end gap-4">
+            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+              (t) => (
+                <button
+                  key={t}
+                  className="text-xs text-gray-400 hover:text-white"
+                >
+                  {t}
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>

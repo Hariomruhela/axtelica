@@ -1,83 +1,82 @@
-import React, { useRef, useState } from "react";
-import { FaPaperclip,  FaSmile } from "react-icons/fa";
+import React, { useRef, useState, useEffect } from "react";
+import { FaPaperclip, FaSmile } from "react-icons/fa";
 import { IoSendSharp } from "react-icons/io5";
 import EmojiPicker from "emoji-picker-react";
+
 const faqDatabase = [
   {
-    intent: "greeting",
     keywords: ["hi", "hello", "hey"],
-    response: "Hello 👋 Welcome! How can I assist you today?"
+    response: "Hello 👋 Welcome! How can I assist you today?",
   },
   {
-    intent: "services",
     keywords: ["services", "offer", "provide"],
     response:
-      "We provide AI Automation, E-commerce Solutions, and Cloud Services."
+      "We provide AI Automation, E-commerce Solutions, and Cloud Services.",
   },
   {
-    intent: "pricing",
     keywords: ["price", "cost", "pricing"],
     response:
-      "Pricing depends on your requirements. Would you like to share more details?"
+      "Pricing depends on your requirements. Would you like to share more details?",
   },
   {
-    intent: "contact",
     keywords: ["contact", "email", "call"],
     response:
-      "You can contact us via our contact form or email us at hello@yourdomain.com."
-  }
+      "You can contact us via our contact form or email us at hello@yourdomain.com.",
+  },
 ];
 
 function detectIntent(message) {
   const lowerMsg = message.toLowerCase();
-
   for (let item of faqDatabase) {
     for (let keyword of item.keywords) {
-      if (lowerMsg.includes(keyword)) {
-        return item.response;
-      }
+      if (lowerMsg.includes(keyword)) return item.response;
     }
   }
-
   return "I'm not sure I understand. Could you please rephrase?";
 }
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([
-    { sender: "bot", text: "Hi 👋 How can I help you today?" }
+    { sender: "bot", text: "Hi 👋 How can I help you today?" },
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-   const [showEmoji, setShowEmoji] = useState(false);
-     const fileInputRef = useRef();
+  const [showEmoji, setShowEmoji] = useState(false);
 
+  const fileInputRef = useRef();
+  const chatEndRef = useRef();
+
+  // ✅ Auto-scroll
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const handleSend = () => {
     if (!input.trim()) return;
 
-    const userMessage = { sender: "user", text: input };
-    const botMessage = { sender: "bot", text: detectIntent(input) };
+    setMessages((prev) => [
+      ...prev,
+      { sender: "user", text: input },
+      { sender: "bot", text: detectIntent(input) },
+    ]);
 
-    setMessages([...messages, userMessage, botMessage]);
     setInput("");
   };
 
-// 📎 File Upload Handler
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
     const fileURL = URL.createObjectURL(file);
 
-    const fileMessage = {
-      sender: "user",
-      file: file,
-      fileURL: fileURL
-    };
-
-    setMessages((prev) => [...prev, fileMessage]);
+    setMessages((prev) => [
+      ...prev,
+      { sender: "user", file, fileURL },
+    ]);
   };
-   const onEmojiClick = (emojiData) => {
+
+  // ✅ FIXED (used now)
+  const onEmojiClick = (emojiData) => {
     setInput((prev) => prev + emojiData.emoji);
     setShowEmoji(false);
   };
@@ -85,48 +84,58 @@ export default function Chatbot() {
   return (
     <>
       {/* 🔘 Toggle Button */}
-      <div
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-9 right-6 w-14 h-14 flex items-center justify-center
-        rounded-full bg-white text-white text-2xl cursor-pointer
-        shadow-lg hover:scale-110 transition z-50"
+        className="fixed bottom-6 right-4 sm:right-6 w-14 h-14 flex items-center justify-center
+        rounded-full bg-white shadow-lg hover:scale-110 transition z-50"
       >
-        <img src="/assets/chat_icon.png" alt="tQwhite" className="  p-2 object-cover"/>
-      </div>
+        <img
+          src="/assets/chat_icon.png"
+          alt="Open chat"
+          className="p-2"
+        />
+      </button>
 
       {/* 💬 Chat Window */}
-      {isOpen ? (
+      {isOpen && (
         <div
-          className="fixed bottom-24 right-6 w-[420px] h-[420px]
-          backdrop-blur-xl bg-white border border-white/20
+          className="fixed bottom-20 right-4 sm:right-6
+          w-[95%] sm:w-[380px] md:w-[420px]
+          h-[70vh] max-h-[500px]
+          bg-white border border-gray-200
           rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-blue-600 border-b border-white/20">
-          <div className="flex">
-            <img src="/assets/chat_icon.png" alt="chatbot_hearder_logo"
-            className="w-7 h-7 "/>
-            <span className="flex pt-1 pl-1 font-semibold text-white">Hi I'm Quito - Your AI Assistant</span>
-          </div>
-      
+          <div className="flex items-center justify-between px-4 py-3 bg-blue-600">
+            <div className="flex items-center gap-2">
+              <img
+                src="/assets/chat_icon.png"
+                alt="Chatbot logo"
+                className="w-6 h-6"
+              />
+              <span className="text-white text-sm font-semibold">
+                Quito AI Assistant
+              </span>
+            </div>
+
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-red-400"
+              className="text-white hover:text-red-300"
             >
               ✕
             </button>
           </div>
 
-         {/* Messages */}
-          <div className="flex-1 p-3 space-y-2 overflow-y-auto text-sm">
-            {messages.map((msg, index) => (
-              <div key={index}>
+          {/* Messages */}
+          <div className="flex-1 p-3 space-y-3 overflow-y-auto text-sm bg-gray-50">
+            {messages.map((msg, i) => (
+              <div key={i}>
                 {msg.text && (
                   <div
-                    className={`max-w-[70%] px-3 py-2 rounded-xl ${
+                    className={`max-w-[80%] px-3 py-2 rounded-xl break-words ${
                       msg.sender === "user"
-                        ? "ml-auto bg-gradient-to-r from-[#ff4fd8] via-[#d946ef] to-[#a855f7] text-white"
-                        : "mr-auto bg-white text-black"
+                        ? "ml-auto bg-gradient-to-r from-pink-500 to-purple-500 text-white"
+                        : "mr-auto bg-white text-black shadow-sm"
                     }`}
                   >
                     {msg.text}
@@ -134,11 +143,11 @@ export default function Chatbot() {
                 )}
 
                 {msg.file && (
-                  <div className="ml-auto bg-white   p-2 rounded-lg max-w-[70%]">
+                  <div className="ml-auto bg-white p-2 rounded-lg max-w-[80%] shadow">
                     {msg.file.type.startsWith("image") ? (
                       <img
                         src={msg.fileURL}
-                        alt="uploaded"
+                        alt="Uploaded preview"
                         className="rounded-lg max-h-40"
                       />
                     ) : (
@@ -146,7 +155,7 @@ export default function Chatbot() {
                         href={msg.fileURL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-black underline"
+                        className="text-blue-600 underline"
                       >
                         📎 {msg.file.name}
                       </a>
@@ -155,66 +164,67 @@ export default function Chatbot() {
                 )}
               </div>
             ))}
+            <div ref={chatEndRef} />
           </div>
 
-            {/* Emoji Picker */}
-         {showEmoji && (
-  <div className="absolute bottom-16 right-2 z-50">
-    <EmojiPicker
-      onEmojiClick={onEmojiClick}
-      height={350}
-      width={280}
-      theme="dark"
-    />
-  </div>
-)}
-
+          {/* Emoji Picker */}
+          {showEmoji && (
+            <div className="absolute bottom-20 right-2 z-50">
+              <EmojiPicker
+                onEmojiClick={onEmojiClick}
+                width={280}
+                height={350}
+              />
+            </div>
+          )}
 
           {/* Input */}
-          <div className="p-2 border-t bg-white/15 border-white/20 flex gap-2">
-          {/* File Upload */}
+          <div className="p-2 border-t flex items-center gap-2 bg-white">
             <button
               onClick={() => fileInputRef.current.click()}
-              className="text-gray-800 text-lg"
+              className="text-gray-600"
             >
               <FaPaperclip />
             </button>
+
             <input
               type="file"
               ref={fileInputRef}
               onChange={handleFileUpload}
               hidden
             />
+
             <input
               type="text"
               value={input}
               placeholder="Type a message..."
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 bg-white/10 text-gray-700 placeholder-gray-700
-              px-3 py-2 rounded-lg outline-none focus:ring-2 focus:ring-cyan-400"
+              className="flex-1 border border-gray-300 text-gray-800
+              px-3 py-2 rounded-lg outline-none focus:ring-2 focus:ring-purple-400"
             />
-             <button
+
+            <button
               onClick={() => setShowEmoji(!showEmoji)}
-              className="text-gray-700 text-lg"
+              className="text-gray-600"
             >
               <FaSmile />
             </button>
+
             <button
               onClick={handleSend}
-              className="bg-gradient-to-r from-[#ff4fd8] via-[#d946ef] to-[#a855f7] hover:bg-cyan-600 text-white px-4 rounded-lg transition"
+              className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-3 py-2 rounded-lg"
             >
               <IoSendSharp />
             </button>
           </div>
-           
-          
-          <span className="text-black text-center pt-2">prowerd by Techquitoes</span>
-        </div>
 
-      ):""}
-      
+          {/* Footer */}
+          <div className="text-center text-xs text-gray-500 py-1">
+            Powered by Techquitoes
+          </div>
+        </div>
+      )}
     </>
   );
 }
-  

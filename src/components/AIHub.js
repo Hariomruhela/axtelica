@@ -1,133 +1,103 @@
-// import { ArrowRight } from "lucide-react";
 import React from "react";
 
 const products = [
   {
     title: "Axtream",
     description:
-      "A real-time business intelligence platform for KPI monitoring, data quality visibility, and operational insight. Axtream gives your teams a single live view of business performance — across functions, systems, and data sources.",
+      "A real-time business intelligence platform for KPI monitoring, data quality visibility, and operational insight.",
     image: "/assets/prod_card_bg.png",
     buttonImage: "/assets/start_free_trial_btn.png",
   },
   {
     title: "Infinisight",
-    subtitle: "AML AND FRAUD PLATFORM",
     description:
-      "A simulation and synthetic data platform for what-if analysis, scenario planning, and smarter forecasting. Infinisight helps leaders test decisions before committing to them — reducing risk and improving strategic confidence.",
-    
+      "A simulation and synthetic data platform for what-if analysis and smarter forecasting.",
     image: "/assets/prod_card_bg.png",
-    unlockImage: "/assets/unlock_btn.png",
     buttonImage: "/assets/start_free_trial_btn.png",
   },
-  
   {
     title: "Intelligent Business Agents — Coming Soon",
     description:
-      "Axtelica is actively developing a suite of intelligent agents designed to work inside your workflows — assisting teams with requirement capture, analytics, data validation, and process automation. Early access available.",
+      "Axtelica is developing intelligent agents to assist teams with analytics, validation, and automation.",
     image: "/assets/prod_card_bg.png",
     buttonImage: "/assets/start_free_trial_btn.png",
   },
-  
 ];
 
 const AIHub = () => {
   return (
-    <section className="relative pt-20 px-3 bg-white">
-      <div className="max-w-[1650px] pl-4 mx-auto">
+    <section className="bg-white py-16 sm:py-20 lg:py-24">
+      
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="grid md:grid-cols-2 gap-14 mb-12">
-          <div className="leading-tight">
-            <h2 className="text-[48px] md:text-[48px] font-poppins text-gray-900">
+        <div className="grid lg:grid-cols-2 gap-10 mb-12 items-center">
+          
+          <div>
+            <h2 className="text-[clamp(28px,5vw,48px)] font-semibold text-gray-900 leading-tight">
               Platforms & Products by Axtelica
             </h2>
-            <p className="text-[24px] md:text-[24px] font-poppins text-gray-900">
+
+            <p className="mt-3 text-[clamp(16px,2vw,22px)] text-gray-700">
               Practical AI. Proven results. Built for real business problems.
             </p>
           </div>
 
-          <p className="pl-32 ml-10 text-[18px] md:text-[21px] font-poppins text-gray-600 text-right">
+          <p className="text-gray-600 text-base md:text-lg lg:text-right max-w-xl ml-auto">
             Our platforms are built as standalone products — but designed to work together as a unified intelligence layer across your business.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {products.map((item, i) => (
             <div
               key={i}
-              className="relative rounded-2xl overflow-hidden text-white pt-8 pl-6 flex flex-col justify-between min-h-[500px] hover:scale-105 transition duration-300"
+              className="relative rounded-2xl overflow-hidden text-white flex flex-col justify-between min-h-[420px] group transition duration-300 hover:scale-[1.02]"
               style={{
                 backgroundImage: `url(${item.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              {/* Overlay */}
-              {/* <div
-                className={`absolute inset-0 ${
-                  i === 0
-                    ? "bg-purple-900/60"
-                    : i === 1
-                    ? "bg-indigo-900/60"
-                    : "bg-blue-900/60"
-                }`}
-              ></div> */}
+              {/* Overlay for readability */}
+              <div className="absolute inset-0 bg-black/50" />
 
               {/* Content */}
-              <div className="relative z-10 flex flex-col h-full justify-between">
-
+              <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-between h-full">
+                
                 {/* Top */}
-                <div className="px-8">
-                  <h3 className="text-[28px] md:text-[24px] font-poppins leading-tight font-medium mb-2">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-3">
                     {item.title}
                   </h3>
 
-                  {/* Unlock Image */}
-                  {/* {item.unlockImage && (
-                    <img
-                      className="absolute top-3 right-[-23px] w-16 md:w-48 z-20"
-                      src={item.unlockImage}
-                      alt="unlock"
-                    />
-                  )} */}
-
-                 
-                  
-
-                  <p className="text-[16px] md:text-[16px]  font-poppins text-left w-[90%] text-white/90 leading-[20px]">
+                  <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-md">
                     {item.description}
                   </p>
-
-                  
                 </div>
 
-               {/* Button */}
-                <div className="     -bottom-5 hover:scale-105 rounded-full flex justify-end ">
-                  
-                  <button className="  overflow-hidden">
-                    {item.buttonImage && (
-                      <img
-                        src={item.buttonImage}
-                        alt="btn"
-                        className="  "
-                      />
-                    )}
-                  </button>
+                {/* Button */}
+                <div className="mt-6 flex justify-start sm:justify-end">
+                  {item.buttonImage && (
+                    <img
+                      src={item.buttonImage}
+                      alt="button"
+                      className="w-[140px] sm:w-[160px] transition group-hover:scale-105"
+                    />
+                  )}
                 </div>
-               
               </div>
 
-              {/* 🔥 Overlapping Image ONLY for first card */}
+              {/* Floating Image (only second card) */}
               {i === 1 && (
                 <img
                   src="/assets/PRD_01_img.png"
                   alt="preview"
-                  className="absolute bottom-20  left-14 text-center   sm:w-[350px] w-[330px] md:h-[200px] md:w-[376px] z-20 pointer-events-none transition-transform duration-500 hover:scale-105"
+                  className="absolute bottom-4 right-4 w-[200px] sm:w-[260px] md:w-[300px] pointer-events-none transition-transform duration-500 group-hover:scale-105"
                 />
               )}
             </div>
-             
           ))}
         </div>
 

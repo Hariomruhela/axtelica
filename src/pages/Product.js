@@ -10,66 +10,76 @@ import Footer from "../components/Footer";
 
 const Product = () => {
   const { productId } = useParams();
-
   const data = productsData[productId];
 
-  if (!data) return <h1 className="text-center py-20">Not Found</h1>;
+  if (!data)
+    return <h1 className="text-center py-20 text-xl">Not Found</h1>;
 
   return (
-    <div>
+    <div className="w-full overflow-hidden">
+
       {/* HERO */}
-      <div
+      <section
+        className="relative bg-cover bg-center py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8"
         style={{
           backgroundImage: "url('/assets/hero_banner_new.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
         }}
-        className="flex py-32 md:py-12 justify-center px-6"
       >
-        <div className="max-w-7xl mx-auto w-full mt-24">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative z-10 max-w-[1400px] mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
             {/* LEFT */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
+              className="text-center lg:text-left"
             >
-              <h1 className="H1 ">
+              <h1 className="text-[clamp(28px,5vw,56px)] font-bold text-white leading-tight">
                 {data.name}
               </h1>
             </motion.div>
 
             {/* RIGHT */}
-            <motion.div>
-              <h2 className="H2">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-center lg:text-left"
+            >
+              <h2 className="text-[clamp(18px,3vw,28px)] text-gray-200 leading-relaxed">
                 {data.heroTitle}
               </h2>
 
-              <button className=" Paragraph bg-[#FF3366] mt-5 text-white px-5 py-2 rounded-lg">
+              <button className="mt-6 bg-[#FF3366] text-white px-6 py-3 rounded-lg text-sm sm:text-base hover:scale-105 transition">
                 {data.button}
               </button>
             </motion.div>
+
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* SECTION TEXT */}
-      <div className="py-12 md:py-16 ">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="H2 text-center px-5  font-poppins text-gray-900">
+      {/* DESCRIPTION */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1000px] mx-auto text-center">
+          <h1 className="text-[clamp(18px,3vw,28px)] text-gray-900 leading-relaxed">
             {data.description}
           </h1>
         </div>
-      </div>
+      </section>
 
-      {/* 🔥 REUSABLE COMPONENT */}
+      {/* CONTENT */}
       <ProductSection data={data} />
-      <DemoForm/>
-      <Insights/>
-      <FAQ/>
-      <Footer/>
-      
+
+      {/* OTHER SECTIONS */}
+      <DemoForm />
+      <Insights />
+      <FAQ />
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
- import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 const features = [
   {
@@ -30,67 +30,68 @@ const features = [
 
 const WhyChoose = () => {
   return (
-    <section className="bg-white py-6">
+    <section className="bg-white py-16 sm:py-20 lg:py-24">
       
-      <div className="max-w-[1650px] mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         {/* LEFT CONTENT */}
         <div>
+          
           {/* Heading */}
           <h2 className="heading-primary-about text-black">
-            Why Organizations Choose Axtelica 
+            Why Organizations Choose Axtelica
           </h2>
 
           {/* Description */}
-          <p className="heading-secondary  text-black mt-1 max-w-5xl">
+          <p className="heading-secondary text-black mt-4 max-w-2xl">
             We don't just implement technology; we engineer competitive
             advantages. Our approach combines deep technical expertise with
             business acumen.
           </p>
 
           {/* Features Grid */}
-          <div className="mt-20 grid sm:grid-cols-2 gap-14">
-            {features.map((feat, i) => {
-              // const Icon = feat.icon;
+          <div className="mt-12 grid sm:grid-cols-2 gap-8 sm:gap-10">
+            {features.map((feat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="flex gap-3 items-start"
+              >
+                {/* Icon */}
+                <div className="text-gray-500 mt-1 flex-shrink-0">
+                  <img
+                    src="/assets/arrow_icon.png"
+                    alt="arrow"
+                    className="w-5 h-5"
+                  />
+                </div>
 
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex gap-3"
-                >
-                  {/* Arrow / Icon */}
-                  <div className="text-gray-500 mt-1 pt-1">
-                    <img src="assets/arrow_icon.png" alt="arrow_icon.png"/>
-                    {/* <Icon size={28} /> */}
-                  </div>
-
-                  {/* Text */}
-                  <div>
-                    <h4 className="card-title text-black">
-                      {feat.title}
-                    </h4>
-                    <p className="card-desc leading-tight text-black  max-w-[80%]">
-                      {feat.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+                {/* Text */}
+                <div>
+                  <h4 className="card-title text-black">
+                    {feat.title}
+                  </h4>
+                  <p className="card-desc text-black mt-1 leading-relaxed">
+                    {feat.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="flex justify-center">
+        <div className="flex justify-center lg:justify-end">
           <img
-            src="/assets/why_ch_img.jpg" // 👈 replace with your image
+            src="/assets/why_ch_img.jpg"
             alt="why choose"
-            className="max-w-full h-auto"
+            className="w-full max-w-[500px] md:max-w-[550px] lg:max-w-[600px] h-auto object-contain"
           />
         </div>
+
       </div>
     </section>
   );

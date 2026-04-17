@@ -12,7 +12,7 @@ import AIHub from '../components/AIHub'
 import Insights from '../components/Insights'
 import FAQ from '../components/FAQ'
 import Banner from '../components/Banner'
-import CapabilityGrid from '../components/ CapabilityGrid'
+// import CapabilityGrid from '../components/ CapabilityGrid'
 // import AxtelicaBanner from '../components/AxtelicaBanner'
 // import Hero from '../components/Hero'
 // import NavbarDemo from '../components/NavbarDemo'
@@ -33,7 +33,7 @@ const Home = () => {
 <Banner/>
         <WhyChoose/>
         <Services/>
-        <CapabilityGrid/>
+        {/* <CapabilityGrid/> */}
         <AIHub/>
         <CTA/>
         <Insights/>

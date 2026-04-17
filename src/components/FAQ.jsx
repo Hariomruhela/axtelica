@@ -33,61 +33,73 @@ const FAQ = () => {
 
   return (
     <section
-      className=" h-full md:max-h-[750px]  mx-auto bg-no-repeat bg-left mt-9 lg:mt-1 bg-cover md:bg-contain   md:py-24"
+      className="relative py-16 sm:py-20 lg:py-24 bg-no-repeat bg-left bg-contain"
       style={{
         backgroundImage: "url('/assets/logo_bg_faq.jpg')",
       }}
     >
-      <div className="max-w-[1650px] pl-4 mx-auto ">
-         <div className="text-center">
-        <h1 className="text-5xl font-bold font-poppins text-black mt-0 mb-10"> Frequntly asked questions  ?</h1>
-      </div>
-        {/* GRID LAYOUT */}
-        <div className="grid md:grid-cols-2 gap-16 ">
+      {/* 🔥 Overlay for readability */}
+      {/* <div className="absolute inset-0 bg-white/80" /> */}
+
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Title */}
+        <div className="text-center mb-12">
+          <h1 className="text-[clamp(28px,5vw,48px)] font-bold text-black">
+            Frequently Asked Questions
+          </h1>
+        </div>
+
+        {/* GRID */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           
-          {/* LEFT CONTENT */}
+          {/* LEFT */}
           <div>
-            <h2 className="text-[36px] md:text-[72px] font-poppins leading-none pt-16 mt-10 mb-10 text-black">
+            <h2 className="text-[clamp(24px,4vw,48px)] font-semibold leading-tight text-black mb-6">
               Why Axtelica for <br /> Smarter Insights?
             </h2>
 
-            <p className="text-black max-w-[100%] text-[16px] md:text-[18px] font-poppins leading-snug">
+            <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-lg">
               Axtelica delivers AI-powered solutions designed to boost customer
-              growth, enhance productivity, and optimize costs..Our expertise in analytics, cloud, and digital
-transformation helps businesses achieves us tainable successin the digital age.
+              growth, enhance productivity, and optimize costs. Our expertise in
+              analytics, cloud, and digital transformation helps businesses
+              achieve sustainable success in the digital age.
             </p>
           </div>
 
           {/* RIGHT FAQ */}
-          <div className="space-y-3 py-8 ">
+          <div className="space-y-4">
             {faqs.map((item, index) => (
               <div
                 key={index}
-                className="border-t border-gray-300 pt-6 pb-6 cursor-pointer group"
+                className="border-t border-gray-300 pt-5 cursor-pointer"
                 onClick={() => toggle(index)}
               >
-                <div className="relative    flex   items-center">
-                   <ChevronDown
-                    size={26}
-                    className={`transition-all duration-300 ${
+                <div className="flex items-center gap-4">
+                  
+                  <ChevronDown
+                    size={22}
+                    className={`transition-transform duration-300 ${
                       activeIndex === index
                         ? "rotate-180 text-purple-600"
                         : "text-black"
                     }`}
                   />
-                  <h3 className="pl-5 text-[20px] md:text-[30px] font-poppins text-black group-hover:text-purple-600 transition">
+
+                  <h3 className="text-base sm:text-lg md:text-xl font-medium text-black transition">
                     {item.question}
                   </h3>
-
-                 
                 </div>
 
+                {/* Answer */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    activeIndex === index ? "max-h-40 mt-1" : "max-h-0"
+                    activeIndex === index
+                      ? "max-h-96 mt-3"
+                      : "max-h-0"
                   }`}
                 >
-                  <p className="text-gray-900 font-poppins text-sm md:text-base">
+                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                     {item.answer}
                   </p>
                 </div>
