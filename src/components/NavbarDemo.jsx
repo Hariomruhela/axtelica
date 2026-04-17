@@ -94,7 +94,7 @@ const NavbarDemo = () => {
       className={`fixed  left-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/90 backdrop-blur-md shadow-md"
-          : "bg-transparent top-10"
+          : "bg-transparent  top-3 lg:top-4"
       }`}
     >
       {/* NAVBAR */}
