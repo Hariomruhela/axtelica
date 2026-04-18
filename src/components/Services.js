@@ -114,7 +114,7 @@ const Services = () => {
 
         {/* Bottom Button */}
         <div className="flex pt-10 justify-center sm:justify-end">
-          <button className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-full shadow-md hover:scale-105 transition">
+          <button className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition">
             Explore Solutions <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>

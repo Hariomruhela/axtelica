@@ -41,7 +41,7 @@ const ProductSection = ({ data }) => {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5f5f5]">
-      <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
         {/* LEFT - IMAGE */}
         <div>
@@ -80,14 +80,14 @@ const ProductSection = ({ data }) => {
         <div className="flex flex-col items-start h-full">
           
           {/* ✅ TABS (FIXED WIDTH) */}
-          <div className="inline-flex w-fit gap-2 px-2 py-2 mb-6 border border-gray-300 bg-gray-100 rounded-full">
+          <div className="inline-flex w-fit gap-12 px-6 py-2 mb-6 border border-gray-300 bg-gray-100 rounded-full">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm transition ${
+                className={`px-4 py-2 rounded-full text-xl font-poppins  transition ${
                   activeTab === tab.key
-                    ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md"
+                    ? "bg-gradient-to-r from-blue-500 to-purple-500  text-white shadow-md"
                     : "text-gray-600 hover:bg-gray-200"
                 }`}
               >
@@ -106,23 +106,26 @@ const ProductSection = ({ data }) => {
               transition={{ duration: 0.4 }}
               className="min-h-[260px]"
             >
-              <h2 className="text-[clamp(20px,3vw,28px)] font-semibold text-black mb-4">
+              <h2 className="text-[clamp(20px,3vw,28px)] font-poppins font-semibold text-black mb-4">
                 {tabData.title}
               </h2>
 
-              <p className="text-gray-700 text-sm sm:text-base mb-6">
+              <p className="text-gray-700 font-poppins text-lg  mb-6">
                 {tabData.description}
               </p>
 
               <div className="space-y-2 mb-6">
-                <h4 className="text-gray-800 font-medium text-sm sm:text-base">
-                  Key value points
-                </h4>
-
+               {/* ✅ Show ONLY for overview tab */}
+  {activeTab === "overview" && tabData.description2 && (
+    <p className="text-gray-700 font-poppins text-lg  whitespace-pre-line">
+      {tabData.description2}
+    </p>
+  )
+                }
                 {tabData.points?.map((point, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-2 text-sm sm:text-base text-gray-700"
+                    className="flex items-start gap-2 text-lg font-poppins text-gray-700"
                   >
                     <span className="mt-1">•</span>
                     {point}

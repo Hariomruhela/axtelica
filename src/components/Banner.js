@@ -11,7 +11,7 @@ const Banner = () => {
 
     // --- SCENE ---
     const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x010103, 100, 2000);
+    scene.fog = new THREE.Fog(0x0a0118, 100, 2200);
 
     const camera = new THREE.PerspectiveCamera(75, 1, 1, 10000);
 
@@ -23,6 +23,7 @@ const Banner = () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
+    renderer.setClearColor(0x05000a, 0);
 
     // --- PARTICLES ---
     const isMobile = window.innerWidth < 768;
@@ -138,7 +139,7 @@ const Banner = () => {
   return (
     <section
       key={location.pathname} // 🔥 forces animation on route change
-      className="relative w-full h-[clamp(500px,65vh,700px)] overflow-hidden bg-[radial-gradient(circle_at_20%_50%,#0a0b1e_0%,#010103_100%)]"
+      className="relative w-full h-[clamp(500px,65vh,700px)] overflow-hidden bg-[radial-gradient(circle_at_20%_50%,#1a1b4b_0%,#0a0118_50%,#05000a_100%)]"
     >
       {/* Background */}
       <div
@@ -148,7 +149,7 @@ const Banner = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center py-16 sm:py-20 md:py-24 mt-6 md:mt-8 lg:mt-12">
+      <div className="relative z-10 h-full flex items-center py-18 sm:py-20 md:py-24 mt-7 md:mt-8 lg:mt-12">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Heading */}

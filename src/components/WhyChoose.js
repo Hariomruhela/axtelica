@@ -30,9 +30,9 @@ const features = [
 
 const WhyChoose = () => {
   return (
-    <section className="bg-white py-8 sm:py-12 lg:py-16">
+    <section className="bg-white py-4 md:py-8 sm:py-4 lg:py-12">
       
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 ">
         
         {/* LEFT CONTENT */}
         <div>
@@ -43,7 +43,7 @@ const WhyChoose = () => {
           </h2>
 
           {/* Description */}
-          <p className="heading-secondary text-black mt-4 max-w-2xl">
+          <p className="heading-secondary text-black mt-4 py-2 max-w-2xl">
             We don't just implement technology; we engineer competitive
             advantages. Our approach combines deep technical expertise with
             business acumen.

@@ -48,8 +48,8 @@ const NavbarDemo = () => {
   `;
 
   const dropdownItems = {
-    solution: {
-      title: "SERVICES",
+    solutions: {
+      title: "SOLUTIONS",
       columns: [
         [{ name: "Data & Analytics" }, { name: "AI & Machine Learning" }],
         [{ name: "Cloud Solutions" }, { name: "Agile & DevOps" }],
@@ -93,12 +93,12 @@ const NavbarDemo = () => {
       transition={{ duration: 0.3 }}
       className={`fixed  left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-md"
+          ? "bg-white/90 backdrop-blur-md shadow-md "
           : "bg-transparent  top-3 lg:top-4"
       }`}
     >
       {/* NAVBAR */}
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 lg:py-8 min-h-[70px] flex items-center justify-between">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8  min-h-[100px] flex items-center justify-between">
         
         {/* LOGO */}
         <Link to="/">
@@ -268,8 +268,8 @@ const NavbarDemo = () => {
 
                 <div className="text-lg font-medium">Insights</div>
 
-                <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-3 rounded-full">
-                  Book Demo
+                <button className="w-full bg-[#FF3366] py-3 rounded-full">
+                  Request a Demo
                 </button>
               </div>
             </motion.div>

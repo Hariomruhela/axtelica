@@ -65,8 +65,8 @@ const Product = () => {
 
       {/* DESCRIPTION */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[1000px] mx-auto text-center">
-          <h1 className="text-[clamp(18px,3vw,28px)] text-gray-900 leading-relaxed">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-[clamp(18px,3vw,28px)] font-poppins text-gray-900 leading-relaxed ">
             {data.description}
           </h1>
         </div>

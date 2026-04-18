@@ -8,15 +8,15 @@ const DemoForm = () => {
         
         {/* LEFT CONTENT */}
         <div className="max-w-xl">
-          <h1 className="text-[clamp(28px,5vw,48px)] font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-[clamp(28px,5vw,48px)] font-poppins font-bold text-gray-900 mb-6 leading-tight">
             Experience Axtelica <br /> Firsthand
           </h1>
 
-          <p className="text-gray-600 mb-6 text-sm sm:text-base md:text-lg">
+          <p className="text-gray-700 mb-6 text-xl font-poppins md:text-xl">
             Request a demo with an Axtelica AI product expert to see how you can:
           </p>
 
-          <ul className="space-y-4 text-gray-700 text-sm sm:text-base">
+          <ul className="space-y-4 text-gray-700 text-lg font-poppins">
             {[
               "Connect data from multiple sources",
               "Ingest batch and real-time data",
@@ -24,7 +24,7 @@ const DemoForm = () => {
               "Detect anomalies and operational risks",
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-400 text-xs mt-1">
+                <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-400 text-lg mt-1">
                   ✓
                 </span>
                 {item}
@@ -47,22 +47,22 @@ const DemoForm = () => {
               { label: "Phone*", type: "text" },
             ].map((field, i) => (
               <div key={i}>
-                <label className="block text-sm text-gray-600 mb-1">
+                <label className="block text-lg font-poppins text-gray-600 mb-1">
                   {field.label}
                 </label>
                 <input
                   type={field.type}
-                  className="w-full border border-gray-300 rounded-md px-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+                  className="w-full border border-gray-300 rounded-md px-3 py-3 text-lg font-poppins focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
               </div>
             ))}
 
             {/* Employees */}
             <div>
-              <label className="block text-sm text-gray-600 mb-1">
+              <label className="block text-lg font-poppins text-gray-600 mb-1">
                 Employees*
               </label>
-              <select className="w-full border border-gray-300 rounded-md px-3 py-3 text-sm">
+              <select className="w-full border border-gray-300 rounded-md px-3 py-3 text-lg font-poppins">
                 <option>Select...</option>
                 <option>1-10</option>
                 <option>10-50</option>
@@ -72,10 +72,10 @@ const DemoForm = () => {
 
             {/* Country */}
             <div className="md:col-span-2">
-              <label className="block text-sm text-gray-600 mb-1">
+              <label className="block text-lg font-poppins text-gray-600 mb-1">
                 Country*
               </label>
-              <select className="w-full border text-gray-500 border-gray-300 rounded-md px-3 py-3 text-sm">
+              <select className="w-full border text-gray-500 border-gray-300 rounded-md px-3 py-3 font-poppins text-lg">
                 <option>Select...</option>
                 <option>India</option>
                 <option>USA</option>
@@ -86,14 +86,14 @@ const DemoForm = () => {
             <div className="md:col-span-2 mt-4">
               <button
                 type="submit"
-                className="w-full sm:w-auto bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105"
+                className="w-full sm:w-auto bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full text-lg font-poppins font-medium transition-all duration-300 hover:scale-105"
               >
                 Get a Demo
               </button>
             </div>
 
             {/* Footer text */}
-            <p className="md:col-span-2 text-xs sm:text-sm text-gray-500 leading-relaxed">
+            <p className="md:col-span-2 text-lg font-poppins text-gray-500 leading-relaxed">
               By clicking Request a Demo, you agree to our Privacy Policy and Terms.
             </p>
 
