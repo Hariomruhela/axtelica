@@ -73,9 +73,9 @@ const AboutSection = () => {
             We Build AI Solutions That Work for Business
           </h1>
 
-          <p className="mt-6 text-gray-200 text-lg font-poppins max-w-4xl">
+          {/* <p className="mt-6 text-gray-200 text-lg font-poppins max-w-4xl">
            Axtelica is an AI Solutions Builder focused on creating smart platforms, business-ready products, and intelligent agents for modern enterprises. We help organizations move beyond traditional delivery models by building practical solutions that improve efficiency, strengthen decision-making, and accelerate business outcomes.
-          </p>
+          </p> */}
         </motion.div>
       </section>
 

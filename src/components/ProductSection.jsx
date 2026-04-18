@@ -55,7 +55,7 @@ const ProductSection = ({ data }) => {
                  animate={{ opacity: 1, x: 0, scale: 1 }} 
                  exit={{ opacity: 1, x: -120, scale: 0.95 }} 
                  transition={{ duration: 1 }}
-                  className="absolute inset-0 w-full h-full object-center rounded-xl" />
+                  className="absolute inset-0 w-full h-full object-cover  " />
                    </AnimatePresence>
 
           </div>

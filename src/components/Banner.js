@@ -139,7 +139,7 @@ const Banner = () => {
   return (
     <section
       key={location.pathname} // 🔥 forces animation on route change
-      className="relative w-full h-[clamp(500px,65vh,700px)] overflow-hidden bg-[radial-gradient(circle_at_20%_50%,#1a1b4b_0%,#0a0118_50%,#05000a_100%)]"
+      className="relative w-full h-[clamp(700px,65vh,700px)] overflow-hidden bg-[radial-gradient(circle_at_20%_50%,#1a1b4b_0%,#0a0118_50%,#05000a_100%)]"
     >
       {/* Background */}
       <div

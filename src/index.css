@@ -84,14 +84,14 @@
           0% { opacity: 0; transform: translateY(15px); }
           100% { opacity: 1; transform: translateY(0); }
         }
-        .animate-reveal { opacity: 0; animation: revealIn 1s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+        .animate-reveal { opacity: 0; animation: revealIn 1s cubic-bezier(0.59, 1, 0.62, 2) forwards; }
         .delay-1 { animation-delay: 0.15s; }
         .delay-2 { animation-delay: 0.3s; }
         .delay-3 { animation-delay: 0.45s; }
 
 
 /* delays */
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.20s; }
+.delay-3 { animation-delay: 0.33s; }
+.delay-4 { animation-delay: 0.45s; }

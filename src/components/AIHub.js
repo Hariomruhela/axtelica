@@ -5,18 +5,18 @@ const products = [
     title: "Axtream",
     description:
       "A real-time business intelligence platform for KPI monitoring, data quality visibility, and operational insight.",
-    image: "/assets/prod_card_bg.png",
+    image: "/assets/PRD_axt_home.jpg",
     buttonImage: "/assets/start_free_trial_btn.png",
   },
   {
     title: "Infinisight",
     description:
       "A simulation and synthetic data platform for what-if analysis and smarter forecasting.",
-    image: "/assets/prod_card_bg.png",
+    image: "/assets/infinisight.jpg",
     buttonImage: "/assets/start_free_trial_btn.png",
   },
   {
-    title: "Intelligent Business Agents ",
+    title: "Intelligent Business Agents(coming soon) ",
     description:
       "Axtelica is developing intelligent agents to assist teams with analytics, validation, and automation.",
     image: "/assets/prod_card_bg.png",
@@ -52,15 +52,15 @@ const AIHub = () => {
             
             <div
               key={i}
-              className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group h-[320px] cursor-pointer"
+              className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group h-[405px] cursor-pointer"
             >
 
               {/* Image */}
-              <div className="absolute inset-0 h-full group-hover:h-[60%] transition-all duration-500 ease-in-out origin-bottom">
+              <div className="absolute  h-full group-hover:h-[60%] transition-all duration-500 ease-in-out origin-bottom">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full   object-cover transition duration-500 group-hover:scale-105"
+                  className="w-full    object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
 
@@ -68,11 +68,11 @@ const AIHub = () => {
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500"></div>
 
               {/* White Panel */}
-              <div className="absolute left-0 right-0 bottom-0 bg-white p-5 
+              <div className="absolute left-0 right-0 bottom-0 bg-white p-4 pt-7 h-auto
                               transition-all duration-500 ease-in-out z-20">
 
                 {/* Title (always visible) */}
-                <h3 className="text-gray-900 text-lg sm:text-xl font-semibold">
+                <h3 className="text-gray-900 text-3xl font-poppins  ">
                   {item.title}
                 </h3>
 
@@ -81,7 +81,7 @@ const AIHub = () => {
                                 group-hover:opacity-100 group-hover:max-h-[100px] 
                                 transition-all duration-500">
 
-                  <p className="text-sm text-gray-600 mb-2 leading-relaxed">
+                  <p className="text-lg font-poppins text-gray-600 mb-5 leading-relaxed">
                     {item.description}
                   </p>
 
