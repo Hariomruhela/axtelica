@@ -148,7 +148,7 @@ const Banner = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center py-16 sm:py-20 md:py-24 lg:mt-12">
+      <div className="relative z-10 h-full flex items-center py-16 sm:py-20 md:py-24 mt-6 md:mt-8 lg:mt-12">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Heading */}
@@ -164,9 +164,9 @@ const Banner = () => {
 
           {/* Buttons */}
           <div
-            className="animate-reveal delay-3 flex flex-col sm:flex-row gap-4 mt-10"
+            className="animate-reveal w-fit delay-3 flex flex-col sm:flex-row gap-4 mt-10"
           >
-            <button className="bg-[#ff3b6a] text-white font-semibold px-8 py-3.5 rounded-md text-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,59,106,0.4),0_0_15px_rgba(0,210,255,0.2)] flex items-center gap-2 group">
+            <button className="bg-[#ff3b6a] w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,59,106,0.4),0_0_15px_rgba(0,210,255,0.2)] flex items-center gap-2 group">
               See How We Solve It
             </button>
 
