@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {
     title: "Axtream",
+    path: "/product/axtream",
     description:
       "A real-time business intelligence platform for KPI monitoring, data quality visibility, and operational insight.",
     image: "/assets/PRD_axt_home.jpg",
@@ -10,6 +12,7 @@ const products = [
   },
   {
     title: "Infinisight",
+    path: "/product/infinisight",
     description:
       "A simulation and synthetic data platform for what-if analysis and smarter forecasting.",
     image: "/assets/infinisight.jpg",
@@ -17,6 +20,7 @@ const products = [
   },
   {
     title: "Intelligent Business Agents(coming soon) ",
+    path: "/product/optimaorbit",
     description:
       "Axtelica is developing intelligent agents to assist teams with analytics, validation, and automation.",
     image: "/assets/prod_card_bg.png",
@@ -25,6 +29,7 @@ const products = [
 ];
 
 const AIHub = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,6 +57,7 @@ const AIHub = () => {
             
             <div
               key={i}
+              onClick={() => navigate(item.path)}
               className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group h-[405px] cursor-pointer"
             >
 

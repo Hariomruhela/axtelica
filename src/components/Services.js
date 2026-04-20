@@ -6,6 +6,7 @@ import {
   FaRobot,
   FaChartLine,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -44,6 +45,7 @@ const fadeUp = {
 };
 
 const Services = () => {
+  const navigate=useNavigate()
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#0e1231]">
       
@@ -86,7 +88,11 @@ const Services = () => {
 
                 {/* Top Gradient Line */}
                 <div className="h-[1px] w-full bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 rounded-full"></div>
-
+                    {/* Bottom Hover Line */}
+              <div className="absolute top-8 left-0 h-[2px] w-0 
+                bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500
+                transition-all duration-700 group-hover:w-full"
+              />
                 {/* Title */}
                 <h3 className="card-title-service mb-3">
                   {service.title}
@@ -98,23 +104,26 @@ const Services = () => {
                 </p>
 
                 {/* Button */}
-                <button className="inline-flex items-center gap-2 mt-4 text-cyan-400 font-medium hover:gap-3 transition-all">
+                <button 
+                
+                className="inline-flex items-center gap-2 mt-4 text-cyan-400 font-medium hover:gap-3 transition-all">
                   More Details <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
-              {/* Bottom Hover Line */}
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 
-                bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500
-                transition-all duration-700 group-hover:w-full"
-              />
+          
             </motion.div>
           ))}
         </div>
 
         {/* Bottom Button */}
         <div className="flex pt-10 justify-center sm:justify-end">
-          <button className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition">
+          <button
+          onClick={()=>{
+                  navigate("/solution")
+
+                }}
+           className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition">
             Explore Solutions <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>

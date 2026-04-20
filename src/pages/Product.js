@@ -16,7 +16,8 @@ const Product = () => {
     return <h1 className="text-center py-20 text-xl">Not Found</h1>;
 
   return (
-    <div className="w-full overflow-hidden">
+    
+    <div key={productId} className="w-full overflow-hidden">
 
       {/* HERO */}
       <section
@@ -28,8 +29,8 @@ const Product = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative z-10 max-w-[1400px] mt-10 mx-auto">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="relative z-10 max-w-7xl mt-10 mx-auto">
+          <div className="flex flex-col gap-3 items-center">
 
             {/* LEFT */}
             <motion.div
@@ -38,7 +39,7 @@ const Product = () => {
               transition={{ duration: 0.7 }}
               className="text-center lg:text-left"
             >
-              <h1 className="text-[clamp(28px,5vw,56px)] font-bold text-white leading-tight">
+              <h1 className="text-[clamp(28px,5vw,56px)] font-bold text-white text-center max-w-3xl leading-tight">
                 {data.name}
               </h1>
             </motion.div>
@@ -48,9 +49,9 @@ const Product = () => {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-center lg:text-left"
+              className="text-center lg:text-center"
             >
-              <h2 className="text-[clamp(18px,3vw,28px)] text-gray-200 leading-relaxed">
+              <h2 className="text-[clamp(18px,3vw,28px)] text-center max-w-3xl text-gray-200 leading-relaxed">
                 {data.heroTitle}
               </h2>
 

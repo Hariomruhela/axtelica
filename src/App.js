@@ -4,6 +4,11 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import NavbarDemo from "./components/NavbarDemo";
 import About from "./pages/About";
+import Industries from "./pages/Industries";
+import InsightsPage from "./pages/InsightsPage";
+import ContactPage from "./pages/ContactPage";
+import Solution from "./pages/Solution";
+
 
 
 function App() {
@@ -19,6 +24,10 @@ function App() {
      <Routes>
         <Route path="/product/:productId" element={<Product/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/insights" element={<InsightsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+         <Route path="/solution" element={<Solution/>} />
       </Routes>
     </div>
     

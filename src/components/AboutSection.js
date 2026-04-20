@@ -54,7 +54,7 @@ const AboutSection = () => {
 
       {/* HERO */}
       <section
-        className="relative py-20 sm:py-24 lg:py-28 bg-cover bg-center"
+        className="relative py-20 sm:py-24 lg:py-28 bg-cover bg-center "
         style={{ backgroundImage: "url('/assets/hero_banner_new.png')" }}
       >
         <div className="absolute inset-0 bg-black/50" />
@@ -63,15 +63,15 @@ const AboutSection = () => {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="relative z-10 w-full max-w-[1400px] mt-12 mx-auto px-4 sm:px-6 lg:px-8"
+          className="relative z-10 w-full max-w-[1400px]  mt-12 mx-auto text-center px-4 sm:px-6 lg:px-8"
         >
           {/* <p className="uppercase tracking-widest text-sm text-white mb-4">
             Why Axtelica
           </p> */}
 
-          <h1 className="text-[clamp(28px,5vw,56px)] font-poppins font-bold text-white max-w-3xl leading-tight">
-            We Build AI Solutions That Work for Business
-          </h1>
+          <h1 className="text-[clamp(28px,5vw,56px)] font-poppins font-bold text-white max-w-3xl mx-auto text-center leading-tight">
+  We Build AI Solutions That Work for Business
+</h1>
 
           {/* <p className="mt-6 text-gray-200 text-lg font-poppins max-w-4xl">
            Axtelica is an AI Solutions Builder focused on creating smart platforms, business-ready products, and intelligent agents for modern enterprises. We help organizations move beyond traditional delivery models by building practical solutions that improve efficiency, strengthen decision-making, and accelerate business outcomes.
@@ -257,7 +257,7 @@ opportunities, and stay competitive in the digital landscape.</p>
       {/* FINAL */}
       <TabsSection/>
 
-      {/* FOOT TEXT */}
+      {/* FOOT TEXT
       <motion.section
         variants={fadeUp}
         initial="hidden"
@@ -265,11 +265,11 @@ opportunities, and stay competitive in the digital landscape.</p>
         viewport={{ once: true }}
         className="text-center py-16 px-4"
       >
-        <p className="max-w-2xl mx-auto text-gray-600">
+         <p className="max-w-2xl mx-auto text-gray-600">
           Axtelica — Intelligent platforms, business-ready agents, and AI solutions built for enterprises that run on data.
 
-        </p>
-      </motion.section>
+        </p> 
+      </motion.section> */}
 
     </div>
   );

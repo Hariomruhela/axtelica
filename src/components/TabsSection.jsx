@@ -2,7 +2,27 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const tabsData = {
-  "Business Gains": [
+  
+
+  "Critical Challenges": [
+    {
+      title: "Banking & Financial Services",
+      desc: "Fraud detection, compliance, and real-time decision systems.",
+    },
+    {
+      title: "Insurance",
+      desc: "Claims automation, validation workflows, and operational visibility.",
+    },
+    {
+      title: "Pharma & Life Sciences",
+      desc: "Data accuracy, regulatory reporting, and analytics.",
+    },
+    {
+      title: "Enterprise Operations",
+      desc: "Workflow intelligence and cross-functional decision support.",
+    },
+  ],
+"Business Gains": [
     {
       title: "Faster decisions",
       desc: "Live data and intelligent alerts replace delayed reports — so teams act on what's happening now.",
@@ -28,26 +48,6 @@ const tabsData = {
       desc: "Get working solutions in weeks, not quarters.",
     },
   ],
-
-  "Critical Challenges": [
-    {
-      title: "Banking & Financial Services",
-      desc: "Fraud detection, compliance, and real-time decision systems.",
-    },
-    {
-      title: "Insurance",
-      desc: "Claims automation, validation workflows, and operational visibility.",
-    },
-    {
-      title: "Pharma & Life Sciences",
-      desc: "Data accuracy, regulatory reporting, and analytics.",
-    },
-    {
-      title: "Enterprise Operations",
-      desc: "Workflow intelligence and cross-functional decision support.",
-    },
-  ],
-
   "How We Deliver Value": [
     {
       title: " Understand the problem",
@@ -75,7 +75,7 @@ const TabsSection = () => {
     <section className="max-w-7xl mx-auto py-16 px-4 ">
 
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
+      <div className="flex flex-wrap justify-between px-10 gap-8 mb-12">
         {Object.keys(tabsData).map((tab) => (
           <button
             key={tab}

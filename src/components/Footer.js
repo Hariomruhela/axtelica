@@ -1,5 +1,6 @@
 import { FaLinkedin, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -40,31 +41,44 @@ const Footer = () => {
           {[
             {
               title: "Company",
-              links: ["About Axtelica", "Why Choose Axtelica", "Leadership Team", "contact Us"], 
-
-
-
+              links: [
+                { name: "About Axtelica", path: "/about" },
+                { name: "Why Choose Axtelica", path: "/why" },
+                { name: "Leadership Team", path: "/team" },
+                { name: "Contact Us", path: "/contact" }, // ✅ clean
+              ],
             },
             {
               title: "Solution",
               links: [
-                "Data Engineering",
-                "Cloud Platforms",
-                "AI Solutions",
-                "Business Intelligence",
+                { name:" Data Engineering" },
+                { name: "Cloud Platforms"},
+                { name: "AI Solutions" },
+                { name: "Business Intelligence" }, // ✅ clean
+                
               ],
             },
             {
               title: "AI Innovation Hub",
-              links: ["Infinisight", "OptimaOrbit", "Axtream"],
+              links: [
+                 { name:" Infinisight" },
+                { name: "OptimaOrbit"},
+                { name: "Axtream" },
+                
+              ],
             },
             {
               title: "Case Studies",
-              links: ["Success Stories", "Client Projects"],
+              links: [
+                { name:" Success Stories" },
+                { name: "Client Projects"},
+                ],
             },
             {
               title: "Insights",
-              links: ["Blog", "Articles", "Whitepapers"],
+              links: [{ name:" Blog" },
+                { name: "Articles"},
+                { name: "Whitepapers" }],
             },
           ].map((col) => (
             <div key={col.title}>
@@ -72,15 +86,18 @@ const Footer = () => {
                 {col.title}
               </h4>
 
-              <ul className="space-y-2 text-right">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <button className="text-sm text-gray-400 hover:text-white  transition">
-                      {link}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+             <ul className="space-y-2 text-right">
+              {col.links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-gray-400 hover:text-white transition"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
             </div>
           ))}
         </div>

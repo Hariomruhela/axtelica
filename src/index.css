@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 /* =========================
+  Body font
+========================= */
+
+.body{
+  @apply text-lg font-poppins
+}
+
+/* =========================
    Animated Border
 ========================= */
 .animated-border { fill: transparent; stroke: #00f5ff; stroke-width: 2; stroke-dasharray: 200; animation: borderMove 5s linear infinite; } @keyframes borderMove { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 1000; } }

@@ -50,6 +50,7 @@ const NavbarDemo = () => {
   const dropdownItems = {
     solutions: {
       title: "SOLUTIONS",
+      path: "/solution",
       columns: [
         [{ name: "Data & Analytics" }, { name: "AI & Machine Learning" }],
         [{ name: "Cloud Solutions" }, { name: "Agile & DevOps" }],
@@ -57,6 +58,7 @@ const NavbarDemo = () => {
     },
     ai: {
       title: "AI INNOVATION HUB",
+      path: "/product/axtream",
       columns: [
         [{ name: "Axtream", path: "/product/axtream" },
           { name: "Infinisight", path: "/product/infinisight" },
@@ -67,6 +69,7 @@ const NavbarDemo = () => {
     },
     industries: {
       title: "INDUSTRIES",
+      path: "/industries",
       columns: [
         [{ name: "Finance" }, { name: "Retail" }],
         [{ name: "Healthcare" }, { name: "Manufacturing" }],
@@ -125,6 +128,13 @@ const NavbarDemo = () => {
               className={navItem}
               onMouseEnter={() => handleEnter(key)}
               onMouseLeave={handleLeave}
+              onClick={() => {
+  const item = dropdownItems[key];
+  if (item.path) {
+      navigate(item.path);
+      setHovered(null); // ✅ CLOSE MEGA MENU
+    }
+}}
             >
               {key === "ai"
                 ? "AI Innovation Hub"
@@ -135,7 +145,10 @@ const NavbarDemo = () => {
             </div>
           ))}
 
-          <div className={navItem}>Insights</div>
+          <div className={navItem}
+          onClick={() => navigate("/insights")}
+
+          >Insights</div>
 
           <button className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-sm lg:text-base hover:scale-105 transition">
             Request a Demo
@@ -156,11 +169,13 @@ const NavbarDemo = () => {
       <AnimatePresence>
         {hovered && (
           <motion.div
+           key={hovered} // ✅ IMPORTANT (re-triggers animation)
             onMouseEnter={() => handleEnter(hovered)}
             onMouseLeave={handleLeave}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
             className="absolute left-0 top-full w-full px-4 sm:px-6 lg:px-8"
           >
             <div className="max-w-5xl mx-auto bg-[#242938] text-white rounded-2xl shadow-2xl border border-white/10">
@@ -177,9 +192,12 @@ const NavbarDemo = () => {
                         {col.map((item, j) => (
                           <div
                             key={j}
-                            onClick={() =>
-                              item.path && navigate(item.path)
-                            }
+                            onClick={() => {
+                              if (item.path) {
+                                navigate(item.path);
+                                setHovered(null); // ✅ THIS closes the mega menu
+                              }
+                            }}
                             className="text-lg hover:text-cyan-400 cursor-pointer"
                           >
                             {item.name}
