@@ -26,7 +26,7 @@ const ContactPage = () => {
   };
 
   return (<div>
-    <section className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b] py-44 px-4">
+    <section className="min-h-screen bg-[#0e1231] py-44 px-4">
       <div className="max-w-7xl mx-auto mt-10    grid lg:grid-cols-2 gap-12 items-center ">
 
         {/* LEFT CONTENT */}

@@ -8,6 +8,7 @@ import Industries from "./pages/Industries";
 import InsightsPage from "./pages/InsightsPage";
 import ContactPage from "./pages/ContactPage";
 import Solution from "./pages/Solution";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 
@@ -15,6 +16,7 @@ function App() {
   return (
     
     <div className="text-white">
+      <ScrollToTop/>
       <NavbarDemo/>
      <Routes>
         <Route path="/" element={<Home/>} />

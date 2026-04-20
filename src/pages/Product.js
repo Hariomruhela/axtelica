@@ -39,7 +39,7 @@ const Product = () => {
               transition={{ duration: 0.7 }}
               className="text-center lg:text-left"
             >
-              <h1 className="text-[clamp(28px,5vw,56px)] font-bold text-white text-center max-w-3xl leading-tight">
+              <h1 className="text-[clamp(28px,5vw,52px)] font-bold text-white text-center max-w-3xl leading-tight">
                 {data.name}
               </h1>
             </motion.div>
@@ -51,7 +51,7 @@ const Product = () => {
               transition={{ duration: 0.7 }}
               className="text-center lg:text-center"
             >
-              <h2 className="text-[clamp(18px,3vw,28px)] text-center max-w-3xl text-gray-200 leading-relaxed">
+              <h2 className="text-[clamp(18px,3vw,38px)] font-bold text-center max-w-6xl text-gray-200 leading-relaxed">
                 {data.heroTitle}
               </h2>
 

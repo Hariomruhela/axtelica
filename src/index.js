@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
+// ✅ ADD THIS HERE (before render)
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <BrowserRouter>

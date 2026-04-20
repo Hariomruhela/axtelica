@@ -69,7 +69,7 @@ const AboutSection = () => {
             Why Axtelica
           </p> */}
 
-          <h1 className="text-[clamp(28px,5vw,56px)] font-poppins font-bold text-white max-w-3xl mx-auto text-center leading-tight">
+          <h1 className="text-[clamp(28px,5vw,52px)]  font-bold text-white max-w-3xl mx-auto text-center leading-tight">
   We Build AI Solutions That Work for Business
 </h1>
 

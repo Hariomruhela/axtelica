@@ -26,7 +26,7 @@ const fadeUp = {
             animate="show"
             className="relative z-10 w-full max-w-[1400px] px-4 sm:px-6 lg:px-8 flex justify-center"
           >
-            <h1 className="text-[clamp(28px,5vw,56px)] font-poppins font-bold text-white text-center max-w-3xl leading-tight">
+            <h1 className="text-[clamp(28px,5vw,52px)]  font-bold text-white text-center max-w-3xl leading-tight">
                    AI Solutions Built for Real Business Impact
             </h1>
           </motion.div>
