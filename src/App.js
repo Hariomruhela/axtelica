@@ -9,6 +9,7 @@ import InsightsPage from "./pages/InsightsPage";
 import ContactPage from "./pages/ContactPage";
 import Solution from "./pages/Solution";
 import ScrollToTop from "./components/ScrollToTop";
+import Blog from "./pages/Blog";
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/industries" element={<Industries />} />
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/blog" element={<Blog/>}/>
          <Route path="/solution" element={<Solution/>} />
       </Routes>
     </div>

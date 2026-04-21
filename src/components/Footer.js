@@ -76,7 +76,7 @@ const Footer = () => {
             },
             {
               title: "Insights",
-              links: [{ name:" Blog" },
+              links: [{ name:" Blog", path: "/blog" },
                 { name: "Articles"},
                 { name: "Whitepapers" }],
             },
