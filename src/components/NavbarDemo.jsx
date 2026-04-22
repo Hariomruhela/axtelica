@@ -48,14 +48,14 @@ const NavbarDemo = () => {
   `;
 
   const dropdownItems = {
-    solutions: {
-      title: "SOLUTIONS",
-      path: "/solution",
-      columns: [
-        [{ name: "Data & Analytics" }, { name: "AI & Machine Learning" }],
-        [{ name: "Cloud Solutions" }, { name: "Agile & DevOps" }],
-      ],
-    },
+    // solutions: {
+    //   title: "SOLUTIONS",
+    //   path: "/solution",
+    //   columns: [
+    //     [{ name: "Data & Analytics" }, { name: "AI & Machine Learning" }],
+    //     [{ name: "Cloud Solutions" }, { name: "Agile & DevOps" }],
+    //   ],
+    // },
     ai: {
       title: "AI INNOVATION HUB",
       path: "/product/axtream",
@@ -67,14 +67,14 @@ const NavbarDemo = () => {
         
       ],
     },
-    industries: {
-      title: "INDUSTRIES",
-      path: "/industries",
-      columns: [
-        [{ name: "Finance" }, { name: "Retail" }],
-        [{ name: "Healthcare" }, { name: "Manufacturing" }],
-      ],
-    },
+    // industries: {
+    //   title: "INDUSTRIES",
+    //   path: "/industries",
+    //   columns: [
+    //     [{ name: "Finance" }, { name: "Retail" }],
+    //     [{ name: "Healthcare" }, { name: "Manufacturing" }],
+    //   ],
+    // },
     case: {
       title: "CASE STUDIES",
       columns: [[{ name: "Success Stories" }], [{ name: "Client Projects" }]],
@@ -121,6 +121,9 @@ const NavbarDemo = () => {
           <Link to="/about">
             <div className={navItem}>Company</div>
           </Link>
+          <Link to="/solution">
+            <div className={navItem}>Solutions</div>
+          </Link>
 
           {Object.keys(dropdownItems).map((key) => (
             <div
@@ -144,6 +147,11 @@ const NavbarDemo = () => {
               <ChevronDown size={16} />
             </div>
           ))}
+          <div className={navItem}
+          onClick={() => navigate("/industries")}
+
+          >Industries</div>
+
 
           <div className={navItem}
           onClick={() => navigate("/insights")}

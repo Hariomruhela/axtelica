@@ -28,12 +28,17 @@ const Blog = () => {
   return (
     <div>
       {/* 🔥 HERO SECTION */}
-      <section
-        className="relative py-20 sm:py-24 lg:py-32 bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/assets/hero_banner_new.png')" }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
+       <section
+   className="
+    relative flex items-center justify-center
+    py-12 sm:py-12 lg:py-16
+    h-[350px] w-full overflow-hidden
 
+    bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
+    bg-[length:400%_400%]
+    animate-gradientFlow
+  "
+>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -52,7 +57,7 @@ const Blog = () => {
 
           {/* Heading */}
           <h1 className="text-4xl md:text-5xl font-bold text-black mb-10 text-center">
-            Insights & Blog
+            Insights & Resources
           </h1>
 
           {/* 🔥 Tabs (Centered + Active State) */}

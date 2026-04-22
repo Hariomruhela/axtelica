@@ -75,7 +75,7 @@ const TabsSection = () => {
     <section className="max-w-7xl mx-auto py-16 px-4 ">
 
       {/* Tabs */}
-      <div className="flex flex-wrap justify-between px-10 gap-8 mb-12">
+      <div className="flex flex-wrap justify-start px-4 gap-8 mb-12">
         {Object.keys(tabsData).map((tab) => (
           <button
             key={tab}

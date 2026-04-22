@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       className="relative border-t  bg-cover bg-center"
-      style={{ backgroundImage: "url('/footerbg.png')", backgroundSize: "contain", }}
+      style={{ backgroundImage: "url('/inner_banner.jpg')", backgroundSize: "cover", }}
     >
       {/* 🔥 Overlay */}
       {/* <div className="absolute inset-0 bg-black/80" /> */}

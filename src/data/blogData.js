@@ -54,3 +54,23 @@ export const blogData = [
         "Stay ahead with these critical cybersecurity insights.",
     },
   ];
+
+  export const  Whitepapers= [
+    {
+      title:"The Enterprise AI Readiness Report: Closing the Gap Between Data and Decisions",
+      desc:`A strategic guide for CIOs and CDOs examining the five organizational and technical gaps that prevent enterprises from converting their data investments into AI-driven business outcomes. Covers data quality maturity, integration architecture, automation readiness, and the business agent opportunity. Includes a self-assessment framework and maturity model.`,
+      meta: "AUDIENCE: CIO / CDO / VP ANALYTICS · 18–22 PAGES · GATED ASSET",
+    },
+    {
+      title:
+        "Real-Time Intelligence in Regulated Industries: A Practical Framework for Banking, Insurance & Pharma",
+      desc: `Examines how real-time data streaming and decision intelligence platforms are reshaping compliance, risk management, and commercial operations in highly regulated sectors. Covers architecture patterns, integration approaches, and governance considerations. Includes use-case deep dives with illustrative impact metrics.`,
+      meta: "AUDIENCE: OPERATIONS & RISK LEADERS · 14–18 PAGES · GATED ASSET",
+    },
+    {
+      title:
+        "Building Intelligent Automation That Scales: A Guide for Enterprise Operations Teams",
+      desc: `A practitioner's guide to replacing rule-based manual workflows with AI-led process automation — covering design principles, integration patterns, exception handling logic, and governance controls. Introduces Axtelica's modular agent framework and how it reduces time-to-value for automation projects.`,
+      meta: "AUDIENCE: OPERATIONS / IT LEADERS · 12–16 PAGES · GATED ASSET",
+    },
+  ]

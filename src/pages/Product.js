@@ -20,14 +20,20 @@ const Product = () => {
     <div key={productId} className="w-full overflow-hidden">
 
       {/* HERO */}
-      <section
-        className="relative bg-cover bg-center  py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8"
-        style={{
-          backgroundImage: "url('/assets/hero_banner_new.png')",
-        }}
-      >
+       <section
+  className="
+    relative flex items-center justify-center
+    py-12 sm:py-12 lg:py-16
+    h-[350px] w-full overflow-hidden
+
+    bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
+    bg-[length:400%_400%]
+    animate-gradientFlow
+  "
+>
+      
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        {/* <div className="absolute inset-0 bg-black/50" /> */}
 
         <div className="relative z-10 max-w-7xl mt-10 mx-auto">
           <div className="flex flex-col gap-3 items-center">
@@ -37,9 +43,9 @@ const Product = () => {
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-center lg:text-left"
+              className="text-center mt-10 lg:text-left "
             >
-              <h1 className="text-[clamp(28px,5vw,52px)] font-bold text-white text-center max-w-3xl leading-tight">
+              <h1 className="text-[clamp(28px,5vw,48px)]  font-bold text-white text-center max-w-3xl leading-tight">
                 {data.name}
               </h1>
             </motion.div>
@@ -49,19 +55,27 @@ const Product = () => {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-center lg:text-center"
+              className="text-center  lg:text-center"
             >
-              <h2 className="text-[clamp(18px,3vw,38px)] font-bold text-center max-w-6xl text-gray-200 leading-relaxed">
+              <h2 className="text-[clamp(18px,3vw,40px)] font-poppins text-center max-w-7xl text-gray-200 leading-tight">
                 {data.heroTitle}
               </h2>
 
-              <button className="mt-6 bg-[#FF3366] text-white px-6 py-3 rounded-lg text-sm sm:text-base hover:scale-105 transition">
-                {data.button}
-              </button>
+              
             </motion.div>
 
           </div>
         </div>
+        {/* Bottom Shape */}
+  {/* <div className="absolute bottom-0 w-full leading-none">
+    <svg viewBox="0 0 1440 120" className="w-full">
+      <path
+        d="M0 0L1440 40V120H0V0Z"
+        fill="white"
+        fillOpacity="0.05"
+      />
+    </svg>
+  </div> */}
       </section>
 
       {/* DESCRIPTION */}
@@ -77,7 +91,7 @@ const Product = () => {
       <ProductSection data={data} />
 
       {/* OTHER SECTIONS */}
-      <DemoForm />
+      <DemoForm {...data.demoSection} />
       <Insights />
       <FAQ />
       <Footer />

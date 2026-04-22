@@ -54,30 +54,46 @@ const AboutSection = () => {
 
       {/* HERO */}
       <section
-        className="relative py-20 sm:py-24 lg:py-28 bg-cover bg-center "
-        style={{ backgroundImage: "url('/assets/hero_banner_new.png')" }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
+  className="
+    relative flex items-center justify-center
+    py-12 sm:py-12 lg:py-16
+    h-[350px] w-full overflow-hidden
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="relative z-10 w-full max-w-[1400px]  mt-12 mx-auto text-center px-4 sm:px-6 lg:px-8"
-        >
-          {/* <p className="uppercase tracking-widest text-sm text-white mb-4">
-            Why Axtelica
-          </p> */}
+    bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
+    bg-[length:400%_400%]
+    animate-gradientFlow
+  "
+>
+  {/* Grid Overlay */}
+  {/* <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:40px_40px]" /> */}
 
-          <h1 className="text-[clamp(28px,5vw,52px)]  font-bold text-white max-w-3xl mx-auto text-center leading-tight">
-  We Build AI Solutions That Work for Business
-</h1>
+  {/* Content */}
+  <motion.div
+    variants={fadeUp}
+    initial="hidden"
+    animate="show"
+    className="relative z-10 w-full max-w-[1400px] mt-16 pt-2 mx-auto text-center px-4 sm:px-6 lg:px-8"
+  >
+    <h1 className="text-[clamp(28px,5vw,48px)] font-bold text-white max-w-3xl mx-auto leading-tight tracking-wide uppercase drop-shadow-[0_0_20px_rgba(48,107,202,0.5)]">
+      We Build AI Solutions That Work for Business
+    </h1>
 
-          {/* <p className="mt-6 text-gray-200 text-lg font-poppins max-w-4xl">
-           Axtelica is an AI Solutions Builder focused on creating smart platforms, business-ready products, and intelligent agents for modern enterprises. We help organizations move beyond traditional delivery models by building practical solutions that improve efficiency, strengthen decision-making, and accelerate business outcomes.
-          </p> */}
-        </motion.div>
-      </section>
+    {/* <p className="mt-4 text-sm text-white/80 tracking-wider uppercase">
+      Home / Services
+    </p> */}
+  </motion.div>
+
+  {/* Bottom Shape */}
+  {/* <div className="absolute bottom-0 w-full leading-none">
+    <svg viewBox="0 0 1440 120" className="w-full">
+      <path
+        d="M0 0L1440 40V120H0V0Z"
+        fill="white"
+        fillOpacity="0.05"
+      />
+    </svg>
+  </div> */}
+</section>
 
       {/* SERVICES */}
       <section className="max-w-[1400px] mx-auto py-16 px-4 grid lg:grid-cols-2 gap-10 items-center">

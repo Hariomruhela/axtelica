@@ -106,15 +106,21 @@ const ProductSection = ({ data }) => {
               transition={{ duration: 0.4 }}
               className="min-h-[260px]"
             >
-              <h2 className="text-[clamp(20px,3vw,28px)] font-poppins font-semibold text-black mb-4">
+              <h2 className="text-[clamp(20px,3vw,28px)] font-poppins font-semibold text-black mb-4 leading-snug">
                 {tabData.title}
               </h2>
-
-              <p className="text-gray-700 font-poppins text-lg  mb-6">
+              {activeTab === "overview" && tabData.Subtitles && (
+    <p className="text-gray-800 font-poppins text-lg font-bold  whitespace-pre-line mb-3">
+      {tabData.Subtitles}
+    </p>
+  )
+                }
+              <p className="text-gray-700 font-poppins text-lg  mb-7 leading-snug">
                 {tabData.description}
               </p>
 
               <div className="space-y-2 mb-6">
+                
                {/* ✅ Show ONLY for overview tab */}
   {activeTab === "overview" && tabData.description2 && (
     <p className="text-gray-700 font-poppins text-lg  whitespace-pre-line">
@@ -136,7 +142,7 @@ const ProductSection = ({ data }) => {
           </AnimatePresence>
 
           {/* ✅ BUTTON (FIXED WIDTH) */}
-          <button className="w-fit self-start bg-pink-500 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-pink-600 hover:scale-105 transition">
+          <button className="w-fit self-start bg-[#FF3366] text-white px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-pink-600 hover:scale-105 transition">
             Request a Demo
           </button>
         </div>
