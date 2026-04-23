@@ -12,6 +12,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Blog from "./pages/Blog";
 import BlogDetail from "./components/BlogDetail";
 import DemoLanding from "./components/DemoLanding";
+import CaseStudies from "./pages/CaseStudies";
 
 
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogDetail />} />
          <Route path="/solution" element={<Solution/>} />
           <Route path="/demo" element={<DemoLanding />} />
+          <Route path="/casestudies" element={<CaseStudies />} />
       </Routes>
     </div>
     

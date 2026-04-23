@@ -77,6 +77,7 @@ const NavbarDemo = () => {
     // },
     case: {
       title: "CASE STUDIES",
+      path: "/casestudies",
       columns: [[{ name: "Success Stories" }], [{ name: "Client Projects" }]],
     },
   };
