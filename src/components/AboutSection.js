@@ -2,23 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import TabsSection from "./TabsSection";
 
-const missionData = [
-  {
-    title: "Empowering smarter",
-    desc: "data-driven enterprises",
-    icon: "/assets/empower.png",
-  },
-  {
-    title: "business decisions through",
-    desc: "digital transformation from all angles",
-    icon: "/assets/support.png",
-  },
-  {
-    title: "AI-powered data",
-    desc: "strategic solutions to solve real-world problems",
-    icon: "/assets/setting.jpg",
-  },
-];
+
 
 // 🔥 Reusable animation variants
 const fadeUp = {
@@ -105,39 +89,32 @@ const AboutSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-[clamp(22px,4vw,36px)] font-poppins font-semibold mb-6">
-            AI-Driven Data for Smarter Insights
+            About Axtelica
           </h2>
-          <p className="text-lg font-poppins text-gray-600">Axtelica is a leader in AI-powered technology
-and data solutions, driving innovation and
-excellence. From next-gen analytics to cloud
-services and digital transformation, we
-empower businesses to overcome challenges
-and thrive. More than a provider, we are a
-strategic partner delivering scalable solutions
-that foster growth, optimize performance, and
-fuel long-term success.</p>
+          <p className="text-lg font-poppins text-gray-600">Axtelica delivers <b>AI-powered solutions</b> designed to boost customer growth, enhance productivity, and optimize costs. Our expertise in analytics, cloud, and digital transformation enables businesses to achieve sustainable success in today’s fast-evolving digital landscape.<br/><br></br>
+We are an <b>AI Solutions Builder</b> focused on creating smart platforms, business-ready products, and intelligent agents for modern enterprises. Instead of traditional service models, we build practical, scalable solutions that solve real business problems.
+At Axtelica, we help organizations:
 
-          {/* <ul className="space-y-3 text-gray-700">
+ 
+ 
+</p>
+
+          <ul className="space-y-3 text-gray-700">
             {[
-              "Website Design & Development",
-              "Mobile App Development",
-              "Cloud Solutions & Integration",
-              "Cybersecurity Services",
-              "Data Analytics & Business Intelligence",
-              "Custom Software Development",
+              "Improve operational efficiency ",
+              "Make faster, data-driven decisions",
+              "Accelerate business outcomes",
+              
             ].map((item, i) => (
-              <li key={i} className="flex gap-3">
+              <li key={i} className=" text-lg font-poppins flex gap-3">
                 <span className="mt-2 w-2 h-2 bg-black rounded-full"></span>
                 {item}
               </li>
             ))}
-          </ul> */}
+          </ul>
 
           <p className="mt-6 text-lg font-poppins text-gray-600">
-            Axtelica delivers AI-powered solutions designed to boost customer growth, enhance productivity, and
-optimize costs. Our expertise in analytics, cloud, and digital transformation helps businesses achieve
-
-sustainable success in the digital age.
+            Our approach combines innovation with real-world execution—ensuring that every solution we build delivers measurable impact and long-term value.
           </p>
         </motion.div>
 
@@ -153,7 +130,7 @@ sustainable success in the digital age.
       </section>
 
       {/* MISSION */}
-      <section className="max-w-[1400px] mx-auto text-center py-16 px-4">
+      <section className="max-w-[1400px] mx-auto text-center py-1 px-4">
         
         <motion.h2
           variants={fadeUp}
@@ -165,46 +142,28 @@ sustainable success in the digital age.
           Our Mission
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {missionData.map((item, i) => (
+        <div className="">
+          
             <motion.div
-              key={i}
+              
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }} // 🔥 stagger effect
+              transition={{ delay: 1 * 0.2 }} // 🔥 stagger effect
               className="bg-gray-100 p-6 rounded-xl flex flex-col items-center"
             >
-              <div className="w-16 h-16 bg-white flex items-center justify-center rounded-full mb-4">
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className="w-10 h-10 object-contain"
-                />
-              </div>
+              
 
-              <h3 className="text-red-500 font-semibold  font-poppins text-lg">
-                {item.title}
-              </h3>
-
-              <p className="text-gray-600 font-poppins  text-lg mt-2">
-                {item.desc}
+              <p className="text-gray-600 font-poppins max-w-4xl mx-auto  text-xl mt-2">
+                To empower organizations with practical, scalable AI solutions that simplify complexity, enhance productivity, and unlock new opportunities.<br/>
+We aim to bridge the gap between advanced technology and real-world business needs by delivering solutions that are not just innovative—but truly usable and impactful.
               </p>
             </motion.div>
-          ))}
+          
         </div>
 
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mt-12 text-gray-700 text-lg font-poppins max-w-2xl mx-auto"
-        >
-          To empower businesses with innovative technology solutions that drive
-          efficiency and growth.
-        </motion.p>
+        
       </section>
 
       {/* ABOUT DETAIL */}
@@ -216,14 +175,12 @@ sustainable success in the digital age.
     initial="hidden"
     whileInView="show"
     viewport={{ once: true }}
-    className="text-[clamp(26px,5vw,48px)] font-poppins font-bold mb-2"
+    className="text-[clamp(26px,5vw,48px)] font-poppins font-bold mb-4"
   >
     Our Vision
   </motion.h2>
 
-  <p className="text-gray-700 text-lg font-poppins max-w-5xl mx-auto mb-10" >Leverage AI-powered technology and data solutions to help
-our clients drive sustainable business growth, unlock new
-opportunities, and stay competitive in the digital landscape.</p>
+  <p className="text-gray-700 text-lg font-poppins max-w-5xl mx-auto mb-10" >To become a global leader in AI-driven solutions by transforming how businesses use data, automation, and intelligence to create meaningful impact, sustainable growth, and smarter decision-making.</p>
 
   {/* Cards */}
   <div className="grid lg:grid-cols-2  gap-8">
@@ -241,7 +198,7 @@ opportunities, and stay competitive in the digital landscape.</p>
         Enhance Productivity
       </h3>
 
-      <p className="text-gray-600 text-lg font-poppins leading-relaxed mb-6">
+      <p className="text-gray-600 text-lg font-poppins leading-relaxed mb-10">
         Provide cutting-edge digital tools and tailored strategies that streamline operations, enhance efficiency, and maximize productivity across every aspect of our clients' businesses.
       </p>
 

@@ -100,7 +100,7 @@ const TabsSection = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-2 gap-6"
         >
           {tabsData[activeTab].map((item, i) => (
             <motion.div

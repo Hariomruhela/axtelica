@@ -10,6 +10,8 @@ import ContactPage from "./pages/ContactPage";
 import Solution from "./pages/Solution";
 import ScrollToTop from "./components/ScrollToTop";
 import Blog from "./pages/Blog";
+import BlogDetail from "./components/BlogDetail";
+import DemoLanding from "./components/DemoLanding";
 
 
 
@@ -31,7 +33,9 @@ function App() {
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<Blog/>}/>
+        <Route path="/blog/:id" element={<BlogDetail />} />
          <Route path="/solution" element={<Solution/>} />
+          <Route path="/demo" element={<DemoLanding />} />
       </Routes>
     </div>
     

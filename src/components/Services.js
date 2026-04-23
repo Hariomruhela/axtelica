@@ -62,7 +62,7 @@ const Services = () => {
             What We Build
           </h1>
 
-          <p className="Paragraph text-gray-400 mx-auto max-w-2xl">
+          <p className="Paragraph text-gray-400 mx-auto w-[100%]">
             We specialize in four areas — each designed to solve a distinct category of business problem.
           </p>
         </motion.div>
@@ -117,7 +117,7 @@ const Services = () => {
         </div>
 
         {/* Bottom Button */}
-        <div className="flex pt-10 justify-center sm:justify-end">
+        <div className="flex pt-10 justify-center ">
           <button
           onClick={()=>{
                   navigate("/solution")

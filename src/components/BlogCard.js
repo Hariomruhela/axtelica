@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const BlogCard = ({ blog }) => {
+  const navigate = useNavigate();
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
       
@@ -33,7 +36,9 @@ const BlogCard = ({ blog }) => {
         </p>
 
         {/* CTA */}
-        <button className="text-pink-400 font-medium hover:underline">
+        <button
+        onClick={() => navigate(`/blog/${blog.id}`)}
+         className="text-pink-400 font-medium hover:underline">
           Read More →
         </button>
       </div>

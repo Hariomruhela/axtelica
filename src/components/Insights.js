@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronRight, MoveRight, MoveLeft } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const insights = [
   {
@@ -32,8 +33,8 @@ const insights = [
 const Insights = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [direction, setDirection] = useState(0); // 🔥 NEW
 
-  // ✅ FIX: Responsive count with resize listener
   useEffect(() => {
     const updateCount = () => {
       if (window.innerWidth < 640) setVisibleCount(1);
@@ -43,18 +44,19 @@ const Insights = () => {
 
     updateCount();
     window.addEventListener("resize", updateCount);
-
     return () => window.removeEventListener("resize", updateCount);
   }, []);
 
   const handleNext = () => {
     if (startIndex + visibleCount < insights.length) {
+      setDirection(1); // 👉 forward
       setStartIndex((prev) => prev + 1);
     }
   };
 
   const handlePrev = () => {
     if (startIndex > 0) {
+      setDirection(-1); // 👉 backward
       setStartIndex((prev) => prev - 1);
     }
   };
@@ -64,8 +66,26 @@ const Insights = () => {
     startIndex + visibleCount
   );
 
+  // 🔥 Slide animation variants
+  const slideVariants = {
+    hidden: (direction) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+    }),
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.4 },
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? -100 : 100,
+      opacity: 0,
+      transition: { duration: 0.3 },
+    }),
+  };
+
   return (
-    <section className="bg-[#f5f5f5] pb-8 sm:pb-12 lg:pb-16 ">
+    <section className="bg-[#f5f5f5] pb-8 sm:pb-12 lg:pb-16">
       
       {/* Header */}
       <div className="bg-white w-full">
@@ -87,46 +107,56 @@ const Insights = () => {
           Latest articles
         </h3>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-  {visibleItems.map((item, index) => (
-    <div
-      key={index}
-      className="flex gap-5 items-start p-5  rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-    >
-      
-      {/* Image (BIGGER) */}
-      <img
-        src={item.image}
-        alt="insight"
-        className="w-[50%] h-full object-cover rounded-lg flex-shrink-0"
-      />
+        {/* 🔥 Animated Cards */}
+        <div className="overflow-hidden">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={startIndex} // 🔥 important
+              custom={direction}
+              variants={slideVariants}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {visibleItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex gap-5 items-start p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  
+                  <img
+                    src={item.image}
+                    alt="insight"
+                    className="w-[50%] h-full object-cover rounded-lg flex-shrink-0"
+                  />
 
-      {/* Content */}
-      <div className="flex flex-col justify-between h-full">
-        
-        <span className="text-xs sm:text-sm bg-[#722bfe] text-white px-3 py-1 rounded-full w-fit">
-          {item.tag}
-        </span>
+                  <div className="flex flex-col justify-between h-full">
+                    
+                    <span className="text-xs sm:text-sm bg-[#722bfe] text-white px-3 py-1 rounded-full w-fit">
+                      {item.tag}
+                    </span>
 
-        <h3 className="mt-3 text-lg sm:text-xl font-semibold text-black leading-snug">
-          {item.title}
-        </h3>
+                    <h3 className="mt-3 text-lg sm:text-xl font-semibold text-black leading-snug">
+                      {item.title}
+                    </h3>
 
-        <button className="text-sm sm:text-base text-gray-600 mt-3 hover:text-black flex items-center gap-1 transition">
-          Read Report <ChevronRight size={20} color="#722bfe" />
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
+                    <button className="text-sm sm:text-base text-gray-600 mt-3 hover:text-black flex items-center gap-1 transition">
+                      Read Report <ChevronRight size={20} color="#722bfe" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
         {/* Navigation */}
         <div className="flex justify-center sm:justify-end gap-4 mt-10">
           <button
             onClick={handlePrev}
             disabled={startIndex === 0}
-            className="p-3 rounded-full bg-white text-black  shadow hover:bg-gray-100 disabled:opacity-40"
+            className="p-3 rounded-full bg-white text-black shadow hover:bg-gray-100 disabled:opacity-40"
           >
             <MoveLeft size={20} />
           </button>

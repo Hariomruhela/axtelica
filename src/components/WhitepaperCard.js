@@ -10,7 +10,7 @@ const WhitepaperCard = ({ item }) => {
       </h3>
 
       {/* Description */}
-      <p className="text-gray-700 mb-4 leading-relaxed">
+      <p className="body text-gray-700 mb-4 leading-relaxed">
         {item.desc}
       </p>
 

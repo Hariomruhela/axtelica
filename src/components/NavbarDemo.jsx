@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const NavbarDemo = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -89,7 +89,9 @@ const NavbarDemo = () => {
   const handleLeave = () => {
     timeoutRef.current = setTimeout(() => setHovered(null), 150);
   };
+const location = useLocation();
 
+if (location.pathname === "/demo") return null;
   return (
     <motion.div
       animate={{ y: showNavbar ? 0 : -120 }}
@@ -154,11 +156,14 @@ const NavbarDemo = () => {
 
 
           <div className={navItem}
-          onClick={() => navigate("/insights")}
+          onClick={() => navigate("/blog")}
 
           >Insights</div>
 
-          <button className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-sm lg:text-base hover:scale-105 transition">
+          <button
+          onClick={() => navigate("/demo")}
+           className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-sm lg:text-base hover:scale-105 transition">
+            
             Request a Demo
           </button>
         </div>
@@ -294,7 +299,9 @@ const NavbarDemo = () => {
 
                 <div className="text-lg font-medium">Insights</div>
 
-                <button className="w-full bg-[#FF3366] py-3 rounded-full">
+                <button 
+                onClick={() => navigate("/demo")}
+                className="w-full bg-[#FF3366] py-3 rounded-full">
                   Request a Demo
                 </button>
               </div>

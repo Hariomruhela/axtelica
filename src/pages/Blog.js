@@ -3,8 +3,9 @@ import BlogCard from "../components/BlogCard";
 import { blogData } from "../data/blogData";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import WhitepapersSection from "../components/WhitepapersSection";
 
-const categories = ["All", "AI", "Automation", "Security"];
+const categories = ["All", "DATA QUALITY","DECISION INTELLIGENCE","AI AGENTS", "AUTOMATION", "STRATEGY","PLATFORMS"];
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -61,7 +62,7 @@ const Blog = () => {
           </h1>
 
           {/* 🔥 Tabs (Centered + Active State) */}
-          <div className="flex justify-center gap-24 mb-12 flex-wrap">
+          <div className="flex justify-center gap-5 mb-5 flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -101,6 +102,10 @@ const Blog = () => {
             </p>
           )}
         </div>
+
+        <WhitepapersSection/>
+
+        
       </section>
 
       <Footer />

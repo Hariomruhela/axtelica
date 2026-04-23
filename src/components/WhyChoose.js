@@ -30,7 +30,11 @@ const features = [
 
 const WhyChoose = () => {
   return (
-    <section className="bg-white py-4 md:py-8 sm:py-4 lg:py-12">
+    <section
+    style={{
+        backgroundImage: "url('/assets/why_axa.png ')",
+      }}
+       className="bg-white py-4 md:py-8 sm:py-4 lg:py-12 bg-right bg-no-repeat h-[800px]">
       
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 ">
         
@@ -85,11 +89,11 @@ const WhyChoose = () => {
 
         {/* RIGHT IMAGE */}
         <div className="flex justify-center lg:justify-end">
-          <img
+          {/* <img
             src="/assets/why_ch_img.jpg"
             alt="why choose"
             className="w-full max-w-[500px] md:max-w-[550px] lg:max-w-[600px] h-auto object-contain"
-          />
+          /> */}
         </div>
 
       </div>
