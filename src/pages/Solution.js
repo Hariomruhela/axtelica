@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import SolutionSection from '../components/SolutionSection';
-import CTA from '../components/CTA';
+// import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 const Solution = () => {
 const fadeUp = {
@@ -49,7 +49,7 @@ const fadeUp = {
   </div> */}
         </section>
         <SolutionSection/>
-        <CTA/>
+        
         <Footer/>
         </div>
   )
