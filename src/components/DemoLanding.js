@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const DemoLanding = () => {
   return (<>
-    <section className="min-h-screen flex items-center justify-center bg-[linear-gradient(135deg,#1a0f3c,#0b0f3a,#0b1f5c)] text-white relative overflow-hidden"
+    <section  className=" min-h-screen flex items-center justify-center bg-[linear-gradient(135deg,#1a0f3c,#0b0f3a,#0b1f5c)] text-white relative overflow-hidden"
     style={{ backgroundImage: "url('/assets/book_demo_pagebg.jpg')", backgroundSize: "cover", }}>
       
       {/* Background Logo (optional) */}
@@ -16,7 +16,7 @@ const DemoLanding = () => {
           />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-24  ">
+      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-24  py-32 lg:py-28  ">
         
         {/* LEFT FORM */}
         <div className="bg-white text-black p-8 rounded-md shadow-lg">

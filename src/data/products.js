@@ -109,7 +109,7 @@ export const productsData = {
     },
     
     Productimage:"/assets/infinisight_product_page_img.png",
-    productlogo:"/assets/axtreme_logo.png",
+    productlogo:"/assets/infinisight_logo.png",
     image: [
           "/assets/infi01.png",
           "/assets/infi02.png",
@@ -148,7 +148,7 @@ export const productsData = {
       },
 
       benefits: {
-        title: "Benefits of Axtream  Quality, and Intelligence",
+        title: "Benefits of Infinisight  Quality, and Intelligence",
         description: "Reduce manual work with automated analytics and reporting.",
         
         points: [

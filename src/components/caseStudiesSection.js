@@ -123,7 +123,7 @@ const CaseStudiesSection = () => {
       <div className="max-w-7xl mx-auto">
         
         <h1 className="text-3xl md:text-5xl font-bold text-black mb-12 text-center">
-          Customer Success Stories
+          Case Studies
         </h1>
 
         <div className="space-y-6">
