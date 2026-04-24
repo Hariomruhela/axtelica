@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate,   } from "react-router-dom";
 
 const Banner = () => {
   const mountRef = useRef(null);
   const location = useLocation(); // 🔥 for re-trigger animation
+  const navigate=useNavigate(); 
 
   useEffect(() => {
     const container = mountRef.current;
@@ -167,11 +168,15 @@ const Banner = () => {
           <div
             className="animate-reveal w-fit delay-3 flex flex-col sm:flex-row gap-4 mt-10"
           >
-            <button className="bg-[#ff3b6a] w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,59,106,0.4),0_0_15px_rgba(0,210,255,0.2)] flex items-center gap-2 group">
+            <button
+            onClick={()=>navigate("/product/axtream")}
+             className="bg-[#ff3b6a] w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,59,106,0.4),0_0_15px_rgba(0,210,255,0.2)] flex items-center gap-2 group">
               See How We Solve It
             </button>
 
-            <button className="w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold hover:bg-white/5 transition">
+            <button
+            onClick={()=>navigate("/demo")}
+             className="w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold hover:bg-white/5 transition">
               Talk to an AI Expert
             </button>
           </div>

@@ -44,16 +44,7 @@ const fadeUp = {
       Built for Business-Critical Challenges
     </h1>
   </motion.div>
-   {/* Bottom Shape */}
-  {/* <div className="absolute bottom-0 w-full leading-none">
-    <svg viewBox="0 0 1440 120" className="w-full">
-      <path
-        d="M0 0L1440 40V120H0V0Z"
-        fill="white"
-        fillOpacity="0.05"
-      />
-    </svg>
-  </div> */}
+  
 </section>
       <IndustrySection/>
       <Insights/>

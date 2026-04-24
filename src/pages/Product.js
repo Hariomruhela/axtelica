@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import ProductSection from "../components/ProductSection";
 import { productsData } from "../data/products";
 import DemoForm from "../components/DemoForm";
-import Insights from "../components/Insights";
+
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import ProductImageSection from "../components/ProductImageSection";
 
 const Product = () => {
   const { productId } = useParams();
@@ -89,10 +90,11 @@ const Product = () => {
 
       {/* CONTENT */}
       <ProductSection data={data} />
+      <ProductImageSection data={data} />
 
       {/* OTHER SECTIONS */}
       <DemoForm {...data.demoSection} />
-      <Insights />
+      
       <FAQ />
       <Footer />
     </div>

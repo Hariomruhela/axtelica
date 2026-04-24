@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const CTA = () => {
+  const navigate=useNavigate();
   return (<div className=" max-w-[1400px]  mx-auto px-6 pb-10 ">
     <section
       className="relative py-16 sm:py-20 lg:py-20 overflow-hidden bg-cover bg-center"
@@ -43,7 +45,9 @@ const CTA = () => {
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center ">
                 
-                <button className=" text-lg font-poppins bg-purple-600 text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition">
+                <button
+                onClick={()=>navigate("/demo")}
+                 className=" text-lg font-poppins bg-purple-600 text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition">
                   Let's build something smarter
                 </button>
 

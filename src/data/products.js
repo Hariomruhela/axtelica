@@ -18,13 +18,15 @@ export const productsData = {
         "Detect anomalies and operational risks",
       ],
     },
+    Productimage:"/assets/axtream_product_page_img.png",
+    productlogo:"/assets/axtreme_logo.png",
      image: [
-          "/assets/axtreamnew1.png",
-          "/assets/axtreamnew2.png",
-          "/assets/axtreamnew3.png",
-          "/assets/axtreamnew4.png",
-          "/assets/axtreamnew5.png",
-          "/assets/axtreamnew6.png"
+          
+          "/assets/axt02.png",
+          "/assets/axt03.png",
+          "/assets/axt04.png",
+          "/assets/axt05.png",
+          
          
 
         ],
@@ -65,6 +67,28 @@ export const productsData = {
         ],
       },
     },
+
+    //FAQ data
+    // FAQ:{
+    //   question:" What makes Axtelica different from other data or IT providers?",
+    //   answer:"Axtelica goes beyond services by delivering AI-powered data platforms and accelerators that automate processes, reduce manual effort, and deliver faster, measurable business outcomes.",
+    //   question:"How quickly can we see value from Axtelica solutions?",
+    //   answer:"Most clients start seeing results in weeks, not months, thanks to our pre-built frameworks and rapid deployment approach.",
+    //   question:"Can Axtelica work with our existing systems?",
+    //   answer:"Yes. Our solutions are designed to seamlessly integrate with your current data sources, cloud platforms, and enterprise systems—without disrupting your operations.",
+    //   question:"How does Axtelica help reduce costs and risks?",
+    //   answer:"By automating data processes and applying AI for anomaly and fraud detection, Axtelica helps reduce operational costs while proactively identifying risks before they impact the business.",
+    //   question:"Is Axtelica scalable as our business grows?",
+    //   answer:"Absolutely. Our cloud-native architecture ensures your data platform can scale effortlessly with increasing data volumes and business needs.",
+      
+
+
+
+
+
+
+
+    // }
   },
 
   infinisight: {
@@ -83,6 +107,9 @@ export const productsData = {
         "Detect anomalies and operational risks",
       ],
     },
+    
+    Productimage:"/assets/infinisight_product_page_img.png",
+    productlogo:"/assets/axtreme_logo.png",
     image: [
           "/assets/infi01.png",
           "/assets/infi02.png",
@@ -152,6 +179,8 @@ export const productsData = {
         "Detect anomalies and operational risks",
       ],
     },
+    Productimage:"/assets/axtream_product_page_img.png",
+    productlogo:"/assets/axtreme_logo.png",
     image: [
           "/assets/axtream01.png",
           "/assets/axtream02.png",

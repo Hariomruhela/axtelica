@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const tabs = [
   { key: "overview", label: "Overview" },
@@ -10,7 +11,7 @@ const tabs = [
 const ProductSection = ({ data }) => {
   const [activeTab, setActiveTab] = useState("overview");
   const [currentImage, setCurrentImage] = useState(0);
-
+  const navigate =useNavigate()
   const tabData = data?.tabs?.[activeTab];
 
   // ✅ Auto slide
@@ -45,23 +46,40 @@ const ProductSection = ({ data }) => {
 
         {/* LEFT - IMAGE */}
         <div>
-          <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-r from-purple-300 to-gray-300 p-4 overflow-hidden">
-            
-            <AnimatePresence mode="normal">
-               <motion.img key={currentImage} 
-               src={data.image?.[currentImage]}
-                alt="product"
-                 initial={{ opacity: 1, x: 100, scale: 1.05 }} 
-                 animate={{ opacity: 1, x: 0, scale: 1 }} 
-                 exit={{ opacity: 1, x: -120, scale: 0.95 }} 
-                 transition={{ duration: 1 }}
-                  className="absolute inset-0 w-full h-full object-cover  " />
-                   </AnimatePresence>
+          <div className="relative aspect-[4/4] w-full rounded-2xl overflow-hidden">
+  
+  {/* 🔵 Background Layer */}
+  <div
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat "
+    style={{
+      backgroundImage: "url('/assets/product_slide_bg.png')",
+    }}
+  />
 
-          </div>
+  {/* 🟣 Optional Gradient Overlay */}
+  {/* <div className="absolute inset-0 bg-gradient-to-r from-purple-300/40 to-gray-300/40" /> */}
+
+  {/* 🟢 Content Layer (Centered Image) */}
+  <div className="relative z-10 flex items-center justify-center pb-7 h-full w-full">
+    
+    <AnimatePresence mode="wait">
+      <motion.img
+        key={currentImage}
+        src={data.image?.[currentImage]}
+        alt="product"
+        initial={{ opacity: 0, x: 100, scale: 1.05 }}
+        animate={{ opacity: 1, x: 0, scale: 1 }}
+        exit={{ opacity: 0, x: -120, scale: 0.95 }}
+        transition={{ duration: 0.8 }}
+        className="max-h-[97%] max-w-[96%] object-contain"
+      />
+    </AnimatePresence>
+
+  </div>
+</div>
 
           {/* DOTS */}
-          <div className="flex justify-center mt-4 gap-2">
+          <div className="flex justify-center mt-10 gap-2">
             {data.image?.map((_, i) => (
               <button
                 key={i}
@@ -142,7 +160,9 @@ const ProductSection = ({ data }) => {
           </AnimatePresence>
 
           {/* ✅ BUTTON (FIXED WIDTH) */}
-          <button className="w-fit self-start bg-[#FF3366] text-white px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-pink-600 hover:scale-105 transition">
+          <button
+          onClick={()=>navigate("/demo")}
+           className="w-fit self-start bg-[#FF3366] text-white px-5 md:px-6 py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-pink-600 hover:scale-105 transition">
             Request a Demo
           </button>
         </div>

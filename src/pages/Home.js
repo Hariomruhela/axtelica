@@ -7,11 +7,12 @@ import WhyChoose from '../components/WhyChoose'
 // import TechStack from '../components/TechStack'
 import CTA from '../components/CTA'
 import Footer from '../components/Footer'
-import GradientBanner from '../components/GradientBanner'
+// import GradientBanner from '../components/GradientBanner'
 import AIHub from '../components/AIHub'
 import Insights from '../components/Insights'
 import FAQ from '../components/FAQ'
 import Banner from '../components/Banner'
+import GradientBannerNew from '../components/GradientBannerNew'
 // import CapabilityGrid from '../components/ CapabilityGrid'
 // import AxtelicaBanner from '../components/AxtelicaBanner'
 // import Hero from '../components/Hero'
@@ -31,7 +32,8 @@ const Home = () => {
        
 {/* <AxtelicaBanner/> */}
 <Banner/>
-<GradientBanner/>
+{/* <GradientBanner/> */}
+<GradientBannerNew/>
         <WhyChoose/>
         <Services/>
         {/* <CapabilityGrid/> */}

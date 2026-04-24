@@ -2,7 +2,7 @@ import React from "react";
 
 const GradientBanner = () => {
   return (
-    <div className="w-full h-[80px] py-6 px-2 bg-gradient-to-r from-purple-700 via-purple-600 to-cyan-500 flex items-center justify-end">
+    <div className="w-full h-[80px] py-6 px-2 bg-gradient-to-r from-cyan-500 via-purple-600 to-purple-700 flex items-center justify-end">
       
       {/* Content */}
       <div className="w-full mx-auto flex items-center justify-end  mr-32   gap-14">

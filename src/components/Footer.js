@@ -42,18 +42,18 @@ const Footer = () => {
              {
               title: "Get Started",
               links: [
-                { name:" Get a Demo" },
+                { name:" Get a Demo" , path:"demo"},
                 { name: "Product Tour"},
-                { name: "why Axtelica"},
+                { name: "why Axtelica", path:"/about"},
                 { name: "Pricing & Subscription"},
                 ],
             },
             {
               title: "AI Innovation Hub",
               links: [
-                { name: "Axtream" },
-                 { name:" Infinisight" },
-                { name: "Inteligent AI Agents"},
+                { name: "Axtream" , path:"/product/axtream" },
+                 { name:" Infinisight",path:"/product/infinisight"  },
+                { name: "Inteligent AI Agents",path:"/product/optimaorbit"},
                 
                 
               ],
@@ -62,8 +62,8 @@ const Footer = () => {
               title: "Company",
               links: [
                 { name: "About Us", path: "/about" },
-                { name: "Why  Axtelica", path: "/why" },
-                { name: "Leadership ", path: "/team" },
+                { name: "Why  Axtelica", path: "/about" },
+                { name: "Leadership ", path: "/about" },
                 { name: "Contact Us", path: "/contact" }, // ✅ clean
               ],
             },
@@ -82,13 +82,13 @@ const Footer = () => {
             {
               title: "Resources",
               links: [{ name:" Blogs", path: "/blog" },
-                { name: "Articles"},
-                { name: "Case Studies"},
+                { name: "Articles " ,path: "/blog"},
+                { name: "Case Studies",path: "/casestudies"},
                 
 
-                { name: "Whitepapers" },
-                { name: "Reports"},
-                { name: "News and Events"},
+                { name: "Whitepapers",path: "/blog" },
+                { name: "Reports",path: "/blog"},
+                { name: "News and Events",path: "/blog"},
                 
 
               ],
