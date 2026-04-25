@@ -21,6 +21,12 @@ const WhitepaperCard = ({ item }) => {
         </p>
       )}
 
+      <button
+        // onClick={() => navigate(`/blog/${blog.id}`)}
+         className="text-pink-400 font-medium hover:underline mt-4">
+          Read More →
+        </button>
+
       
     </div>
   );

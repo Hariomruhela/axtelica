@@ -4,9 +4,9 @@ import WhitepaperCard from "./WhitepaperCard";
 
 const WhitepapersSection = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="max-w-7xl mx-auto py-16  ">
       
-      <div className="max-w-[1400px] mx-auto">
+      <div className="">
         
         {/* Heading */}
         <h2 className="text-3xl font-bold text-gray-900 mb-10">

@@ -64,6 +64,10 @@ const NavbarDemo = () => {
           { name: "Infinisight", path: "/product/infinisight" },
           { name: "Intelligent Business Agents", path: "/product/optimaorbit" },
         ],
+        [{ name: "Product", path: "https://axtream.axtelica.com/" },
+          { name: "Product", path: "https://infinisight.axtelica.com/" },
+          
+        ],
         
       ],
     },
@@ -206,12 +210,15 @@ if (location.pathname === "/demo") return null;
                         {col.map((item, j) => (
                           <div
                             key={j}
-                            onClick={() => {
-                              if (item.path) {
-                                navigate(item.path);
-                                setHovered(null); // ✅ THIS closes the mega menu
-                              }
-                            }}
+                           onClick={() => {
+  if (item.path.startsWith("http")) {
+    window.open(item.path, "_blank");
+     // open in new tab
+  } else {
+    navigate(item.path); // internal routing
+    setHovered(null); // ✅ THIS closes the mega menu
+  }
+}}
                             className="text-lg hover:text-cyan-400 cursor-pointer"
                           >
                             {item.name}

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer
-      className="relative   bg-cover bg-center"
-      style={{ backgroundImage: "url('/inner_banner.jpg')", backgroundSize: "cover", }}
+      className="relative    bg-[linear-gradient(135deg,#0B0E2E_0%,#111A52_55%,#1E4BB5_100%)] "
+      // style={{ backgroundImage: "url('/inner_banner.jpg')", backgroundSize: "cover", }}
     >
       {/* 🔥 Overlay */}
       {/* <div className="absolute inset-0 bg-black/80" /> */}
@@ -42,10 +42,10 @@ const Footer = () => {
              {
               title: "Get Started",
               links: [
-                { name:" Get a Demo" , path:"demo"},
-                { name: "Product Tour"},
+                { name:" Get a Demo" , path:"/demo"},
+                { name: "Product Tour", path:"https://axtream.axtelica.com/"},
                 { name: "why Axtelica", path:"/about"},
-                { name: "Pricing & Subscription"},
+                { name: "Pricing & Subscription", path:"/demo"},
                 ],
             },
             {
@@ -100,16 +100,31 @@ const Footer = () => {
               </h4>
 
              <ul className="space-y-2 text-left">
-              {col.links.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-sm  font-poppins text-gray-200 hover:text-cyan-400 transition"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {col.links.map((link) => {
+                const isExternal = link.path?.startsWith("http");
+
+                return (
+                  <li key={link.name}>
+                    {isExternal ? (
+                      <a
+                        href={link.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-poppins text-gray-200 hover:text-cyan-400 transition"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.path || "#"}
+                        className="text-sm font-poppins text-gray-200 hover:text-cyan-400 transition"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
             </div>
           ))}

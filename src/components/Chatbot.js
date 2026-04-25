@@ -37,7 +37,7 @@ function detectIntent(message) {
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([
-    { sender: "bot", text: "Hi 👋 How can I help you today?" },
+    { sender: "bot", text: "Hi, I'm  AXA your AI Chat Assistant. Anything specific you're curious about regarding our solutions and products?" },
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -106,15 +106,15 @@ export default function Chatbot() {
           rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-blue-600">
+          <div className="flex items-center justify-between px-4 py-3 bg-[linear-gradient(135deg,#11258f_0%,#1a35ad_40%,#2b4ec9_75%,#3d63e3_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
             <div className="flex items-center gap-2">
               <img
-                src="/assets/chat_icon.png"
+                src="/assets/axa_chat_icon.png"
                 alt="Chatbot logo"
                 className="w-6 h-6"
               />
-              <span className="text-white text-sm font-semibold">
-                Quito AI Assistant
+              <span className="text-white text-lg font-semibold">
+                Axa-AI Chat
               </span>
             </div>
 
@@ -132,10 +132,10 @@ export default function Chatbot() {
               <div key={i}>
                 {msg.text && (
                   <div
-                    className={`max-w-[80%] px-3 py-2 rounded-xl break-words ${
+                    className={`max-w-[80%] px-3 py-2 rounded-xl break-words  ${
                       msg.sender === "user"
-                        ? "ml-auto bg-gradient-to-r from-pink-500 to-purple-500 text-white"
-                        : "mr-auto bg-white text-black shadow-sm"
+                        ? "ml-auto bg-[#dce6f0] text-black font-poppins"
+                        : "mr-auto bg-[#dce6f0] text-black font-poppins shadow-sm"
                     }`}
                   >
                     {msg.text}
@@ -182,7 +182,7 @@ export default function Chatbot() {
           <div className="p-2 border-t flex items-center gap-2 bg-white">
             <button
               onClick={() => fileInputRef.current.click()}
-              className="text-gray-600"
+              className="text-[#3d63e3]"
             >
               <FaPaperclip />
             </button>
@@ -200,20 +200,20 @@ export default function Chatbot() {
               placeholder="Type a message..."
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 border border-gray-300 text-gray-800
-              px-3 py-2 rounded-lg outline-none focus:ring-2 focus:ring-purple-400"
+              className="flex-1 border border-[#3d63e3] text-gray-800
+              px-3 py-2 rounded-lg outline-none focus:ring-2 focus:ring-blue-900"
             />
 
             <button
               onClick={() => setShowEmoji(!showEmoji)}
-              className="text-gray-600"
+              className="text-[#3d63e3]"
             >
               <FaSmile />
             </button>
 
             <button
               onClick={handleSend}
-              className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-3 py-2 rounded-lg"
+              className="bg-white text-[#3d63e3] text-xl px-3 py-2 rounded-lg"
             >
               <IoSendSharp />
             </button>

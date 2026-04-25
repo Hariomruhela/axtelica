@@ -87,21 +87,25 @@ const CaseCard = ({ data, index, open, onToggle }) => {
               </div>
 
               {/* Metrics */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6  py-10">
                 {data.metrics.map((metric, i) => (
                   <div
                     key={i}
-                    className="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+                    className="bg-[#f1f4f7] border border-white/ rounded-xl p-4 text-center"
                   >
-                    <p className="text-xl font-bold text-black">
+                    <p className="text-4xl font-bold text-black">
                       {metric.value}
                     </p>
-                    <p className="text-sm text-gray-700 mt-1">
+                    <p className="text-lg font-poppins text-gray-700 mt-1">
                       {metric.label}
                     </p>
                   </div>
+                  
                 ))}
+
               </div>
+              <button className="text-pink-400 font-medium hover:underline"
+              > ReadMore</button>
             </div>
           </motion.div>
         )}
