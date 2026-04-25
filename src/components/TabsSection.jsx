@@ -69,7 +69,7 @@ const tabsData = {
 };
 
 const TabsSection = () => {
-  const [activeTab, setActiveTab] = useState("Business Gains");
+  const [activeTab, setActiveTab] = useState("Critical Challenges");
 
   return (<div className="w-full bg-[#f5f5f5]">
     <section className="max-w-7xl mx-auto py-16 px-4 ">

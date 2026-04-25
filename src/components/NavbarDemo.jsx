@@ -163,7 +163,7 @@ if (location.pathname === "/demo") return null;
 
           <button
           onClick={() => navigate("/demo")}
-           className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-sm lg:text-base hover:scale-105 transition">
+           className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-lg font-poppins lg:text-base hover:scale-105 transition">
             
             Request a Demo
           </button>
@@ -249,8 +249,11 @@ if (location.pathname === "/demo") return null;
               exit={{ x: "100%" }}
               className="fixed right-0 top-0 h-full w-[85%] max-w-sm bg-[#242938] z-50 p-6 overflow-y-auto"
             >
-              <div className="space-y-6 text-white">
-                <div className="text-lg font-medium">Company</div>
+              <div className="space-y-6 text-lg font-poppins">
+               <Link to="/"> <div className="text-lg font-medium">Company</div></Link>
+                <Link to="/solution">
+            <div className="text-lg font-poppins">Solutions</div>
+          </Link>
 
                 {Object.keys(dropdownItems).map((key) => (
                   <div key={key}>
@@ -297,8 +300,9 @@ if (location.pathname === "/demo") return null;
                     )}
                   </div>
                 ))}
-
-                <div className="text-lg font-medium">Insights</div>
+                <Link to="/blog">
+                <div className="text-lg font-medium">Insights</div></Link>
+               <Link to="/casestudies"> <div className="text-lg font-medium">CaseStudies</div></Link>
 
                 <button 
                 onClick={() => navigate("/demo")}

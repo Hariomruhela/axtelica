@@ -3,24 +3,29 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "AI-Native from the Start",
+    question: "What is Axtelica?",
     answer:
-      "Our platform is built with AI at its core, ensuring intelligent automation and insights from day one.",
+      "Axtelica is a next-generation data and analytics company that helps businesses transform raw data into actionable insights using AI, cloud technologies, and advanced analytics solutions. ",
   },
   {
-    question: "Autonomous by Design",
+    question: "What industries does Axtelica work with?",
     answer:
-      "Automation-first approach reduces manual work and improves efficiency across systems.",
+      "Axtelica works across multiple industries such as logistics, energy, and enterprise businesses—helping them solve data challenges, optimize operations, and improve decision-making. ",
   },
   {
-    question: "Unified Across the Enterprise",
+    question: "What is CatalystCraft?",
     answer:
-      "Seamless integration across all departments and tools for better collaboration.",
+      "CatalystCraft is Axtelica’s proprietary solution accelerator toolkit that helps organizations quickly deploy data solutions, improve data quality, and gain insights faster. ",
   },
   {
-    question: "Powerful Protection, Zero Complexity",
+    question: "Does Axtelica provide custom solutions?",
     answer:
-      "Enterprise-grade security with simple and intuitive user experience.",
+      "Absolutely. Axtelica designs tailored solutions based on each client’s business needs, ensuring scalability, efficiency, and measurable outcomes. ",
+  },
+   {
+    question: "How can I get started with Axtelica?",
+    answer:
+      "You can contact Axtelica through their website or request a consultation to discuss your requirements and get a customized solution roadmap. , and measurable outcomes. ",
   },
 ];
 
@@ -86,7 +91,7 @@ const FAQ = () => {
                     }`}
                   />
 
-                  <h3 className="text-base sm:text-lg md:text-xl font-medium text-black transition">
+                  <h3 className="text-lg md:text-xl font-poppins text-gray-900 transition">
                     {item.question}
                   </h3>
                 </div>
@@ -99,7 +104,7 @@ const FAQ = () => {
                       : "max-h-0"
                   }`}
                 >
-                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                  <p className="text-gray-700  text-sm sm:text-base leading-relaxed">
                     {item.answer}
                   </p>
                 </div>

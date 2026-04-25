@@ -5,9 +5,10 @@ import ProductSection from "../components/ProductSection";
 import { productsData } from "../data/products";
 import DemoForm from "../components/DemoForm";
 
-import FAQ from "../components/FAQ";
+// import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import ProductImageSection from "../components/ProductImageSection";
+import ProductFAQ from "../components/ProductFAQ";
 
 const Product = () => {
   const { productId } = useParams();
@@ -22,10 +23,7 @@ const Product = () => {
 
       {/* HERO */}
        <section
-  className="
-    relative flex items-center justify-center
-    py-12 sm:py-12 lg:py-16
-    h-[350px] w-full overflow-hidden
+  className="relative flex items-center justify-center py-12 sm:py-12 lg:py-16 h-[450px] w-full overflow-hidden
 
     bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
     bg-[length:400%_400%]
@@ -37,7 +35,7 @@ const Product = () => {
         {/* <div className="absolute inset-0 bg-black/50" /> */}
 
         <div className="relative z-10 max-w-7xl mt-10 mx-auto">
-          <div className="flex flex-col gap-3 items-center">
+          <div className="flex  gap-3 items-center justify-center">
 
             {/* LEFT */}
             <motion.div
@@ -45,10 +43,14 @@ const Product = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
               className="text-center mt-10 lg:text-left "
-            >
-              <h1 className="text-[clamp(28px,5vw,48px)]  font-bold text-white text-center max-w-3xl leading-tight">
+            > 
+            <img src={data.axtreamlogo} alt="axtreamlogo"
+            className="h-full w-full"
+
+            />
+              {/* <h1 className="text-[clamp(28px,5vw,48px)]  font-bold text-white text-center max-w-3xl leading-tight">
                 {data.name}
-              </h1>
+              </h1> */}
             </motion.div>
 
             {/* RIGHT */}
@@ -58,7 +60,7 @@ const Product = () => {
               transition={{ duration: 0.7 }}
               className="text-center  lg:text-center"
             >
-              <h2 className="text-[clamp(18px,3vw,40px)] font-poppins text-center max-w-7xl text-gray-200 leading-tight">
+              <h2 className="text-[clamp(18px,3vw,32px)] pl-10 font-poppins text-left max-w-7xl text-gray-200 leading-tight">
                 {data.heroTitle}
               </h2>
 
@@ -94,8 +96,9 @@ const Product = () => {
 
       {/* OTHER SECTIONS */}
       <DemoForm {...data.demoSection} />
+      <ProductFAQ data={data?.FAQ||[]}/>
       
-      <FAQ />
+      {/* <FAQ /> */}
       <Footer />
     </div>
   );

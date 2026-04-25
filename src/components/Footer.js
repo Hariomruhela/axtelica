@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer
-      className="relative border-t  bg-cover bg-center"
+      className="relative   bg-cover bg-center"
       style={{ backgroundImage: "url('/inner_banner.jpg')", backgroundSize: "cover", }}
     >
       {/* 🔥 Overlay */}
@@ -104,7 +104,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-sm  font-poppins text-gray-200 hover:text-white transition"
+                    className="text-sm  font-poppins text-gray-200 hover:text-cyan-400 transition"
                   >
                     {link.name}
                   </Link>

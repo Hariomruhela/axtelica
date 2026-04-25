@@ -3,7 +3,12 @@
 export const productsData = {
   axtream: {
     name: "Axtream",
+    axtreamlogo:"/assets/axtream_banner_logo.png",
     heroTitle: "A real-time business intelligence platform for KPI monitoring, data quality visibility, and operational insights.",
+      midleTitle:"Business Intelligence Dashboards",
+      midlePara:"Generate business KPIs, risk insights & data health reports",
+      botomtitle:"Explore Solution and AI Generated Dashboard",
+      bottompara:"A real time business intelligence platform for KPI monitoring, data quality visibility, and operational insights.",
     description:
       " Axtream helps businesses connect data from applications, databases, files, APIs, and streaming platforms to enable faster decisions, trusted reporting, and AI-ready operations. \nAxtream is Axtelica’s intelligent data platform built to ingest, validate, and activate data across enterprise systems in real time.",
     button: "Request a Demo",
@@ -68,20 +73,38 @@ export const productsData = {
       },
     },
 
-    //FAQ data
-    // FAQ:{
-    //   question:" What makes Axtelica different from other data or IT providers?",
-    //   answer:"Axtelica goes beyond services by delivering AI-powered data platforms and accelerators that automate processes, reduce manual effort, and deliver faster, measurable business outcomes.",
-    //   question:"How quickly can we see value from Axtelica solutions?",
-    //   answer:"Most clients start seeing results in weeks, not months, thanks to our pre-built frameworks and rapid deployment approach.",
-    //   question:"Can Axtelica work with our existing systems?",
-    //   answer:"Yes. Our solutions are designed to seamlessly integrate with your current data sources, cloud platforms, and enterprise systems—without disrupting your operations.",
-    //   question:"How does Axtelica help reduce costs and risks?",
-    //   answer:"By automating data processes and applying AI for anomaly and fraud detection, Axtelica helps reduce operational costs while proactively identifying risks before they impact the business.",
-    //   question:"Is Axtelica scalable as our business grows?",
-    //   answer:"Absolutely. Our cloud-native architecture ensures your data platform can scale effortlessly with increasing data volumes and business needs.",
-      
-
+FAQ: [
+  {
+    id: 1,
+    question: "What makes Axtelica different from other data or IT providers?",
+    answer:
+      "Axtelica goes beyond services by delivering AI-powered data platforms and accelerators that automate processes, reduce manual effort, and deliver faster, measurable business outcomes.",
+  },
+  {
+    id: 2,
+    question: "How quickly can we see value from Axtelica solutions?",
+    answer:
+      "Most clients start seeing results in weeks, not months, thanks to our pre-built frameworks and rapid deployment approach.",
+  },
+  {
+    id: 3,
+    question: "Can Axtelica work with our existing systems?",
+    answer:
+      "Yes. Our solutions are designed to seamlessly integrate with your current data sources, cloud platforms, and enterprise systems—without disrupting your operations.",
+  },
+  {
+    id: 4,
+    question: "How does Axtelica help reduce costs and risks?",
+    answer:
+      "By automating data processes and applying AI for anomaly and fraud detection, Axtelica helps reduce operational costs while proactively identifying risks before they impact the business.",
+  },
+  {
+    id: 5,
+    question: "Is Axtelica scalable as our business grows?",
+    answer:
+      "Absolutely. Our cloud-native architecture ensures your data platform can scale effortlessly with increasing data volumes and business needs.",
+  },
+]
 
 
 
@@ -93,7 +116,12 @@ export const productsData = {
 
   infinisight: {
     name: "Infinisight",
+    axtreamlogo:"/assets/infinisight_banner_logo.png",
     heroTitle: "Turn Your Data Into Intelligent Decisions",
+      midleTitle:"Infinisight – Smarter Data. Faster Decisions.",
+      midlePara:"Unlock the power of your business data with AI-driven dashboards, automated insights, and real-time analytics designed to accelerate growth.",
+      botomtitle:"AI-powered insight and monitoring platform",
+      bottompara:"Converts technical data into actionable insights for decision-makers.",
     description:
       "Infinisight is an AI-powered analytics platform that transforms complex data into real-time insights, predictions, and actionable strategies—so you can move faster and smarter.",
     demoSection: {
@@ -122,14 +150,16 @@ export const productsData = {
     button: "Request a Demo",
     tabs: {
       overview: {
-        title: "WHY INFINISIGHT",
-        Subtitles:"Stop Guessing. Start Knowing.",
-        description: "Most businesses struggle with scattered data, slow reporting, and unclear insights. Infinisight brings everything together into one powerful intelligence layer—so you can see what’s happening, why it’s happening, and what to do next.",
+        // title: "What is Infinisight?",
+        // Subtitles:"Infinisight can be described as:",
+        description: "Infinisight is an AI-powered business intelligence and analytics platform that helps organizations integrate data, visualize performance, automate reporting, and make smarter decisions faster.",
         
         points: [
-          "Startups looking to scale with data ",
-          "Enterprises managing complex data systems",
-          "Teams that want faster, smarter decisions ",
+          "Real-time dashboards  ",
+          "KPI monitoring ",
+          "Predictive analytics ",
+          "Automated reporting ",
+          "Data integration from multiple sources "
         ],
       },
       
@@ -159,11 +189,48 @@ export const productsData = {
         ],
       },
     },
+    FAQ: [
+  {
+    id: 1,
+    question: "What is Infinisight?",
+    answer:
+      "Infinisight is an intelligent analytics platform designed to help businesses convert data into strategic insights through dashboards, automation, and AI-driven reporting.",
+  },
+  {
+    id: 2,
+    question: "Who should use Infinisight?",
+    answer:
+      "It is ideal for startups, SMEs, enterprises, operations teams, finance teams, marketing teams, and executives who need accurate data insights.",
+  },
+  {
+    id: 3,
+    question: "How does Infinisight help businesses?",
+    answer:
+      "It centralizes data, tracks KPIs, automates reports, improves forecasting, and enables faster decision-making.",
+  },
+  {
+    id: 4,
+    question: "Is Infinisight cloud-based?",
+    answer:
+      "Most likely yes, allowing users to securely access dashboards and reports from anywhere.",
+  },
+  {
+    id: 5,
+    question: "Can small businesses use Infinisight?",
+    answer:
+      "Yes, it can be useful for businesses of all sizes."
+  },
+]
   },
 
   optimaorbit: {
     name: "Intelligent Business Agents-(coming soon)",
+     axtreamlogo:"/assets/axtream_logo_sm.png",
     heroTitle: "Intelligent Business Agents with Intelligent Automation",
+      midleTitle:"Business Intelligence Dashboards",
+      midlePara:"Generate business KPIs, risk insights & data health reports",
+      botomtitle:"Explore Solution and AI Generated Dashboard",
+      bottompara:"A real time business intelligence platform for KPI monitoring, data quality visibility, and operational insights.",
     description:
       "Optimaorbit helps businesses streamline workflows and automate operations.",
     sectionTitle:

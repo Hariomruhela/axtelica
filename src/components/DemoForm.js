@@ -6,9 +6,9 @@ const DemoForm = ({
   points = [],
 }) => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-16 sm:py-20 lg:py-24 px-8 sm:px-6 lg:px-10 bg-white">
       
-      <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div className="max-w-[1400px] px-10 mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         
         {/* LEFT CONTENT (Dynamic) */}
         <div className="max-w-xl">
@@ -80,7 +80,7 @@ const DemoForm = ({
             <div className="md:col-span-2 mt-4">
               <button
                 type="submit"
-                className="w-full sm:w-auto bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full text-lg font-poppins font-medium transition-all duration-300 hover:scale-105"
+                className="w-full bg-[#FF3366] text-white px-7 py-3 rounded-md text-lg font-poppins hover:bg-pink-600 hover:scale-105 transition"
               >
                 Get a Demo
               </button>

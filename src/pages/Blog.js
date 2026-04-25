@@ -33,7 +33,7 @@ const Blog = () => {
    className="
     relative flex items-center justify-center
     py-12 sm:py-12 lg:py-16
-    h-[350px] w-full overflow-hidden
+    h-[450px] w-full overflow-hidden
 
     bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
     bg-[length:400%_400%]

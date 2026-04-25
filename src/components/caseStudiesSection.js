@@ -122,9 +122,9 @@ const CaseStudiesSection = () => {
     <section className="bg-white py-16 px-4 md:px-10">
       <div className="max-w-7xl mx-auto">
         
-        <h1 className="text-3xl md:text-5xl font-bold text-black mb-12 text-center">
+        {/* <h1 className="text-3xl md:text-5xl font-bold text-black mb-12 text-center">
           Case Studies
-        </h1>
+        </h1> */}
 
         <div className="space-y-6">
           {caseStudies.map((item, index) => (
