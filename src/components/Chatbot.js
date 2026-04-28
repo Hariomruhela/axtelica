@@ -201,7 +201,7 @@ export default function Chatbot() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               className="flex-1 border border-[#3d63e3] text-gray-800
-              px-3 py-2 rounded-lg outline-none focus:ring-2 focus:ring-blue-900"
+              px-3 py-2 rounded-lg outline-none focus:ring-1 focus:ring-blue-900"
             />
 
             <button
