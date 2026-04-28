@@ -45,10 +45,10 @@ const fadeUp = {
 };
 
 const Services = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#0e1231]">
-      
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -62,7 +62,7 @@ const Services = () => {
             What We Build
           </h1>
 
-          <p className="Paragraph text-gray-400 mx-auto w-[100%]">
+          <p className="Paragraph text-gray-400 mx-auto w-full max-w-7xl">
             We specialize in four areas — each designed to solve a distinct category of business problem.
           </p>
         </motion.div>
@@ -78,56 +78,55 @@ const Services = () => {
               whileHover={{ y: -6 }}
               viewport={{ once: true }}
               variants={fadeUp}
-              className="group relative"
+              className="group"
             >
-              {/* Card */}
-              <div className="h-full rounded-2xl bg-[#0e1231] p-6 sm:p-8 
-               backdrop-blur-xl 
-              transition-all duration-300 
-              group-hover:shadow-sm ">
+              <div className="h-full rounded-2xl bg-[#0e1231] p-6 sm:p-8 backdrop-blur-xl transition-all duration-300">
 
-                {/* Top Gradient Line */}
-                <div className="h-[1px] w-full bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 rounded-full"></div>
-                    {/* Bottom Hover Line */}
-              <div className="absolute top-8 left-0 h-[2px] w-0 
-                bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500
-                transition-all duration-700 group-hover:w-full"
-              />
+                {/* ✅ FIXED GRADIENT LINE SYSTEM */}
+                <div className="relative mb-6">
+                  
+                  {/* Base Line */}
+                  <div className="h-[1px] w-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+
+                  {/* Hover Line (Perfect Overlay) */}
+                  <div
+                    className="absolute top-0 left-0 h-[2px] w-full
+                    bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500
+                    origin-left scale-x-0
+                    transition-transform duration-700
+                    group-hover:scale-x-100"
+                  />
+
+                </div>
+
                 {/* Title */}
-                <h3 className="card-title-service mb-3">
+                <h3 className="card-title-service mb-3 text-white text-lg sm:text-xl">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="card-desc-service leading-relaxed text-gray-300">
+                <p className="card-desc-service leading-relaxed text-gray-300 text-sm sm:text-base">
                   {service.description}
                 </p>
 
                 {/* Button */}
-                <button 
-                
-                className="inline-flex items-center gap-2 mt-4 text-cyan-400 font-medium hover:gap-3 transition-all">
+                <button className="inline-flex items-center gap-2 mt-4 text-cyan-400 text-sm sm:text-base font-medium hover:gap-3 transition-all">
                   More Details <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
-
-          
             </motion.div>
           ))}
         </div>
 
         {/* Bottom Button */}
-        <div className="flex pt-10 justify-center ">
+        <div className="flex pt-10 justify-center">
           <button
-          onClick={()=>{
-                  navigate("/solution")
-
-                }}
-           className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition">
+            onClick={() => navigate("/solution")}
+            className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition text-sm sm:text-base"
+          >
             Explore Solutions <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>
-
       </div>
     </section>
   );

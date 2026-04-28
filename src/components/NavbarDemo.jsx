@@ -14,7 +14,7 @@ const NavbarDemo = () => {
   const lastScrollY = useRef(0);
   const timeoutRef = useRef(null);
 
-  // ✅ FIXED SCROLL LOGIC
+  // ✅ SCROLL LOGIC
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -24,9 +24,9 @@ const NavbarDemo = () => {
       if (Math.abs(currentScrollY - lastScrollY.current) < 10) return;
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        setShowNavbar(true); // 👈 hide on scroll down
+        setShowNavbar(true);
       } else {
-        setShowNavbar(true); // 👈 show on scroll up
+        setShowNavbar(true);
       }
 
       lastScrollY.current = currentScrollY;
@@ -36,7 +36,6 @@ const NavbarDemo = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ CLEAN NAV ITEM
   const navItem = `
     relative flex items-center gap-1 cursor-pointer
     text-sm lg:text-base font-medium transition-colors duration-300
@@ -48,37 +47,21 @@ const NavbarDemo = () => {
   `;
 
   const dropdownItems = {
-    // solutions: {
-    //   title: "SOLUTIONS",
-    //   path: "/solution",
-    //   columns: [
-    //     [{ name: "Data & Analytics" }, { name: "AI & Machine Learning" }],
-    //     [{ name: "Cloud Solutions" }, { name: "Agile & DevOps" }],
-    //   ],
-    // },
     ai: {
       title: "AI INNOVATION HUB",
       path: "/product/axtream",
       columns: [
-        [{ name: "Axtream", path: "/product/axtream" },
+        [
+          { name: "Axtream", path: "/product/axtream" },
           { name: "Infinisight", path: "/product/infinisight" },
           { name: "Intelligent Business Agents", path: "/product/optimaorbit" },
         ],
-        [{ name: "Product Tour", path: "https://axtream.axtelica.com/" },
+        [
+          { name: "Product Tour", path: "https://axtream.axtelica.com/" },
           { name: "Product Tour", path: "https://infinisight.axtelica.com/" },
-          
         ],
-        
       ],
     },
-    // industries: {
-    //   title: "INDUSTRIES",
-    //   path: "/industries",
-    //   columns: [
-    //     [{ name: "Finance" }, { name: "Retail" }],
-    //     [{ name: "Healthcare" }, { name: "Manufacturing" }],
-    //   ],
-    // },
     case: {
       title: "CASE STUDIES",
       path: "/casestudies",
@@ -94,22 +77,22 @@ const NavbarDemo = () => {
   const handleLeave = () => {
     timeoutRef.current = setTimeout(() => setHovered(null), 150);
   };
-const location = useLocation();
 
-if (location.pathname === "/demo") return null;
+  const location = useLocation();
+  if (location.pathname === "/demo") return null;
+
   return (
     <motion.div
       animate={{ y: showNavbar ? 0 : -120 }}
       transition={{ duration: 0.3 }}
-      className={`fixed  left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-md "
-          : "bg-transparent  top-3 lg:top-4"
+          ? "bg-white/90 backdrop-blur-md shadow-md"
+          : "bg-transparent top-3 lg:top-4"
       }`}
     >
       {/* NAVBAR */}
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8  min-h-[100px] flex items-center justify-between">
-        
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[100px] flex items-center justify-between">
         {/* LOGO */}
         <Link to="/">
           <img
@@ -139,44 +122,50 @@ if (location.pathname === "/demo") return null;
               onMouseEnter={() => handleEnter(key)}
               onMouseLeave={handleLeave}
               onClick={() => {
-  const item = dropdownItems[key];
-  if (item.path) {
-      navigate(item.path);
-      setHovered(null); // ✅ CLOSE MEGA MENU
-    }
-}}
+                const item = dropdownItems[key];
+                if (item.path) {
+                  navigate(item.path);
+                  setHovered(null);
+                }
+              }}
             >
               {key === "ai"
                 ? "AI Innovation Hub"
                 : key === "case"
                 ? "Case Studies"
-                : key.charAt(0).toUpperCase() + key.slice(1)}
+                : key}
               <ChevronDown size={16} />
             </div>
           ))}
-          <div className={navItem}
-          onClick={() => navigate("/industries")}
 
-          >Industries</div>
+          <div
+            className={navItem}
+            onClick={() => navigate("/industries")}
+          >
+            Industries
+          </div>
 
-
-          <div className={navItem}
-          onClick={() => navigate("/blog")}
-
-          >Insights</div>
+          <div
+            className={navItem}
+            onClick={() => navigate("/blog")}
+          >
+            Insights
+          </div>
 
           <button
-          onClick={() => navigate("/demo")}
-           className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-lg font-poppins lg:text-base hover:scale-105 transition">
-            
+            onClick={() => navigate("/demo")}
+            className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-lg lg:text-base hover:scale-105 transition"
+          >
             Request a Demo
           </button>
         </div>
 
         {/* MOBILE ICON */}
-        <div className="lg:hidden">
+        <div className="lg:hidden text-black">
           {mobileOpen ? (
-            <X size={28} onClick={() => setMobileOpen(false)} />
+            <X size={28}
+            className=""
+             onClick={() => setMobileOpen(false)} />
           ) : (
             <Menu size={28} onClick={() => setMobileOpen(true)} />
           )}
@@ -187,18 +176,17 @@ if (location.pathname === "/demo") return null;
       <AnimatePresence>
         {hovered && (
           <motion.div
-           key={hovered} // ✅ IMPORTANT (re-triggers animation)
+            key={hovered}
             onMouseEnter={() => handleEnter(hovered)}
             onMouseLeave={handleLeave}
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            transition={{ duration: 0.25 }}
             className="absolute left-0 top-full w-full px-4 sm:px-6 lg:px-8"
           >
             <div className="max-w-5xl mx-auto bg-[#242938] text-white rounded-2xl shadow-2xl border border-white/10">
               <div className="p-6 md:p-10 flex flex-col md:flex-row gap-10">
-                
                 <div className="flex-1">
                   <p className="text-gray-400 text-xs mb-6 tracking-widest">
                     {dropdownItems[hovered].title}
@@ -210,15 +198,14 @@ if (location.pathname === "/demo") return null;
                         {col.map((item, j) => (
                           <div
                             key={j}
-                           onClick={() => {
-  if (item.path.startsWith("http")) {
-    window.open(item.path, "_blank");
-     // open in new tab
-  } else {
-    navigate(item.path); // internal routing
-    setHovered(null); // ✅ THIS closes the mega menu
-  }
-}}
+                            onClick={() => {
+                              if (item.path?.startsWith("http")) {
+                                window.open(item.path, "_blank");
+                              } else if (item.path) {
+                                navigate(item.path);
+                                setHovered(null);
+                              }
+                            }}
                             className="text-lg hover:text-cyan-400 cursor-pointer"
                           >
                             {item.name}
@@ -234,21 +221,22 @@ if (location.pathname === "/demo") return null;
                     Get Started
                   </button>
                 </div>
-
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* MOBILE MENU */}
+      {/* ✅ FIXED MOBILE MENU */}
       <AnimatePresence>
         {mobileOpen && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black/40 z-40"
+              className="fixed inset-0 bg-black/50 z-40"
               onClick={() => setMobileOpen(false)}
+              
             />
+            
 
             <motion.div
               initial={{ x: "100%" }}
@@ -256,64 +244,78 @@ if (location.pathname === "/demo") return null;
               exit={{ x: "100%" }}
               className="fixed right-0 top-0 h-full w-[85%] max-w-sm bg-[#242938] z-50 p-6 overflow-y-auto"
             >
-              <div className="space-y-6 text-lg font-poppins">
-               <Link to="/"> <div className="text-lg font-medium">Company</div></Link>
-                <Link to="/solution">
-            <div className="text-lg font-poppins">Solutions</div>
-          </Link>
+              <div className="space-y-6 text-base text-white">
+                
+                <div onClick={() => {navigate("/about"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Company</div>
 
-                {Object.keys(dropdownItems).map((key) => (
-                  <div key={key}>
-                    <div
-                      onClick={() =>
-                        setActiveMobile(
-                          activeMobile === key ? null : key
-                        )
-                      }
-                      className="flex justify-between items-center cursor-pointer"
-                    >
-                      <span className="font-semibold">
-                        {key === "ai"
-                          ? "AI Innovation Hub"
-                          : key === "case"
-                          ? "Case Studies"
-                          : key.charAt(0).toUpperCase() +
-                            key.slice(1)}
-                      </span>
+                <div onClick={() => {navigate("/solution"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Solutions</div>
 
-                      <ChevronDown
-                        size={20}
-                        className={`transition-transform ${
-                          activeMobile === key
-                            ? "rotate-180 text-cyan-400"
-                            : ""
-                        }`}
-                      />
-                    </div>
+               {Object.keys(dropdownItems).map((key) => (
+  <div key={key}>
+    
+    {/* 🔥 FIXED HEADER ROW */}
+    <div className="flex justify-between items-center">
 
-                    {activeMobile === key && (
-                      <div className="ml-3 mt-3 space-y-2 text-gray-300">
-                        {dropdownItems[key].columns
-                          .flat()
-                          .map((item, i) => (
-                            <div
-                              key={i}
-                              className="hover:text-cyan-400 cursor-pointer"
-                            >
-                              {item.name}
-                            </div>
-                          ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <Link to="/blog">
-                <div className="text-lg font-medium">Insights</div></Link>
-               <Link to="/casestudies"> <div className="text-lg font-medium">CaseStudies</div></Link>
+      {/* ✅ TEXT CLICK → NAVIGATE */}
+      <span
+        onClick={() => {
+          const item = dropdownItems[key];
+          if (item.path) {
+            navigate(item.path);
+            setMobileOpen(false);
+          }
+        }}
+        className="font-semibold cursor-pointer hover:text-cyan-400"
+      >
+        {key === "ai"
+          ? "AI Innovation Hub"
+          : "Case Studies"}
+      </span>
 
-                <button 
-                onClick={() => navigate("/demo")}
-                className="w-full bg-[#FF3366] py-3 rounded-full">
+      {/* ✅ ICON CLICK → TOGGLE */}
+      <ChevronDown
+        size={18}
+        onClick={() =>
+          setActiveMobile(activeMobile === key ? null : key)
+        }
+        className={`cursor-pointer transition-transform ${
+          activeMobile === key ? "rotate-180 text-cyan-400" : ""
+        }`}
+      />
+    </div>
+
+    {/* ✅ DROPDOWN ITEMS */}
+    {activeMobile === key && (
+      <div className="ml-3 mt-3 space-y-3 text-sm text-gray-300">
+        {dropdownItems[key].columns.flat().map((item, i) => (
+          <div
+            key={i}
+            onClick={() => {
+              if (item.path?.startsWith("http")) {
+                window.open(item.path, "_blank");
+              } else if (item.path) {
+                navigate(item.path);
+              }
+              setMobileOpen(false);
+            }}
+            className="cursor-pointer hover:text-cyan-400"
+          >
+            {item.name}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+))}
+
+                <div onClick={() => {navigate("/industries"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Industries</div>
+
+                <div onClick={() => {navigate("/blog"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Insights</div>
+
+                <button
+                  onClick={() => {navigate("/demo"); setMobileOpen(false);}}
+                  className="w-full bg-[#FF3366] py-3 rounded-full text-sm font-medium"
+                >
                   Request a Demo
                 </button>
               </div>

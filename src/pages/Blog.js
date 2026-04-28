@@ -5,12 +5,19 @@ import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import WhitepapersSection from "../components/WhitepapersSection";
 
-const categories = ["All", "DATA QUALITY","DECISION INTELLIGENCE","AI AGENTS", "AUTOMATION", "STRATEGY","PLATFORMS"];
+const categories = [
+  "All",
+  "DATA QUALITY",
+  "DECISION INTELLIGENCE",
+  "AI AGENTS",
+  "AUTOMATION",
+  "STRATEGY",
+  "PLATFORMS",
+];
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  // 🔹 Animation
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     show: {
@@ -20,7 +27,6 @@ const Blog = () => {
     },
   };
 
-  // 🔹 Filter Logic
   const filteredBlogs =
     activeCategory === "All"
       ? blogData
@@ -29,17 +35,16 @@ const Blog = () => {
   return (
     <div>
       {/* 🔥 HERO SECTION */}
-       <section
-   className="
-    relative flex items-center justify-center
-    py-12 sm:py-12 lg:py-16
-    h-[450px] w-full overflow-hidden
-
-    bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
-    bg-[length:400%_400%]
-    animate-gradientFlow
-  "
->
+      <section
+        className="
+          relative flex items-center justify-center
+          py-12 sm:py-12 lg:py-16
+          h-[450px] w-full overflow-hidden
+          bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
+          bg-[length:400%_400%]
+          animate-gradientFlow
+        "
+      >
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -53,35 +58,43 @@ const Blog = () => {
       </section>
 
       {/* 🔥 BLOG SECTION */}
-      <section className="min-h-screen bg-white py-12 px-6">
+      <section className="min-h-screen bg-white py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl font-bold text-black mb-10 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-8 sm:mb-10 text-center">
             Insights & Resources
           </h1>
 
-          {/* 🔥 Tabs (Centered + Active State) */}
-          <div className="flex justify-center gap-5 mb-5 flex-wrap">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2 rounded-md border transition ${
-                  activeCategory === cat
-                    ? "bg-[#FF3366] text-white border-pink-500"
-                    : "border-gray-400 text-gray-700 hover:bg-[#FF3366] hover:text-white"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* ✅ MOBILE OPTIMIZED TABS */}
+          <div className="w-full overflow-x-auto no-scrollbar mb-6 py-2">
+            <div className="flex sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-5 px-1">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`
+                    whitespace-nowrap
+                    px-3 py-1.5 sm:px-5 sm:py-2
+                    text-xs sm:text-base
+                    rounded-md border transition
+                    ${
+                      activeCategory === cat
+                        ? "bg-[#FF3366] text-white border-pink-500"
+                        : "border-gray-400 text-gray-700 hover:bg-[#FF3366] hover:text-white"
+                    }
+                  `}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* 🔥 Blog Grid with Animation */}
+          {/* 🔥 Blog Grid */}
           <motion.div
             layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
             {filteredBlogs.map((blog, index) => (
               <motion.div
@@ -95,7 +108,7 @@ const Blog = () => {
             ))}
           </motion.div>
 
-          {/* Optional Empty State */}
+          {/* Empty State */}
           {filteredBlogs.length === 0 && (
             <p className="text-center text-gray-500 mt-10">
               No blogs found for this category.
@@ -103,9 +116,7 @@ const Blog = () => {
           )}
         </div>
 
-        <WhitepapersSection/>
-
-        
+        <WhitepapersSection />
       </section>
 
       <Footer />

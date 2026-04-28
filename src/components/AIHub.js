@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const products = [
@@ -8,7 +8,6 @@ const products = [
     description:
       "A real-time business intelligence platform for KPI monitoring, data quality visibility, and operational insight.",
     image: "/assets/axtream_home_img.png",
-    buttonImage: "/assets/start_free_trial_btn.png",
   },
   {
     title: "Infinisight",
@@ -16,99 +15,126 @@ const products = [
     description:
       "A simulation and synthetic data platform for what-if analysis and smarter forecasting.",
     image: "/assets/infi_home_img.png",
-    buttonImage: "/assets/start_free_trial_btn.png",
   },
   {
-    title: "Intelligent Business Agents ",
+    title: "Intelligent Business Agents",
     path: "/product/optimaorbit",
     description:
       "Axtelica is developing intelligent agents to assist teams with analytics, validation, and automation.",
     image: "/assets/ai_agent_home_img.png",
-    buttonImage: "/assets/start_free_trial_btn.png",
   },
 ];
 
 const AIHub = () => {
   const navigate = useNavigate();
+  const [active, setActive] = useState(null);
+
+  const handleClick = (i, path) => {
+    if (window.innerWidth < 768) {
+      // mobile behavior
+      if (active === i) {
+        navigate(path);
+      } else {
+        setActive(i);
+      }
+    } else {
+      navigate(path);
+    }
+  };
+
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
+    <section className="bg-white py-12 sm:py-16 lg:py-20">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-10">
-          <div className="leading-none">
-            <h2 className="text-[clamp(28px,5vw,48px)] font-semibold text-gray-900 leading-tight">
-              AI Innovation Hub
-            </h2>
+       {/* Header */}
+<div className="grid lg:grid-cols-2 gap-4 lg:gap-10 mb-4">
 
-            <p className="mt-3 mb-12 text-[clamp(16px,2vw,34px)] font-poppins text-gray-700">
-              Platforms and Products by Axtelica
-            </p>
-          </div>
+  {/* Left */}
+  <div className="leading-tight">
+    <h2 className="text-[22px] sm:text-[28px] lg:text-[clamp(28px,5vw,48px)] 
+                   font-semibold text-gray-900">
+      AI Innovation Hub
+    </h2>
 
-          <p className="text-gray-600 text-base md:text-lg lg:text-right max-w-xl mt-2 ml-auto">
-            Our platforms are built as standalone products — but designed to work together as a unified intelligence layer across your business.
-          </p>
-        </div>
+    <p className="mt-2 sm:mt-3 mb-4 sm:mb-3 lg:mb-12 
+                  text-[14px] sm:text-[16px] lg:text-[clamp(16px,2vw,34px)] 
+                  text-gray-700">
+      Platforms and Products by Axtelica
+    </p>
+  </div>
+
+  {/* Right */}
+  <p className="text-gray-600 
+                text-[13px] sm:text-[14px] md:text-base lg:text-lg 
+                lg:text-right max-w-xl ml-auto 
+                mt-0 sm:mt-2">
+    Our platforms are built as standalone products — but designed to work together as a unified intelligence layer across your business.
+  </p>
+
+</div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {products.map((item, i) => (
-            
-            <div
-              key={i}
-              onClick={() => navigate(item.path)}
-              className="relative  overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group h-[450px] cursor-pointer"
-            >
+          {products.map((item, i) => {
+            const isActive = active === i;
 
-              {/* Image */}
-              <div className="absolute  h-full group-hover:h-[60%] transition-all duration-500 ease-in-out origin-bottom">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full    object-cover transition duration-500 group-hover:scale-125"
+            return (
+              <div
+                key={i}
+                onClick={() => handleClick(i, item.path)}
+                className="relative overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group h-[420px] sm:h-[450px] cursor-pointer"
+              >
+
+                {/* Image */}
+                <div
+                  className={`
+                    absolute w-full h-full origin-bottom
+                    transition-all duration-500 ease-in-out
+                    ${isActive ? "h-[60%]" : ""}
+                    lg:group-hover:h-[60%]
+                  `}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition duration-500 lg:group-hover:scale-125"
+                  />
+                </div>
+
+                {/* Overlay */}
+                <div
+                  className={`
+                    absolute inset-0 transition-all duration-500
+                    ${isActive ? "bg-black/40" : "bg-black/20"}
+                    lg:group-hover:bg-black/40
+                  `}
                 />
-              </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500"></div>
+                {/* White Panel */}
+                <div className="absolute left-0 right-0 bottom-0 bg-white p-4 pt-7 z-20">
 
-              {/* White Panel */}
-              <div className="absolute left-0 right-0 bottom-0 bg-white p-4 pt-7 h-auto
-                              transition-all duration-500 ease-in-out z-20">
+                  {/* Title */}
+                  <h3 className="text-gray-900 text-xl sm:text-2xl">
+                    {item.title}
+                  </h3>
 
-                {/* Title (always visible) */}
-                <h3 className="text-gray-900 text-2xl font-poppins  ">
-                  {item.title}
-                </h3>
-
-                {/* Hidden Content */}
-                <div className="mt-3 opacity-0 max-h-0 overflow-hidden 
-                                group-hover:opacity-100 group-hover:max-h-[100px] 
-                                transition-all duration-500">
-
-                  <p className="text-lg font-poppins text-gray-600 mb-5 leading-relaxed">
-                    {item.description}
-                  </p>
-
-                  {/* {item.buttonImage ? (
-                    <img
-                      src={item.buttonImage}
-                      alt="button"
-                      className="w-[140px] transition-transform duration-300 hover:scale-105"
-                    />
-                  ) : (
-                    <button className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
-                      Explore
-                    </button>
-                  )} */}
+                  {/* Hidden Content */}
+                  <div
+                    className={`
+                      mt-3 overflow-hidden transition-all duration-500
+                      ${isActive ? "opacity-100 max-h-[120px]" : "opacity-0 max-h-0"}
+                      lg:group-hover:opacity-100 lg:group-hover:max-h-[100px]
+                    `}
+                  >
+                    <p className="text-sm sm:text-lg text-gray-600 mb-4 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
 
               </div>
-
-            </div>
-
-          ))}
+            );
+          })}
         </div>
 
       </div>
