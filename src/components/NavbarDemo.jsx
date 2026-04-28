@@ -161,7 +161,7 @@ const NavbarDemo = () => {
         </div>
 
         {/* MOBILE ICON */}
-        <div className="lg:hidden text-black">
+        <div className="lg:hidden ">
           {mobileOpen ? (
             <X size={28}
             className=""
