@@ -3,41 +3,97 @@ import { FaPaperclip, FaSmile } from "react-icons/fa";
 import { IoSendSharp } from "react-icons/io5";
 import EmojiPicker from "emoji-picker-react";
 
-const faqDatabase = [
+/* ===================== KNOWLEDGE BASE ===================== */
+const knowledgeBase = [
   {
     keywords: ["hi", "hello", "hey"],
-    response: "Hello 👋 Welcome! How can I assist you today?",
+    responses: ["Hello 👋 Welcome to Axtelica! How can I help you today?"],
   },
   {
-    keywords: ["services", "offer", "provide"],
-    response:
-      "We provide AI Automation, E-commerce Solutions, and Cloud Services.",
+    keywords: ["about", "company"],
+    responses: [
+      "Axtelica is an AI and Data Analytics company helping businesses transform using data-driven solutions.",
+    ],
   },
   {
-    keywords: ["price", "cost", "pricing"],
-    response:
-      "Pricing depends on your requirements. Would you like to share more details?",
+    keywords: ["services"],
+    responses: [
+      "We offer:\n• AI Data Engineering\n• Business Intelligence\n• DevOps\n• Digital Transformation",
+    ],
   },
   {
-    keywords: ["contact", "email", "call"],
-    response:
-      "You can contact us via our contact form or email us at hello@yourdomain.com.",
+    keywords: ["ai"],
+    responses: [
+      "We provide AI-powered automation, machine learning, and data engineering solutions.",
+    ],
+  },
+  {
+    keywords: ["analytics"],
+    responses: [
+      "We build dashboards, predictive analytics, and real-time reporting systems.",
+    ],
+  },
+  {
+    keywords: ["devops"],
+    responses: [
+      "Our DevOps services include CI/CD pipelines, cloud deployment, and automation.",
+    ],
+  },
+  {
+    keywords: ["product", "catalystcraft"],
+    responses: [
+      "CatalystCraft is our accelerator toolkit for faster analytics deployment.",
+    ],
+  },
+  {
+    keywords: ["price", "cost"],
+    responses: [
+      "Pricing depends on your requirements. Please contact us for a custom quote.",
+    ],
+  },
+  {
+    keywords: ["contact"],
+    responses: [
+      "📧 hello@axtelica.com\n📞 +91 8800112559",
+    ],
+  },
+  {
+    keywords: ["demo", "meeting", "book"],
+    responses: [
+      "You can book a demo here 👉 https://axtelica.com/demo",
+    ],
+  },
+  {
+    keywords: ["thanks", "thank you"],
+    responses: ["You're welcome 😊 Happy to help!"],
   },
 ];
 
+/* ===================== INTENT DETECTION ===================== */
 function detectIntent(message) {
   const lowerMsg = message.toLowerCase();
-  for (let item of faqDatabase) {
-    for (let keyword of item.keywords) {
-      if (lowerMsg.includes(keyword)) return item.response;
+
+  for (let item of knowledgeBase) {
+    const match = item.keywords.some((keyword) =>
+      lowerMsg.includes(keyword)
+    );
+
+    if (match) {
+      const randomIndex = Math.floor(Math.random() * item.responses.length);
+      return item.responses[randomIndex];
     }
   }
-  return "I'm not sure I understand. Could you please rephrase?";
+
+  return "I didn't fully get that 🤔. You can ask about services, AI, pricing, or contact info!";
 }
 
+/* ===================== COMPONENT ===================== */
 export default function Chatbot() {
   const [messages, setMessages] = useState([
-    { sender: "bot", text: "Hi, I'm  AXA your AI Chat Assistant. Anything specific you're curious about regarding our solutions and products?" },
+    {
+      sender: "bot",
+      text: "Hi, I'm AXA your AI Chat Assistant. Anything specific you're curious about regarding our solutions and products?",
+    },
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -46,23 +102,28 @@ export default function Chatbot() {
   const fileInputRef = useRef();
   const chatEndRef = useRef();
 
-  // ✅ Auto-scroll
+  /* 🔽 Auto-scroll */
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  /* 🔽 Send Message */
   const handleSend = () => {
     if (!input.trim()) return;
 
+    const userMessage = input;
+    const botReply = detectIntent(userMessage);
+
     setMessages((prev) => [
       ...prev,
-      { sender: "user", text: input },
-      { sender: "bot", text: detectIntent(input) },
+      { sender: "user", text: userMessage },
+      { sender: "bot", text: botReply },
     ]);
 
     setInput("");
   };
 
+  /* 🔽 File Upload */
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -75,7 +136,7 @@ export default function Chatbot() {
     ]);
   };
 
-  // ✅ FIXED (used now)
+  /* 🔽 Emoji */
   const onEmojiClick = (emojiData) => {
     setInput((prev) => prev + emojiData.emoji);
     setShowEmoji(false);
@@ -89,11 +150,7 @@ export default function Chatbot() {
         className="fixed bottom-6 right-4 sm:right-6 w-14 h-14 flex items-center justify-center
         rounded-full bg-white shadow-lg hover:scale-110 transition z-50"
       >
-        <img
-          src="/assets/chat_icon.png"
-          alt="Open chat"
-          className="p-2"
-        />
+        <img src="/assets/chat_icon.png" alt="Open chat" className="p-2" />
       </button>
 
       {/* 💬 Chat Window */}
@@ -106,7 +163,7 @@ export default function Chatbot() {
           rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-[linear-gradient(135deg,#11258f_0%,#1a35ad_40%,#2b4ec9_75%,#3d63e3_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+          <div className="flex items-center justify-between px-4 py-3 bg-[linear-gradient(135deg,#11258f_0%,#1a35ad_40%,#2b4ec9_75%,#3d63e3_100%)]">
             <div className="flex items-center gap-2">
               <img
                 src="/assets/axa_chat_icon.png"
@@ -132,10 +189,10 @@ export default function Chatbot() {
               <div key={i}>
                 {msg.text && (
                   <div
-                    className={`max-w-[80%] px-3 py-2 rounded-xl break-words  ${
+                    className={`max-w-[80%] px-3 py-2 rounded-xl break-words ${
                       msg.sender === "user"
-                        ? "ml-auto bg-[#dce6f0] text-black font-poppins"
-                        : "mr-auto bg-[#dce6f0] text-black font-poppins shadow-sm"
+                        ? "ml-auto bg-[#dce6f0] text-black w-fit"
+                        : "mr-auto bg-[#dce6f0] text-black shadow-sm"
                     }`}
                   >
                     {msg.text}
@@ -170,11 +227,7 @@ export default function Chatbot() {
           {/* Emoji Picker */}
           {showEmoji && (
             <div className="absolute bottom-20 right-2 z-50">
-              <EmojiPicker
-                onEmojiClick={onEmojiClick}
-                width={280}
-                height={350}
-              />
+              <EmojiPicker onEmojiClick={onEmojiClick} width={280} height={350} />
             </div>
           )}
 
