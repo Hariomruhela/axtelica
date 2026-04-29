@@ -103,3 +103,25 @@
 .delay-2 { animation-delay: 0.20s; }
 .delay-3 { animation-delay: 0.33s; }
 .delay-4 { animation-delay: 0.45s; }
+
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Smooth font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Better images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}

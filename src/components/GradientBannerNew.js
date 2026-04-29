@@ -13,18 +13,7 @@ const GradientBannerNew = () => {
       {slides.map((text, index) => (
         <div
           key={index}
-          className="
-            absolute w-full text-white font-poppins
-            px-4 sm:px-6
-            text-center md:text-right md:pr-[10%]
-
-            text-sm sm:text-base md:text-xl lg:text-2xl
-
-            leading-snug
-            opacity-0 animate-crossFade
-
-            whitespace-normal md:whitespace-nowrap
-          "
+          className="max-w-[1400px] absolute w-full text-white font-poppins px-4 sm:px-6  text-center md:text-right md:pr-[1.5%] text-sm sm:text-base md:text-3xl lg:text-4xl leading-snug opacity-0 animate-crossFade whitespace-normal md:whitespace-nowrap "
           style={{ animationDelay: `${index * 4}s` }}
         >
           {text}

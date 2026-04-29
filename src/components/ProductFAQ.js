@@ -10,44 +10,66 @@ const ProductFAQ = ({ data = [] }) => {
 
   if (!data || data.length === 0) {
     return (
-      <p className="text-center text-gray-500">No FAQs available</p>
+      <p className="text-center text-gray-500 py-10">
+        No FAQs available
+      </p>
     );
   }
 
   return (
-    <section className="py-16 px-4 md:px-10 bg-white">
-      <div className="max-w-[1400px] px-7 mx-auto">
-        
-        <h2 className="text-3xl md:text-4xl text-black font-bold text-center mb-10">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="max-w-[1400px] mx-auto">
+
+        {/* Heading */}
+        <h2 className="
+          text-center font-bold text-black mb-8 sm:mb-10
+          text-2xl sm:text-3xl md:text-4xl
+        ">
           Frequently Asked Questions
         </h2>
 
-        <div className="space-y-4">
+        {/* FAQ List */}
+        <div className="space-y-3 sm:space-y-4">
           {data.map((item, index) => (
             <div
-              key={item.id}
-              className="border rounded-xl p-5 shadow-sm bg-white"
+              key={item.id || index}
+              className="
+                border border-gray-200
+                rounded-lg sm:rounded-xl
+                p-4 sm:p-5
+                bg-white
+                shadow-sm hover:shadow-md
+                transition
+              "
             >
-              {/* 🔹 Question Row */}
-              <div
-                className="flex justify-between items-center cursor-pointer"
+              {/* Question Row */}
+              <button
                 onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-start sm:items-center gap-4 text-left"
               >
-                <h3 className="text-lg md:text-xl font-poppins  text-gray-900">
+                <h3 className="
+                  text-gray-900 font-poppins
+                  text-sm sm:text-base md:text-lg lg:text-xl
+                  leading-snug
+                ">
                   {item.question}
                 </h3>
 
-                {/* + / - Button */}
+                {/* Toggle Icon */}
                 <motion.span
                   animate={{ rotate: activeIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-2xl font-bold text-gray-900"
+                  transition={{ duration: 0.25 }}
+                  className="
+                    text-lg sm:text-xl md:text-2xl
+                    font-bold text-gray-900
+                    flex-shrink-0
+                  "
                 >
                   {activeIndex === index ? "−" : "+"}
                 </motion.span>
-              </div>
+              </button>
 
-              {/* 🔹 Answer */}
+              {/* Answer */}
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
@@ -57,7 +79,12 @@ const ProductFAQ = ({ data = [] }) => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-gray-700 font-poppins text-lg mt-3">
+                    <p className="
+                      text-gray-700 font-poppins
+                      text-sm sm:text-base md:text-lg
+                      leading-relaxed
+                      mt-3
+                    ">
                       {item.answer}
                     </p>
                   </motion.div>

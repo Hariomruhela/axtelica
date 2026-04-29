@@ -38,8 +38,9 @@ const Blog = () => {
       <section
         className="
           relative flex items-center justify-center
-          py-12 sm:py-12 lg:py-16
-          h-[450px] w-full overflow-hidden
+          py-12 sm:py-14 lg:py-16
+          min-h-[300px] sm:min-h-[350px] lg:h-[450px]
+          w-full overflow-hidden
           bg-[linear-gradient(-45deg,#101030,#0F1242,#2558BA,#306BCA)]
           bg-[length:400%_400%]
           animate-gradientFlow
@@ -51,24 +52,24 @@ const Blog = () => {
           animate="show"
           className="relative z-10 w-full max-w-[1400px] px-4 sm:px-6 lg:px-8 flex justify-center"
         >
-          <h1 className="text-[clamp(28px,5vw,52px)] font-bold text-white text-center max-w-3xl leading-tight">
+          <h1 className="text-[clamp(22px,6vw,52px)] font-bold text-white text-center max-w-3xl leading-tight">
             AI Solutions Built for Real Business Impact
           </h1>
         </motion.div>
       </section>
 
       {/* 🔥 BLOG SECTION */}
-      <section className="min-h-screen bg-white py-12 px-4 sm:px-6">
+      <section className="min-h-screen bg-white py-10 sm:py-12 lg:py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
 
           {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-8 sm:mb-10 text-center">
+          <h1 className="text-[clamp(22px,5vw,48px)] font-bold text-black mb-6 sm:mb-8 lg:mb-10 text-center">
             Insights & Resources
           </h1>
 
-          {/* ✅ MOBILE OPTIMIZED TABS */}
-          <div className="w-full overflow-x-auto no-scrollbar mb-6 py-2">
-            <div className="flex sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-5 px-1">
+          {/* ✅ TABS */}
+          <div className="w-full overflow-x-auto no-scrollbar mb-6 sm:mb-8 py-2">
+            <div className="flex sm:flex-wrap justify-start sm:justify-center gap-2 sm:gap-4 px-1">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -76,7 +77,7 @@ const Blog = () => {
                   className={`
                     whitespace-nowrap
                     px-3 py-1.5 sm:px-5 sm:py-2
-                    text-xs sm:text-base
+                    text-xs sm:text-sm md:text-base
                     rounded-md border transition
                     ${
                       activeCategory === cat
@@ -94,14 +95,14 @@ const Blog = () => {
           {/* 🔥 Blog Grid */}
           <motion.div
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
           >
             {filteredBlogs.map((blog, index) => (
               <motion.div
                 key={blog.id}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08 }}
               >
                 <BlogCard blog={blog} />
               </motion.div>
@@ -110,13 +111,16 @@ const Blog = () => {
 
           {/* Empty State */}
           {filteredBlogs.length === 0 && (
-            <p className="text-center text-gray-500 mt-10">
+            <p className="text-center text-gray-500 mt-8 sm:mt-10">
               No blogs found for this category.
             </p>
           )}
         </div>
 
-        <WhitepapersSection />
+        {/* Whitepapers */}
+        <div className="mt-10 sm:mt-14 lg:mt-16">
+          <WhitepapersSection />
+        </div>
       </section>
 
       <Footer />

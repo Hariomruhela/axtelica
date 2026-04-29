@@ -48,83 +48,102 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#0e1231]">
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#0e1231] py-12 sm:py-16 lg:py-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-10 sm:mb-14 lg:mb-16"
         >
-          <h1 className="heading-primary-service text-white mb-4">
+          <h2 className="text-white font-bold 
+          text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
             What We Build
-          </h1>
+          </h2>
 
-          <p className="Paragraph text-gray-400 mx-auto w-full max-w-7xl">
+          <p className="text-gray-400 mx-auto max-w-7xl 
+          text-sm sm:text-base md:text-lg">
             We specialize in four areas — each designed to solve a distinct category of business problem.
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              whileHover={{ y: -6 }}
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="group"
-            >
-              <div className="h-full rounded-2xl bg-[#0e1231] p-6 sm:p-8 backdrop-blur-xl transition-all duration-300">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8">
+          {services.map((service, i) => {
+            
 
-                {/* ✅ FIXED GRADIENT LINE SYSTEM */}
-                <div className="relative mb-6">
-                  
-                  {/* Base Line */}
-                  <div className="h-[1px] w-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+            return (
+              <motion.div
+                key={service.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                whileHover={{ y: -6 }}
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="group"
+              >
+                <div className="h-full flex flex-col justify-between rounded-2xl 
+                bg-[#0e1231] p-6 sm:p-8  
+                backdrop-blur-md transition-all duration-300">
 
-                  {/* Hover Line (Perfect Overlay) */}
-                  <div
-                    className="absolute top-0 left-0 h-[2px] w-full
-                    bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500
-                    origin-left scale-x-0
-                    transition-transform duration-700
-                    group-hover:scale-x-100"
-                  />
+                  {/* Top Content */}
+                  <div>
+
+                    {/* Gradient Line */}
+                    <div className="relative mb-5">
+                      <div className="h-[1px] w-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+
+                      <div className="absolute top-0 left-0 h-[2px] w-full
+                        bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500
+                        origin-left scale-x-0
+                        transition-transform duration-700
+                        group-hover:scale-x-100"
+                      />
+                    </div>
+
+                    
+
+                    {/* Title */}
+                    <h3 className="text-white font-semibold 
+                    text-lg sm:text-xl mb-2">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-300 leading-relaxed 
+                    text-sm sm:text-base">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Button */}
+                  <div className="mt-6">
+                    <button className="inline-flex items-center gap-2 
+                    text-cyan-400 text-sm sm:text-base font-medium">
+                      More Details 
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
 
                 </div>
-
-                {/* Title */}
-                <h3 className="card-title-service mb-3 text-white text-lg sm:text-xl">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="card-desc-service leading-relaxed text-gray-300 text-sm sm:text-base">
-                  {service.description}
-                </p>
-
-                {/* Button */}
-                <button className="inline-flex items-center gap-2 mt-4 text-cyan-400 text-sm sm:text-base font-medium hover:gap-3 transition-all">
-                  More Details <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Bottom Button */}
-        <div className="flex pt-10 justify-center">
+        <div className="flex justify-center mt-10 sm:mt-12">
           <button
             onClick={() => navigate("/solution")}
-            className="flex items-center gap-2 bg-[#ff3366] text-white px-6 py-3 rounded-md shadow-md hover:scale-105 transition text-sm sm:text-base"
+            className="flex items-center gap-2 
+            bg-[#ff3366] text-white px-5 py-3 rounded-md 
+            hover:scale-105 transition text-sm sm:text-base"
           >
-            Explore Solutions <ArrowUpRight className="w-5 h-5" />
+            Explore Solutions 
+            <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>
       </div>

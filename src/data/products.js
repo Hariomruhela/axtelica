@@ -123,7 +123,7 @@ FAQ: [
       botomtitle:"AI-powered insight and monitoring platform",
       bottompara:"Converts technical data into actionable insights for decision-makers.",
     description:
-      "Infinisight is an AI-powered analytics platform that transforms complex data into real-time insights, predictions, and actionable strategies—so you can move faster and smarter.",
+      "Infinisight is an intelligent analytics platform designed to help businesses convert data into strategic insights through dashboards, automation, and AI-driven reporting. Since it is under Axtelica, it aligns with their focus on data engineering, BI, analytics, cloud, and AI solutions.",
     demoSection: {
       title: "Ready to unlock the power of your data?",
       description:

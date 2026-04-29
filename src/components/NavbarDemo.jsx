@@ -8,7 +8,7 @@ const NavbarDemo = () => {
   const [activeMobile, setActiveMobile] = useState(null);
   const [hovered, setHovered] = useState(null);
   const navigate = useNavigate();
-
+  const location = useLocation(); 
   const [showNavbar, setShowNavbar] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const lastScrollY = useRef(0);
@@ -35,10 +35,19 @@ const NavbarDemo = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+   // ✅ Close mobile on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // ✅ Lock body scroll
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "auto";
+  }, [mobileOpen]);
 
   const navItem = `
     relative flex items-center gap-1 cursor-pointer
-    text-sm lg:text-base font-medium transition-colors duration-300
+    text-sm md:text-base font-medium transition-colors duration-300
     ${
       scrolled
         ? "text-gray-800 hover:text-cyan-500"
@@ -78,7 +87,7 @@ const NavbarDemo = () => {
     timeoutRef.current = setTimeout(() => setHovered(null), 150);
   };
 
-  const location = useLocation();
+ 
   if (location.pathname === "/demo") return null;
 
   return (
@@ -87,12 +96,13 @@ const NavbarDemo = () => {
       transition={{ duration: 0.3 }}
       className={`fixed left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-md"
-          : "bg-transparent top-3 lg:top-4"
+          ? "bg-white/90 backdrop-blur-md backdrop-saturate-150 shadow-md"
+          : "bg-transparent top-2 lg:top-4"
       }`}
     >
       {/* NAVBAR */}
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[100px] flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[70px] lg:min-h-[90px] flex items-center justify-between">
+        
         {/* LOGO */}
         <Link to="/">
           <img
@@ -102,18 +112,14 @@ const NavbarDemo = () => {
                 : "/assets/Logo_header_white.png"
             }
             alt="logo"
-            className="h-10 w-auto object-contain"
+            className="h-9 md:h-10 w-auto object-contain"
           />
         </Link>
 
-        {/* DESKTOP MENU */}
+        {/* DESKTOP */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          <Link to="/about">
-            <div className={navItem}>Company</div>
-          </Link>
-          <Link to="/solution">
-            <div className={navItem}>Solutions</div>
-          </Link>
+          <Link to="/about"><div className={navItem}>Company</div></Link>
+          <Link to="/solution"><div className={navItem}>Solutions</div></Link>
 
           {Object.keys(dropdownItems).map((key) => (
             <div
@@ -122,52 +128,45 @@ const NavbarDemo = () => {
               onMouseEnter={() => handleEnter(key)}
               onMouseLeave={handleLeave}
               onClick={() => {
-                const item = dropdownItems[key];
-                if (item.path) {
-                  navigate(item.path);
-                  setHovered(null);
-                }
+                navigate(dropdownItems[key].path);
+                setHovered(null);
               }}
             >
-              {key === "ai"
-                ? "AI Innovation Hub"
-                : key === "case"
-                ? "Case Studies"
-                : key}
+              {key === "ai" ? "AI Innovation Hub" : "Case Studies"}
               <ChevronDown size={16} />
             </div>
           ))}
 
-          <div
-            className={navItem}
-            onClick={() => navigate("/industries")}
-          >
+          <div className={navItem} onClick={() => navigate("/industries")}>
             Industries
           </div>
 
-          <div
-            className={navItem}
-            onClick={() => navigate("/blog")}
-          >
+          <div className={navItem} onClick={() => navigate("/blog")}>
             Insights
           </div>
 
           <button
             onClick={() => navigate("/demo")}
-            className="bg-[#FF3366] text-white px-5 py-2 rounded-lg text-lg lg:text-base hover:scale-105 transition"
+            className="bg-[#FF3366] text-white px-4 md:px-5 py-2 rounded-lg text-sm md:text-base hover:scale-105 transition"
           >
-            Request a Demo
+            Request Demo
           </button>
         </div>
 
-        {/* MOBILE ICON */}
-        <div className="lg:hidden ">
+         {/* MOBILE ICON */}
+        <div className="lg:hidden">
           {mobileOpen ? (
-            <X size={28}
-            className=""
-             onClick={() => setMobileOpen(false)} />
+            <X
+              size={28}
+              className={scrolled ? "text-black" : "text-white"}
+              onClick={() => setMobileOpen(false)}
+            />
           ) : (
-            <Menu size={28} onClick={() => setMobileOpen(true)} />
+            <Menu
+              size={28}
+              className={scrolled ? "text-black" : "text-white"}
+              onClick={() => setMobileOpen(true)}
+            />
           )}
         </div>
       </div>
@@ -228,95 +227,75 @@ const NavbarDemo = () => {
       </AnimatePresence>
 
       {/* ✅ FIXED MOBILE MENU */}
+       {/* MOBILE MENU */}
       <AnimatePresence>
         {mobileOpen && (
           <>
             <motion.div
               className="fixed inset-0 bg-black/50 z-40"
               onClick={() => setMobileOpen(false)}
-              
             />
-            
 
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              className="fixed right-0 top-0 h-full w-[85%] max-w-sm bg-[#242938] z-50 p-6 overflow-y-auto"
+              className="fixed right-0 top-0 h-full w-[80%] sm:w-[70%] max-w-sm bg-[#242938] z-50 p-6 overflow-y-auto"
             >
-              <div className="space-y-6 text-base text-white">
-                
-                <div onClick={() => {navigate("/about"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Company</div>
+              <div className="space-y-6 text-white text-base">
+                <div onClick={() => navigate("/about")}>Company</div>
+                <div onClick={() => navigate("/solution")}>Solutions</div>
 
-                <div onClick={() => {navigate("/solution"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Solutions</div>
+                {Object.keys(dropdownItems).map((key) => (
+                  <div key={key}>
+                    <div className="flex justify-between items-center">
+                      <span onClick={() => navigate(dropdownItems[key].path)}>
+                        {key === "ai"
+                          ? "AI Innovation Hub"
+                          : "Case Studies"}
+                      </span>
 
-               {Object.keys(dropdownItems).map((key) => (
-  <div key={key}>
-    
-    {/* 🔥 FIXED HEADER ROW */}
-    <div className="flex justify-between items-center">
+                      <ChevronDown
+                        size={18}
+                        onClick={() =>
+                          setActiveMobile(activeMobile === key ? null : key)
+                        }
+                        className={`${
+                          activeMobile === key ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
 
-      {/* ✅ TEXT CLICK → NAVIGATE */}
-      <span
-        onClick={() => {
-          const item = dropdownItems[key];
-          if (item.path) {
-            navigate(item.path);
-            setMobileOpen(false);
-          }
-        }}
-        className="font-semibold cursor-pointer hover:text-cyan-400"
-      >
-        {key === "ai"
-          ? "AI Innovation Hub"
-          : "Case Studies"}
-      </span>
+                    {activeMobile === key && (
+                      <div className="ml-3 mt-3 space-y-2 text-sm text-gray-300">
+                        {dropdownItems[key].columns.flat().map((item, i) => (
+                          <div
+                            key={i}
+                            onClick={() => {
+                              if (item.path?.startsWith("http")) {
+                                window.open(item.path, "_blank");
+                              } else if (item.path) {
+                                navigate(item.path);
+                              }
+                              setMobileOpen(false);
+                            }}
+                          >
+                            {item.name}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
 
-      {/* ✅ ICON CLICK → TOGGLE */}
-      <ChevronDown
-        size={18}
-        onClick={() =>
-          setActiveMobile(activeMobile === key ? null : key)
-        }
-        className={`cursor-pointer transition-transform ${
-          activeMobile === key ? "rotate-180 text-cyan-400" : ""
-        }`}
-      />
-    </div>
-
-    {/* ✅ DROPDOWN ITEMS */}
-    {activeMobile === key && (
-      <div className="ml-3 mt-3 space-y-3 text-sm text-gray-300">
-        {dropdownItems[key].columns.flat().map((item, i) => (
-          <div
-            key={i}
-            onClick={() => {
-              if (item.path?.startsWith("http")) {
-                window.open(item.path, "_blank");
-              } else if (item.path) {
-                navigate(item.path);
-              }
-              setMobileOpen(false);
-            }}
-            className="cursor-pointer hover:text-cyan-400"
-          >
-            {item.name}
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
-))}
-
-                <div onClick={() => {navigate("/industries"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Industries</div>
-
-                <div onClick={() => {navigate("/blog"); setMobileOpen(false);}} className="font-medium cursor-pointer hover:text-cyan-400">Insights</div>
+                <div onClick={() => navigate("/industries")}>Industries</div>
+                <div onClick={() => navigate("/blog")}>Insights</div>
 
                 <button
-                  onClick={() => {navigate("/demo"); setMobileOpen(false);}}
-                  className="w-full bg-[#FF3366] py-3 rounded-full text-sm font-medium"
+                  onClick={() => navigate("/demo")}
+                  className="w-full bg-[#FF3366] py-3 rounded-full text-sm"
                 >
-                  Request a Demo
+                  Request Demo
                 </button>
               </div>
             </motion.div>

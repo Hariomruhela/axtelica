@@ -1,27 +1,22 @@
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
 
 const features = [
   {
-    icon: ChevronRight,
     title: "AI-Powered Solutions",
     description:
       "Purpose-built to solve real operational, analytical, and decision-making problems — not generic demos.",
   },
   {
-    icon: ChevronRight,
     title: "Scalable Platforms",
     description:
       "Unified platforms that combine data, automation, and AI so your teams have everything in one place",
   },
   {
-    icon: ChevronRight,
     title: "Intelligent Agents",
     description:
       "Business agents that structure work, validate data, surface insights, and execute workflows without manual effort",
   },
   {
-    icon: ChevronRight,
     title: "Cost-Smart Delivery",
     description:
       "Modular components and reusable architecture cut build time and reduce overhead — so AI adoption fits your budget",
@@ -31,54 +26,61 @@ const features = [
 const WhyChoose = () => {
   return (
     <section
-    style={{
-        backgroundImage: "url('/assets/why_axa.png ')",
+      className="bg-white bg-right bg-no-repeat 
+      py-12 sm:py-16 lg:py-20"
+      style={{
+        backgroundImage: "url('/assets/why_axa.png')",
+        backgroundSize: "contain",
       }}
-       className="bg-white py-4 md:py-8 sm:py-4 lg:py-12 bg-right bg-no-repeat h-[800px]">
-      
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 ">
+    >
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         
         {/* LEFT CONTENT */}
         <div>
           
           {/* Heading */}
-          <h2 className="heading-primary-about text-black">
+          <h2 className="text-black font-bold 
+          text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
             Why Organizations Choose Axtelica
           </h2>
 
           {/* Description */}
-          <p className="heading-secondary text-black mt-4 py-2 max-w-2xl">
+          <p className="text-black mt-4 max-w-2xl 
+          text-sm sm:text-base md:text-lg leading-relaxed">
             We don't just implement technology; we engineer competitive
             advantages. Our approach combines deep technical expertise with
             business acumen.
           </p>
 
-          {/* Features Grid */}
-          <div className="mt-12 grid sm:grid-cols-2 gap-8 sm:gap-10">
+          {/* Features */}
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {features.map((feat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}
                 className="flex gap-3 items-start"
               >
                 {/* Icon */}
-                <div className="text-gray-500 mt-1 flex-shrink-0">
+                <div className="flex-shrink-0 mt-1">
                   <img
                     src="/assets/arrow_icon.png"
                     alt="arrow"
-                    className="w-5 h-5"
+                    className="w-4 h-4 sm:w-5 sm:h-5"
                   />
                 </div>
 
                 {/* Text */}
                 <div>
-                  <h4 className="card-title text-black">
+                  <h4 className="text-black font-semibold 
+                  text-base sm:text-lg">
                     {feat.title}
                   </h4>
-                  <p className="card-desc text-black mt-1 leading-relaxed">
+
+                  <p className="text-black mt-1 leading-relaxed 
+                  text-sm sm:text-base">
                     {feat.description}
                   </p>
                 </div>
@@ -87,13 +89,9 @@ const WhyChoose = () => {
           </div>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="flex justify-center lg:justify-end">
-          {/* <img
-            src="/assets/why_ch_img.jpg"
-            alt="why choose"
-            className="w-full max-w-[500px] md:max-w-[550px] lg:max-w-[600px] h-auto object-contain"
-          /> */}
+        {/* RIGHT IMAGE (Optional) */}
+        <div className="hidden lg:flex justify-end">
+          {/* Optional image */}
         </div>
 
       </div>
