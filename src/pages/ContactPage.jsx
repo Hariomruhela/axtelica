@@ -261,7 +261,7 @@ const ContactPage = () => {
               disabled={loading}
               className="w-full bg-[#FF3366] text-white py-3 rounded-md disabled:opacity-50"
             >
-              {loading ? "Sending..." : "Submit"}
+              {loading ? "Sending..." : "Get a Demo"}
             </button>
 
           </motion.form>

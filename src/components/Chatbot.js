@@ -10,13 +10,13 @@ const knowledgeBase = [
     responses: ["Hello 👋 Welcome to Axtelica! How can I help you today?"],
   },
   {
-    keywords: ["about", "company"],
+    keywords: ["about", "company", "axtelica","Axtelica"],
     responses: [
       "Axtelica is an AI and Data Analytics company helping businesses transform using data-driven solutions.",
     ],
   },
   {
-    keywords: ["services"],
+    keywords: ["services","service"],
     responses: [
       "We offer:\n• AI Data Engineering\n• Business Intelligence\n• DevOps\n• Digital Transformation",
     ],
@@ -33,6 +33,19 @@ const knowledgeBase = [
       "We build dashboards, predictive analytics, and real-time reporting systems.",
     ],
   },
+  {
+    keywords: ["Axtream", "axtream"],
+    responses: [
+      "Axtream helps businesses connect data from applications, databases, files, APIs, and streaming platforms to enable faster decisions, trusted reporting, and AI-ready operations.",
+    ],
+  },
+  {
+    keywords: ["Infinisight", "infinisight"],
+    responses: [
+      "Infinisight is an intelligent analytics platform designed to help businesses convert data into strategic insights through dashboards, automation, and AI-driven reporting.",
+    ],
+  },
+  
   {
     keywords: ["devops"],
     responses: [
