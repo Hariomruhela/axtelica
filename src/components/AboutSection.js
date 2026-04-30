@@ -67,7 +67,7 @@ const AboutSection = () => {
           whileInView="show"
           viewport={{ once: true }}
         >
-          <h2 className="text-[clamp(20px,4vw,36px)] font-poppins font-semibold mb-4 sm:mb-6">
+          <h2 className="text-[clamp(20px,4vw,36px)] font-poppins  mb-4 sm:mb-6">
             About Axtelica
           </h2>
 
@@ -115,7 +115,7 @@ const AboutSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-[clamp(24px,5vw,48px)] font-poppins font-bold mb-8 sm:mb-12"
+          className="text-[clamp(24px,5vw,48px)] font-poppins  mb-8 sm:mb-12"
         >
           Our Mission
         </motion.h2>
@@ -143,7 +143,7 @@ const AboutSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-[clamp(24px,5vw,48px)] font-poppins font-bold mb-4"
+          className="text-[clamp(24px,5vw,48px)] font-poppins  mb-4"
         >
           Our Vision
         </motion.h2>
@@ -163,7 +163,7 @@ const AboutSection = () => {
             whileHover={{ y: -8, scale: 1.02 }}
             className="bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-left border border-gray-100"
           >
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-poppins font-semibold text-gray-900 mb-4">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-poppins  text-gray-900 mb-4">
               Enhance Productivity
             </h3>
 

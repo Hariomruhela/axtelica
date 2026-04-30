@@ -9,7 +9,7 @@ const WhitepapersSection = () => {
       <div className="">
         
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-gray-900 mb-10">
+        <h2 className="text-3xl  text-gray-900 mb-10">
           Whitepapers
         </h2>
 

@@ -19,7 +19,7 @@ const BlogCard = ({ blog }) => {
         
         {/* Category + Date */}
         <div className="flex justify-between text-lg text-gray-400">
-          <span className="text-pink-400 font-medium">
+          <span className="text-pink-400 ">
             {blog.category}
           </span>
           <span>{blog.date}</span>

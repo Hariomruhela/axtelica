@@ -124,7 +124,7 @@ const TabsSection = () => {
               >
                 <h3 className="
                   text-lg sm:text-xl lg:text-2xl 
-                  font-poppins font-semibold 
+                  font-poppins 
                   text-gray-900 mb-2 sm:mb-3
                 ">
                   {item.title}

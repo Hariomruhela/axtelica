@@ -52,7 +52,7 @@ const BlogDetail = () => {
           animate="show"
           className="relative z-10 w-full max-w-[1400px] px-4 sm:px-6 lg:px-8 flex justify-center"
         >
-          <h1 className="text-[clamp(28px,5vw,52px)] font-bold text-white text-center max-w-3xl leading-tight">
+          <h1 className="text-[clamp(28px,5vw,52px)]  text-white text-center max-w-3xl leading-tight">
             AI Solutions Built for Real Business Impact
           </h1>
         </motion.div>
@@ -75,7 +75,7 @@ const BlogDetail = () => {
         </p>
 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold mb-6">
+        <h1 className="text-3xl md:text-4xl  mb-6">
           {blog.title}
         </h1>
 
