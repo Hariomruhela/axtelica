@@ -23,10 +23,7 @@ const DemoForm = ({
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  // ❌ Hide component on this route
-  if (location.pathname === "/product/optimaorbit") {
-    return null;
-  }
+  
 
   // 🔹 Handle Change
   const handleChange = (e) => {
@@ -111,9 +108,12 @@ const DemoForm = ({
         setLoading(false);
       });
   };
-
+// ❌ Hide component on this route
+  if (location.pathname === "/product/Intelligent") {
+    return null;
+  }
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-8 sm:px-6 lg:px-10 bg-white">
+    <section className="py-16 sm:py-20 lg:py-24 px-1 sm:px-6 lg:px-10 bg-white">
       <div className="max-w-[1400px] px-10 mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
         {/* LEFT */}

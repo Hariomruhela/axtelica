@@ -60,7 +60,7 @@ const ProductImageSection = ({ data }) => {
           {/* Button 1 */}
           <button
           onClick={() => (window.location.href = "https://axtream.axtelica.com/")}
-           className="w-full sm:w-fit bg-[#FF3366] text-white px-6 sm:px-7 py-3 
+           className=" sm:w-fit bg-[#FF3366] text-white px-6 sm:px-7 py-3 
           rounded-md text-sm sm:text-lg font-poppins hover:bg-pink-600 hover:scale-105 transition">
             Product Tour
           </button>
@@ -71,8 +71,8 @@ const ProductImageSection = ({ data }) => {
             <button
             onClick={()=>navigate("/demo")}
     
-             className="w-full sm:w-auto bg-gradient-to-r from-[#00bfff] via-[#4a5de2] to-[#8a2be2] 
-            text-white px-5 sm:px-6 py-3 rounded-md text-sm sm:text-lg font-poppins 
+             className="w-full sm:w-fit bg-gradient-to-r from-[#00bfff] via-[#4a5de2] to-[#8a2be2] 
+            text-white px-6 sm:px-7 py-3 rounded-md text-sm sm:text-lg font-poppins 
             hover:from-[#8a2be2] hover:via-[#4a5de2] hover:to-[#00bfff] transition">
               Start free 7 day-Trial
             </button>

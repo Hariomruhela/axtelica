@@ -214,7 +214,7 @@ const DemoLanding = () => {
               </div>
 
             </form>
-            <p className="text-sm font-poppins text-gray-900">By clicking Request a Demo, I agree to the use of my personal data in accordance with Axtelica Privacy Notice. Axtelica will not sell, trade, lease, or rent your personal data to third parties.</p>
+            <p className="text-[12px] mt-1 font-poppins text-gray-900">By clicking Request a Demo, I agree to the use of my personal data in accordance with Axtelica Privacy Notice. Axtelica will not sell, trade, lease, or rent your personal data to third parties.</p>
           </div>
 
           {/* RIGHT CONTENT */}

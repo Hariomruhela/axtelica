@@ -97,20 +97,20 @@ const Insights = () => {
       <div className="bg-white w-full">
         <div className="w-full max-w-[1400px] mx-auto px-4 mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 py-4 sm:py-6">
 
-          <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold text-black">
+          <h2 className="text-xl sm:text-3xl md:text-4xl  text-black">
             Insights
           </h2>
 
           <button
             onClick={() => navigate("/blog")}
-            className="border border-purple-400 text-xs sm:text-base text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 hover:bg-purple-100 transition"
+            className="border border-purple-400 text-xs sm:text-base text-black px-4 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 hover:bg-purple-100 transition"
           >
             Explore all insights <ChevronRight size={14} />
           </button>
         </div>
       </div>
 
-      <div className="w-full max-w-[1400px] mx-auto mt-6 sm:mt-10">
+      <div className="w-full max-w-[1400px] mx-auto mt-6 sm:mt-10 px-4 ">
 
         <h3 className="text-lg sm:text-2xl text-black mb-4 sm:mb-8">
           Latest Articles

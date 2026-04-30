@@ -68,7 +68,7 @@ const Product = () => {
                 font-poppins
                 text-gray-200
                 leading-relaxed
-                max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl
+                max-w-xs sm:max-w-md md:max-w-lg lg:max-w-3xl
                 mx-auto lg:mx-0
                 "
               >

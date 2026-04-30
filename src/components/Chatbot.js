@@ -5,81 +5,123 @@ import EmojiPicker from "emoji-picker-react";
 
 /* ===================== KNOWLEDGE BASE ===================== */
 const knowledgeBase = [
+  /* --- GROUP 1: COMPANY IDENTITY & PHILOSOPHY (10 FAQs) --- */
   {
-    keywords: ["hi", "hello", "hey"],
-    responses: ["Hello 👋 Welcome to Axtelica! How can I help you today?"],
+    keywords: ["what is axtelica", "about the company", "who are you"],
+    responses: ["Axtelica is a next-generation data and analytics company that helps businesses transform raw data into actionable insights using AI, cloud technologies, and advanced analytics."]
   },
   {
-    keywords: ["about", "company", "axtelica","Axtelica"],
-    responses: [
-      "Axtelica is an AI and Data Analytics company helping businesses transform using data-driven solutions.",
-    ],
+    keywords: ["why choose", "different", "stand out", "why axtelica"],
+    responses: ["We stand out through: \n• Problem-first thinking (we solve what's broken, not just deploy models).\n• Practical AI with provable ROI.\n• Cost-smart delivery via modular components[cite: 1].\n• Enterprise-grade reliability for high-volume data[cite: 1]."]
   },
   {
-    keywords: ["services","service"],
-    responses: [
-      "We offer:\n• AI Data Engineering\n• Business Intelligence\n• DevOps\n• Digital Transformation",
-    ],
+    keywords: ["vision", "mission", "goal"],
+    responses: ["Our mission is to empower organizations with AI that simplifies complexity and enhances productivity[cite: 1]."]
   },
   {
-    keywords: ["ai"],
-    responses: [
-      "We provide AI-powered automation, machine learning, and data engineering solutions.",
-    ],
+    keywords: ["location", "where", "office", "ghaziabad", "india"],
+    responses: ["Axtelica is headquartered in Ghaziabad, India, with a global presence serving international markets[cite: 1]."]
   },
   {
-    keywords: ["analytics"],
-    responses: [
-      "We build dashboards, predictive analytics, and real-time reporting systems.",
-    ],
+    keywords: ["startups", "small business", "only enterprises"],
+    responses: ["We work with both startups and large enterprises by offering scalable solutions that grow with your business needs[cite: 1]."]
+  },
+
+  /* --- GROUP 2: INFINISIGHT PRODUCT DEEP-DIVE (12 FAQs) --- */
+  {
+    keywords: ["infinisight", "bi platform", "analytics tool"],
+    responses: ["Infinisight is our AI-powered business intelligence platform for predictive analytics and real-time dashboards[cite: 1]."]
   },
   {
-    keywords: ["Axtream", "axtream"],
-    responses: [
-      "Axtream helps businesses connect data from applications, databases, files, APIs, and streaming platforms to enable faster decisions, trusted reporting, and AI-ready operations.",
-    ],
+    keywords: ["infinisight features", "what can it do"],
+    responses: ["Key features: \n• Unified Data Integration (CRM, ERP, APIs)[cite: 1].\n• Real-Time KPI Dashboards[cite: 1].\n• AI-Powered Trend Prediction[cite: 1].\n• Smart Query (Natural Language Processing)[cite: 1].\n• Workflow Automation[cite: 1]."]
   },
   {
-    keywords: ["Infinisight", "infinisight"],
-    responses: [
-      "Infinisight is an intelligent analytics platform designed to help businesses convert data into strategic insights through dashboards, automation, and AI-driven reporting.",
-    ],
-  },
-  
-  {
-    keywords: ["devops"],
-    responses: [
-      "Our DevOps services include CI/CD pipelines, cloud deployment, and automation.",
-    ],
+    keywords: ["natural language", "plain english", "smart query"],
+    responses: ["Infinisight's Smart Query allows you to ask business questions in plain English to get instant insights—no technical skills required[cite: 1]."]
   },
   {
-    keywords: ["product", "catalystcraft"],
-    responses: [
-      "CatalystCraft is our accelerator toolkit for faster analytics deployment.",
-    ],
+    keywords: ["infinisight benefits", "why use infinisight"],
+    responses: ["Benefits: Faster decision-making, increased productivity, cost optimization, and a competitive advantage through predictive intelligence[cite: 1]."]
   },
   {
-    keywords: ["price", "cost"],
-    responses: [
-      "Pricing depends on your requirements. Please contact us for a custom quote.",
-    ],
+    keywords: ["forecasting", "simulation", "what-if"],
+    responses: ["Infinisight provides a simulation and synthetic data platform for scenario planning and smarter forecasting[cite: 1]."]
+  },
+
+  /* --- GROUP 3: AXTREAM PRODUCT DEEP-DIVE (8 FAQs) --- */
+  {
+    keywords: ["axtream", "streaming", "real-time ingest"],
+    responses: ["Axtream is an intelligent platform for real-time integration, connecting apps and APIs for AI-ready operations[cite: 1]."]
   },
   {
-    keywords: ["contact"],
-    responses: [
-      "📧 hello@axtelica.com\n📞 +91 8800112559",
-    ],
+    keywords: ["axtream benefits", "why use axtream"],
+    responses: ["Axtream provides: \n• Real-time operational visibility[cite: 1].\n• Improved data trust through built-in quality checks[cite: 1].\n• Early risk and fraud detection[cite: 1].\n• Faster ROI on data pipelines[cite: 1]."]
+  },
+
+  /* --- GROUP 4: INTELLIGENT BUSINESS AGENTS (10 FAQs) --- */
+  {
+    keywords: ["agents", "digital colleague", "ai business agents"],
+    responses: ["Axtelica is building a new class of agents designed as embedded digital colleagues to reduce routine work[cite: 1]."]
   },
   {
-    keywords: ["demo", "meeting", "book"],
-    responses: [
-      "You can book a demo here 👉 https://axtelica.com/demo",
-    ],
+    keywords: ["requirement agent", "capture requirements"],
+    responses: ["The Requirement Agent captures business needs through conversation and organizes them into actionable documentation[cite: 1]."]
   },
   {
-    keywords: ["thanks", "thank you"],
-    responses: ["You're welcome 😊 Happy to help!"],
+    keywords: ["design agent", "architecture agent"],
+    responses: ["The Design Agent converts requirements into solution designs and workflow recommendations[cite: 1]."]
   },
+  {
+    keywords: ["validation agent", "quality check agent"],
+    responses: ["The Validation Agent automatically surfaces data mismatches and logic issues in real-time[cite: 1]."]
+  },
+  {
+    keywords: ["workflow agent", "automation agent"],
+    responses: ["The Workflow Agent handles rule-based steps like task routing and system execution with minimal human intervention[cite: 1]."]
+  },
+
+  /* --- GROUP 5: SERVICES & TECHNOLOGY (10 FAQs) --- */
+  {
+    keywords: ["services", "what do you offer", "offerings"],
+    responses: ["Our services include: AI-powered data engineering, BI & analytics, DevOps-as-a-Service, Agile digital transformation, and Talent-as-a-Service[cite: 1]."]
+  },
+  {
+    keywords: ["catalystcraft", "accelerator", "toolkit"],
+    responses: ["CatalystCraft is our proprietary solution accelerator toolkit that helps organizations deploy data solutions faster and with higher quality[cite: 1]."]
+  },
+  {
+    keywords: ["technology", "tech stack", "aws", "azure", "databricks"],
+    responses: ["We leverage modern tech like AWS, Microsoft Azure, Databricks, PySpark, Power BI, Tableau, and GitLab for DevOps[cite: 1]."]
+  },
+  {
+    keywords: ["skill forge", "talent", "staffing", "team augmentation"],
+    responses: ["Through 'Skill Forge,' we provide trained professionals to fill skill gaps and support your data projects[cite: 1]."]
+  },
+
+  /* --- GROUP 6: SECURITY & COMPLIANCE (5 FAQs) --- */
+  {
+    keywords: ["security", "data protection", "encryption"],
+    responses: ["Axtelica implements strong data governance, encryption, and compliance frameworks to protect sensitive business data[cite: 1]."]
+  },
+  {
+    keywords: ["compliance", "regulatory", "trust"],
+    responses: ["Our platforms are built to handle integration complexity and compliance standards required by regulated industries like Banking and Pharma[cite: 1]."]
+  },
+
+  /* --- GROUP 7: DELIVERY & ENGAGEMENT (8 FAQs) --- */
+  {
+    keywords: ["delivery model", "how you work", "process"],
+    responses: ["Our 4-step model: \n1. Understand (Discovery)[cite: 1].\n2. Design (Matching tech stack)[cite: 1].\n3. Build (Modular reuse)[cite: 1].\n4. Deliver & Measure (Outcome tracking)[cite: 1]."]
+  },
+  {
+    keywords: ["contact", "demo", "start", "get in touch"],
+    responses: ["Ready to build? Contact us at info@axtelica.com or request a consultation via our website to get a customized roadmap[cite: 1]."]
+  },
+  {
+    keywords: ["results", "expect", "impact"],
+    responses: ["Clients can expect: Faster data processing, better decision-making, reduced operational costs, and improved insights[cite: 1]."]
+  }
 ];
 
 /* ===================== INTENT DETECTION ===================== */

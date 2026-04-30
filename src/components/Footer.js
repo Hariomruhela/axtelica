@@ -48,7 +48,7 @@ const Footer = () => {
               links: [
                 { name: "Axtream", path: "/product/axtream" },
                 { name: "Infinisight", path: "/product/infinisight" },
-                { name: "Intelligent AI Agents", path: "/product/optimaorbit" },
+                { name: "Intelligent AI Agents", path: "/product/Intelligent" },
               ],
             },
             {
