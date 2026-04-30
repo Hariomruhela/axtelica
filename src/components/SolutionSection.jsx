@@ -54,7 +54,7 @@ const SolutionSection = () => {
             Solutions That Drive Business Impact
           </h1>
 
-          <p className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-gray-100 text-sm sm:text-base max-w-7xl mx-auto">
             Built to solve real operational and analytical challenges — not just theoretical use cases.
           </p>
         </motion.div>
@@ -100,7 +100,7 @@ const SolutionSection = () => {
 
                 {/* Content */}
                 <div className="mt-6">
-                  <h3 className="text-white text-lg sm:text-2xl font-poppins font-semibold mb-2 sm:mb-3">
+                  <h3 className="text-white text-lg sm:text-2xl font-poppins  mb-2 sm:mb-3">
                     {item.title}
                   </h3>
 

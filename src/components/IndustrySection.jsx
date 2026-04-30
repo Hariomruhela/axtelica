@@ -25,7 +25,7 @@ const IndustrySection = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* TITLE */}
-        <h2 className="text-[clamp(22px,5vw,48px)] text-black font-semibold mb-8 sm:mb-10 lg:mb-12">
+        <h2 className="text-[clamp(22px,5vw,48px)] text-black  mb-8 sm:mb-10 lg:mb-12">
           Industries We Serve
         </h2>
 

@@ -22,7 +22,7 @@ const ProductFAQ = ({ data = [] }) => {
 
         {/* Heading */}
         <h2 className="
-          text-center font-bold text-black mb-8 sm:mb-10
+          text-center  text-black mb-8 sm:mb-10
           text-2xl sm:text-3xl md:text-4xl
         ">
           Frequently Asked Questions

@@ -118,7 +118,7 @@ const DemoForm = ({
 
         {/* LEFT */}
         <div className="max-w-xl">
-          <h1 className="text-[clamp(28px,5vw,48px)] font-bold text-gray-900 mb-6">
+          <h1 className="text-[clamp(28px,5vw,48px)]  text-gray-900 mb-6">
             {title}
           </h1>
 

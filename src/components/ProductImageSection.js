@@ -14,7 +14,7 @@ const ProductImageSection = ({ data }) => {
       <div className="max-w-7xl mx-auto text-center">
 
         {/* 🔹 Top Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-poppins font-bold mb-4 sm:mb-8 
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-poppins  mb-4 sm:mb-8 
         bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent leading-snug">
           {data.midleTitle}
         </h2>
@@ -44,7 +44,7 @@ const ProductImageSection = ({ data }) => {
         </div>
 
         {/* 🔹 Bottom Heading */}
-        <h3 className="text-xl sm:text-2xl md:text-5xl font-poppins font-semibold text-gray-900 mb-3 sm:mb-4 leading-snug">
+        <h3 className="text-xl sm:text-2xl md:text-5xl font-poppins  text-gray-900 mb-3 sm:mb-4 leading-snug">
           {data.botomtitle}
         </h3>
 

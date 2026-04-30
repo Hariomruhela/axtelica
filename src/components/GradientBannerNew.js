@@ -14,7 +14,7 @@ const GradientBannerNew = () => {
         <div
           key={index}
           className="
-            max-w-[1400px] absolute w-full text-white font-poppins 
+            max-w-[1400px] absolute w-full text-white font-poppins px-1 lg:px-4 
             
             /* ✅ Converted strip-text */
             text-[13px] text-center

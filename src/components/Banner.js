@@ -154,11 +154,11 @@ const Banner = () => {
       lg:justify-start lg:text-left lg:px-8 lg:py-24
       
       ">
-        <div className="w-full max-w-[1400px] mx-auto">
+        <div className="w-full max-w-[1400px] mx-auto px-1 lg:px-4">
 
           {/* Heading */}
           <h1 className="
-          text-white font-bold leading-[1.3] tracking-tight
+          text-white  leading-[1.3] tracking-tight
           
           /* ✅ MOBILE */
           text-[32px]

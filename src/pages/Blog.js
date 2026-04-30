@@ -52,7 +52,7 @@ const Blog = () => {
           animate="show"
           className="relative z-10 w-full max-w-[1400px] px-4 sm:px-6 lg:px-8 flex justify-center"
         >
-          <h1 className="text-[clamp(22px,6vw,52px)] font-bold text-white text-center max-w-3xl leading-tight">
+          <h1 className="text-[clamp(22px,6vw,52px)]  text-white text-center max-w-3xl leading-tight">
             AI Solutions Built for Real Business Impact
           </h1>
         </motion.div>
@@ -63,7 +63,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto">
 
           {/* Heading */}
-          <h1 className="text-[clamp(22px,5vw,48px)] font-bold text-black mb-6 sm:mb-8 lg:mb-10 text-center">
+          <h1 className="text-[clamp(22px,5vw,48px)]  text-black mb-6 sm:mb-8 lg:mb-10 text-center">
             Insights & Resources
           </h1>
 

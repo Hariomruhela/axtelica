@@ -101,7 +101,7 @@ const NavbarDemo = () => {
       }`}
     >
       {/* NAVBAR */}
-      <div className="max-w-[1400px] mx-auto  min-h-[70px] lg:min-h-[90px] flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto  min-h-[70px] lg:min-h-[90px] flex items-center justify-between px-4">
         
         {/* LOGO */}
         <Link to="/">

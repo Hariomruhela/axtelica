@@ -52,7 +52,7 @@ const AboutSection = () => {
           animate="show"
           className="relative z-10 w-full max-w-[1400px] mt-10 sm:mt-14 lg:mt-16 mx-auto text-center px-4 sm:px-6 lg:px-8"
         >
-          <h1 className="text-[clamp(24px,5vw,48px)] font-bold text-white max-w-3xl mx-auto leading-tight tracking-wide drop-shadow-[0_0_20px_rgba(48,107,202,0.5)]">
+          <h1 className="text-[clamp(24px,5vw,48px)]  text-white max-w-3xl mx-auto leading-tight tracking-wide drop-shadow-[0_0_20px_rgba(48,107,202,0.5)]">
             We Build AI Solutions That Work for Business
           </h1>
         </motion.div>
