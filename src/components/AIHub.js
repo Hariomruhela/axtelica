@@ -46,35 +46,33 @@ const AIHub = () => {
     <section className="bg-white py-12 sm:py-16 lg:py-20">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
-       {/* Header */}
-<div className="grid lg:grid-cols-2 gap-4 lg:gap-10 mb-4">
+        {/* Header */}
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-10 mb-4">
 
-  {/* Left */}
-  <div className="leading-tight">
-    <h2 className="text-[22px] sm:text-[28px] lg:text-[clamp(28px,5vw,48px)] 
-                   font-semibold text-gray-900">
-      AI Innovation Hub
-    </h2>
+          {/* Left */}
+          <div className="leading-tight">
+            <h2 className="text-[22px] sm:text-[28px] lg:text-[clamp(28px,5vw,48px)] text-gray-900">
+              AI Innovation Hub
+            </h2>
 
-    <p className="mt-2 sm:mt-3 mb-4 sm:mb-3 lg:mb-12 
-                  text-[14px] sm:text-[16px] lg:text-[clamp(16px,2vw,34px)] 
-                  text-gray-700">
-      Platforms and Products by Axtelica
-    </p>
-  </div>
+            <p className="mt-2 sm:mt-3 mb-4 sm:mb-3 lg:mb-12 
+              text-[14px] sm:text-[16px] lg:text-[clamp(16px,2vw,30px)] 
+              text-gray-700">
+              Platforms and products built by Axtelica
+            </p>
+          </div>
 
-  {/* Right */}
-  <p className="text-gray-600 
-                text-[13px] sm:text-[14px] md:text-base lg:text-lg 
-                lg:text-right max-w-xl ml-auto 
-                mt-0 sm:mt-2">
-    Our platforms are built as standalone products — but designed to work together as a unified intelligence layer across your business.
-  </p>
+          {/* Right */}
+          <p className="text-gray-600 
+            text-[13px] sm:text-[14px] md:text-base lg:text-[16px] 
+            lg:text-right max-w-xl ml-auto 
+            mt-0 sm:mt-2">
+            Our platforms are built as standalone products — but designed to work together as a unified intelligence layer across your business.
+          </p>
+        </div>
 
-</div>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Cards (✅ FIXED GRID) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {products.map((item, i) => {
             const isActive = active === i;
 
@@ -116,11 +114,12 @@ const AIHub = () => {
                   {/* Title */}
                   <h3 className="text-gray-900 text-xl sm:text-2xl">
                     {item.title}
+
                     {item.title === "Intelligent Business Agents" && (
-    <span className="text-[10px] sm:text-xs  text-gray-700  py-3  rounded-full">
-      -(Coming Soon)
-    </span>
-  )}
+                      <span className="ml-2 text-xs text-gray-500">
+                        (Coming Soon)
+                      </span>
+                    )}
                   </h3>
 
                   {/* Hidden Content */}

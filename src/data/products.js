@@ -225,7 +225,7 @@ FAQ: [
 
   Intelligent: {
     name: "Intelligent Business Agents-(coming soon)",
-     axtreamlogo:"/assets/axtream_logo_sm.png",
+    //  axtreamlogo:"/assets/axtream_logo_sm.png",
     heroTitle: "Intelligent Business Agents-(Coming Soon) ",
      
 

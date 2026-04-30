@@ -142,7 +142,7 @@ const Services = () => {
             bg-[#ff3366] text-white px-5 py-3 rounded-md 
             hover:scale-105 transition text-sm sm:text-base"
           >
-            Explore Solutions 
+            Explore Our Solutions 
             <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>

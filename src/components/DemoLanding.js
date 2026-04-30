@@ -99,7 +99,7 @@ const DemoLanding = () => {
         animate={{ opacity: 1 }}
         className="min-h-screen flex items-center justify-center text-white relative px-4"
         style={{
-          backgroundImage: "url('/assets/book_demo_pagebg.jpg')",
+          backgroundImage: "url('/assets/book_demo_pagebg_new.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -214,6 +214,7 @@ const DemoLanding = () => {
               </div>
 
             </form>
+            <p className="text-sm font-poppins text-gray-900">By clicking Request a Demo, I agree to the use of my personal data in accordance with Axtelica Privacy Notice. Axtelica will not sell, trade, lease, or rent your personal data to third parties.</p>
           </div>
 
           {/* RIGHT CONTENT */}
@@ -226,15 +227,16 @@ const DemoLanding = () => {
               />
             </Link>
 
-            <h1 className="text-xl sm:text-3xl lg:text-4xl font-semibold mb-5">
+            <h1 className="text-xl sm:text-3xl lg:text-5xl font-semibold mb-5">
               AI Security Built for Speed and Scale
             </h1>
+            <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl mb-2 lg font-poppins">Request a demo with a Axtelica AI product expert to see how you can:</h3>
 
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
               <li>✔ Connect data from multiple sources</li>
               <li>✔ Ingest batch and real-time data</li>
-              <li>✔ Improve data quality</li>
-              <li>✔ Detect anomalies</li>
+              <li>✔ Improve data quality and trust</li>
+              <li>✔ Detect anomalies and operational risks</li>
             </ul>
           </div>
 

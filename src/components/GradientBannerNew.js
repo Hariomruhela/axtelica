@@ -4,7 +4,7 @@ const GradientBannerNew = () => {
   const slides = [
     "AI-Powered Solutions - Built to solve real business challenges",
     "Business Platforms - Scalable solutions designed for growth",
-    "Intelligent Agents - AI agents that support work and decisions",
+    "Intelligent Agents - AI agents that enhance workflows and decision-making",
   ];
 
   return (
@@ -13,7 +13,20 @@ const GradientBannerNew = () => {
       {slides.map((text, index) => (
         <div
           key={index}
-          className="max-w-[1400px] absolute w-full text-white font-poppins px-4 sm:px-6  text-center md:text-right md:pr-[1.5%] text-lg sm:text-base md:text-2xl lg:text-3xl leading-snug opacity-0 animate-crossFade whitespace-normal md:whitespace-nowrap "
+          className="
+            max-w-[1400px] absolute w-full text-white font-poppins 
+            
+            /* ✅ Converted strip-text */
+            text-[13px] text-center
+            
+            /* ✅ Desktop override */
+            md:text-[14px] md:text-right
+            
+            /* Existing styles */
+            sm:text-base md:text-2xl lg:text-3xl 
+            leading-snug opacity-0 animate-crossFade 
+            whitespace-normal md:whitespace-nowrap
+          "
           style={{ animationDelay: `${index * 4}s` }}
         >
           {text}

@@ -44,9 +44,9 @@ const Insights = () => {
 
   useEffect(() => {
     const updateCount = () => {
-      if (window.innerWidth < 640) setVisibleCount(1);
-      else if (window.innerWidth < 1024) setVisibleCount(2);
-      else setVisibleCount(3);
+      if (window.innerWidth < 640) setVisibleCount(1); // mobile
+      else if (window.innerWidth < 1024) setVisibleCount(2); // tablet
+      else setVisibleCount(3); // desktop
     };
 
     updateCount();
@@ -92,11 +92,11 @@ const Insights = () => {
 
   return (
     <section className="bg-[#f5f5f5] pb-8 sm:pb-12 lg:pb-16">
-      
+
       {/* Header */}
       <div className="bg-white w-full">
         <div className="w-full max-w-[1400px] mx-auto px-4 mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 py-4 sm:py-6">
-          
+
           <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold text-black">
             Insights
           </h2>
@@ -110,10 +110,10 @@ const Insights = () => {
         </div>
       </div>
 
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10">
-        
-        <h3 className="text-lg sm:text-2xl font-semibold text-black mb-4 sm:mb-8">
-          Latest articles
+      <div className="w-full max-w-[1400px] mx-auto mt-6 sm:mt-10">
+
+        <h3 className="text-lg sm:text-2xl text-black mb-4 sm:mb-8">
+          Latest Articles
         </h3>
 
         {/* Cards */}
@@ -126,13 +126,16 @@ const Insights = () => {
               initial="hidden"
               animate="show"
               exit="exit"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
+
+              /* ✅ Tailwind responsive grid (converted CSS) */
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
             >
               {visibleItems.map((item, index) => (
                 <div
                   key={index}
                   className="flex flex-col sm:flex-row gap-3 sm:gap-5 items-start p-3 sm:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white"
                 >
+
                   {/* Image */}
                   <img
                     src={item.image}
@@ -142,7 +145,7 @@ const Insights = () => {
 
                   {/* Content */}
                   <div className="flex flex-col justify-between h-full w-full">
-                    
+
                     <span className="text-[10px] sm:text-sm bg-[#722bfe] text-white px-2 py-1 rounded-full w-fit">
                       {item.tag}
                     </span>
@@ -153,9 +156,10 @@ const Insights = () => {
 
                     <Link to={item.path}>
                       <button className="text-sm sm:text-base text-gray-600 mt-2 sm:mt-3 hover:text-black flex items-center gap-1 transition">
-                        Read Report <ChevronRight size={16} color="#722bfe" />
+                        Get Started <ChevronRight size={16} color="#722bfe" />
                       </button>
                     </Link>
+
                   </div>
                 </div>
               ))}

@@ -39,7 +39,7 @@ const WhyChoose = () => {
         <div>
           
           {/* Heading */}
-          <h2 className="text-black font-bold w-full
+          <h2 className="text-black  w-full
           text-[16px] sm:text-xl md:text-xl lg:text-4xl leading-tight">
             Why Organizations Choose Axtelica
           </h2>
@@ -47,8 +47,7 @@ const WhyChoose = () => {
           {/* Description */}
           <p className="text-black mt-4 max-w-2xl 
           text-sm sm:text-base md:text-lg leading-relaxed">
-            We don't just implement technology; we engineer competitive
-            advantages. Our approach combines deep technical expertise with
+            We don’t just implement technology — we engineer competitive advantages. Our approach combines deep technical expertise with
             business acumen.
           </p>
 

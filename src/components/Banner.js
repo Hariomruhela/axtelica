@@ -1,16 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { useLocation, useNavigate,   } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const mountRef = useRef(null);
-  const location = useLocation(); // 🔥 for re-trigger animation
-  const navigate=useNavigate(); 
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const container = mountRef.current;
 
-    // --- SCENE ---
     const scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x0a0118, 100, 2200);
 
@@ -26,7 +25,6 @@ const Banner = () => {
     container.appendChild(renderer.domElement);
     renderer.setClearColor(0x05000a, 0);
 
-    // --- PARTICLES ---
     const isMobile = window.innerWidth < 768;
     const AMOUNTX = isMobile ? 60 : 120;
     const AMOUNTY = isMobile ? 40 : 80;
@@ -78,7 +76,6 @@ const Banner = () => {
     const particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // --- CAMERA ---
     const setCamera = () => {
       if (window.innerWidth < 768) {
         camera.position.set(0, 250, 800);
@@ -88,7 +85,6 @@ const Banner = () => {
       camera.lookAt(0, 0, 0);
     };
 
-    // --- RESIZE ---
     const updateSize = () => {
       const width = container.clientWidth;
       const height = container.clientHeight;
@@ -101,7 +97,6 @@ const Banner = () => {
 
     updateSize();
 
-    // --- ANIMATION ---
     let count = 0;
 
     const animate = () => {
@@ -139,7 +134,7 @@ const Banner = () => {
 
   return (
     <section
-      key={location.pathname} // 🔥 forces animation on route change
+      key={location.pathname}
       className="relative w-full h-[clamp(700px,65vh,700px)] overflow-hidden bg-[radial-gradient(circle_at_20%_50%,#1a1b4b_0%,#0a0118_50%,#05000a_100%)]"
     >
       {/* Background */}
@@ -150,33 +145,65 @@ const Banner = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center py-18 sm:py-20 md:py-24 mt-7 md:mt-8 lg:mt-12">
-        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 h-full flex items-center 
+      
+      /* ✅ MOBILE FIX */
+      justify-center text-center px-5 py-[60px]
+      
+      /* ✅ DESKTOP SAME */
+      lg:justify-start lg:text-left lg:px-8 lg:py-24
+      
+      ">
+        <div className="w-full max-w-[1400px] mx-auto">
 
           {/* Heading */}
-          <h1 className="animate-reveal delay-1 text-white font-bold leading-tight tracking-tight text-[clamp(28px,5vw,52px)] max-w-3xl">
-            AI Solutions Builder for<br/> Modern Business
+          <h1 className="
+          text-white font-bold leading-[1.3] tracking-tight
+          
+          /* ✅ MOBILE */
+          text-[32px]
+          
+          /* ✅ DESKTOP (unchanged) */
+          md:text-[clamp(28px,5vw,52px)]
+          
+          max-w-3xl mx-auto lg:mx-0
+          ">
+            AI Solutions Builder for<br /> Modern Businesses
           </h1>
 
           {/* Subheading */}
-          <p className="animate-reveal delay-2 mt-6 font-semibold bg-gradient-to-r from-[#00f2ff] via-[#4a5dff] to-[#d442f5] bg-clip-text text-transparent text-[clamp(16px,2.5vw,28px)] max-w-2xl">
-            Axtelica builds practical AI-powered solutions, intelligent
-            platforms, and business-ready agents...
+          <p className="
+          mt-6 font-semibold bg-gradient-to-r from-[#00f2ff] via-[#4a5dff] to-[#d442f5] bg-clip-text text-transparent
+          
+          text-[16px] sm:text-[18px] md:text-[clamp(16px,2.5vw,28px)]
+          
+          max-w-2xl mx-auto lg:mx-0
+          ">
+            Axtelica builds practical AI-powered solutions, intelligent platforms, and production-ready AI agents.
           </p>
 
           {/* Buttons */}
-          <div
-            className="animate-reveal w-fit delay-3 flex flex-col sm:flex-row gap-4 mt-10"
-          >
+          <div className="
+          
+          /* ✅ MOBILE */
+          flex flex-col gap-3 mt-8 w-full
+          
+          /* ✅ DESKTOP */
+          sm:flex-row sm:gap-4 sm:w-fit sm:mt-10
+          
+          justify-center lg:justify-start
+          ">
             <button
-            onClick={()=>navigate("/product/axtream")}
-             className="bg-[#ff3b6a] w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,59,106,0.4),0_0_15px_rgba(0,210,255,0.2)] flex items-center gap-2 group">
-              See How We Solve It
+              onClick={() => navigate("/product/axtream")}
+              className="bg-[#ff3b6a] w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,59,106,0.4),0_0_15px_rgba(0,210,255,0.2)]"
+            >
+              See How We Solve Problems
             </button>
 
             <button
-            onClick={()=>navigate("/demo")}
-             className="w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold hover:bg-white/5 transition">
+              onClick={() => navigate("/demo")}
+              className="w-full sm:w-auto border border-white/20 text-white px-6 py-3 rounded-md font-semibold hover:bg-white/5 transition"
+            >
               Talk to an AI Expert
             </button>
           </div>

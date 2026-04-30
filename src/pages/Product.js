@@ -36,22 +36,24 @@ const Product = () => {
           <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-center justify-center">
 
             {/* LEFT (Logo) */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="flex justify-center lg:justify-start"
-            >
-              <img
-                src={data.axtreamlogo}
-                alt="logo"
-                className="
-                  w-[100px] sm:w-[130px] md:w-[160px] lg:w-auto
-                  max-w-[200px]
-                  h-auto object-contain
-                "
-              />
-            </motion.div>
+            {productId !== "Intelligent" && (
+  <motion.div
+    initial={{ opacity: 0, x: -40 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.7 }}
+    className="flex justify-center lg:justify-start"
+  >
+    <img
+      src={data.axtreamlogo}
+      alt="logo"
+      className="
+        w-[100px] sm:w-[130px] md:w-[160px] lg:w-auto
+        max-w-[200px]
+        h-auto object-contain
+      "
+    />
+  </motion.div>
+)}
 
             {/* RIGHT (Text) */}
             <motion.div

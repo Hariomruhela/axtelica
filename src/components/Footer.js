@@ -8,18 +8,17 @@ const Footer = () => {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-6 py-12 sm:py-14 lg:py-16">
         
-        {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-10">
+        {/* ✅ GRID FIXED FOR MOBILE */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-10 text-center sm:text-left">
           
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 flex flex-col items-center sm:items-start">
             <p className="text-sm sm:text-base text-gray-200 mb-5 sm:mb-6 max-w-md leading-relaxed">
-              Axtelica is an AI Solutions Builder creating smart platforms,
-              intelligent agents, and business-ready solutions for modern enterprises.
+              Axtelica is an AI solutions builder creating smart platforms, intelligent agents, and business-ready solutions for modern enterprises.
             </p>
 
             {/* Social Icons */}
-            <div className="flex gap-4 sm:gap-5 mt-4">
+            <div className="flex gap-4 sm:gap-5 mt-4 justify-center sm:justify-start">
               {[FaXTwitter, FaLinkedin, FaInstagram, FaFacebookF].map(
                 (Icon, i) => (
                   <button
@@ -73,8 +72,8 @@ const Footer = () => {
               ],
             },
           ].map((col) => (
-            <div key={col.title}>
-              <h4 className="text-white font-semibold mb-3 text-base sm:text-lg font-poppins">
+            <div key={col.title} className="flex flex-col items-center sm:items-start">
+              <h4 className="text-white font-semibold mb-3 text-base sm:text-lg">
                 {col.title}
               </h4>
 
@@ -110,9 +109,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-10 pt-5 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="border-t border-white/10 mt-10 pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
           
-          <p className="text-xs text-gray-400 text-center md:text-left">
+          <p className="text-xs text-gray-400">
             © 2024 Axtelica. All rights reserved.
           </p>
 

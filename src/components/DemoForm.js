@@ -8,6 +8,7 @@ const DemoForm = ({
   description = "Request a demo with an Axtelica AI product expert to see how you can:",
   points = [],
 }) => {
+  const location = useLocation();
 
   const [form, setForm] = useState({
     firstName: "",
@@ -18,39 +19,44 @@ const DemoForm = ({
     employees: "",
     country: "",
   });
- const location=useLocation();
-  
+
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+
+  // ❌ Hide component on this route
+  if (location.pathname === "/product/optimaorbit") {
+    return null;
+  }
 
   // 🔹 Handle Change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
+    setErrors({});
+  };
+
+  // 🔹 Check all empty
+  const isAllFieldsEmpty = () => {
+    return Object.values(form).every((val) => val.trim() === "");
   };
 
   // 🔹 Validation
   const validate = () => {
     let newErrors = {};
 
-    if (!form.firstName.trim()) newErrors.firstName = "First name is required";
-    if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!form.company.trim()) newErrors.company = "Company is required";
+    if (!form.firstName.trim()) newErrors.firstName = true;
+    if (!form.lastName.trim()) newErrors.lastName = true;
+    if (!form.company.trim()) newErrors.company = true;
 
-    if (!form.email) {
-      newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
-      newErrors.email = "Invalid email format";
+    if (!form.email || !/^\S+@\S+\.\S+$/.test(form.email)) {
+      newErrors.email = true;
     }
 
-    if (!form.phone) {
-      newErrors.phone = "Phone is required";
-    } else if (!/^\d{10}$/.test(form.phone)) {
-      newErrors.phone = "Phone must be exactly 10 digits";
+    if (!form.phone || !/^\d{10}$/.test(form.phone)) {
+      newErrors.phone = true;
     }
 
-    if (!form.employees) newErrors.employees = "Select employees";
-    if (!form.country) newErrors.country = "Select country";
+    if (!form.employees) newErrors.employees = true;
+    if (!form.country) newErrors.country = true;
 
     return newErrors;
   };
@@ -59,22 +65,30 @@ const DemoForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ✅ Only global error if all empty
+    if (isAllFieldsEmpty()) {
+      setErrors({ global: "Please fill all required fields" });
+      toast.error("Please fill all required fields");
+      return;
+    }
+
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      toast.error("Please fix the errors in the form");
+      setErrors({ global: "Please enter valid details in all fields" });
+      toast.error("Please fix the form");
       return;
     }
 
     setLoading(true);
 
-    emailjs.send(
-  process.env.REACT_APP_SERVICE_ID,
-  process.env.REACT_APP_TEMPLATE_ID,
-  { ...form, formType: "Demo Request" },
-  process.env.REACT_APP_PUBLIC_KEY
-)
+    emailjs
+      .send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        { ...form, formType: "Demo Request" },
+        process.env.REACT_APP_PUBLIC_KEY
+      )
       .then(() => {
         toast.success("Demo request sent successfully!");
 
@@ -97,10 +111,6 @@ const DemoForm = ({
         setLoading(false);
       });
   };
-   // ❌ Hide component on this route
-  if (location.pathname === "/product/Intelligent") {
-    return null;
-  }
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-8 sm:px-6 lg:px-10 bg-white">
@@ -130,102 +140,75 @@ const DemoForm = ({
         <div className="bg-white border rounded-2xl p-6 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5 text-black">
 
-            {/* First Name */}
-            <div>
-              <input
-                name="firstName"
-                value={form.firstName}
-                onChange={handleChange}
-                placeholder="First Name*"
-                className="w-full border px-3 py-3 rounded-md"
-              />
-              {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
-            </div>
+            <input
+              name="firstName"
+              value={form.firstName}
+              onChange={handleChange}
+              placeholder="First Name*"
+              className="w-full border px-3 py-3 rounded-md"
+            />
 
-            {/* Last Name */}
-            <div>
-              <input
-                name="lastName"
-                value={form.lastName}
-                onChange={handleChange}
-                placeholder="Last Name*"
-                className="w-full border px-3 py-3 rounded-md"
-              />
-              {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
-            </div>
+            <input
+              name="lastName"
+              value={form.lastName}
+              onChange={handleChange}
+              placeholder="Last Name*"
+              className="w-full border px-3 py-3 rounded-md"
+            />
 
-            {/* Company */}
-            <div>
-              <input
-                name="company"
-                value={form.company}
-                onChange={handleChange}
-                placeholder="Company*"
-                className="w-full border px-3 py-3 rounded-md"
-              />
-              {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
-            </div>
+            <input
+              name="company"
+              value={form.company}
+              onChange={handleChange}
+              placeholder="Company*"
+              className="w-full border px-3 py-3 rounded-md"
+            />
 
-            {/* Email */}
-            <div>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Business Email*"
-                className="w-full border px-3 py-3 rounded-md"
-              />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-            </div>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Business Email*"
+              className="w-full border px-3 py-3 rounded-md"
+            />
 
-            {/* Phone */}
-            <div>
-              <input
-                name="phone"
-                value={form.phone}
-                onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, "");
-                  if (value.length <= 10) {
-                    setForm({ ...form, phone: value });
-                    setErrors({ ...errors, phone: "" });
-                  }
-                }}
-                placeholder="Phone*"
-                className="w-full border px-3 py-3 rounded-md"
-              />
-              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
-            </div>
+            <input
+              name="phone"
+              value={form.phone}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, "");
+                if (value.length <= 10) {
+                  setForm({ ...form, phone: value });
+                }
+              }}
+              placeholder="Phone*"
+              className="w-full border px-3 py-3 rounded-md"
+            />
 
-            {/* Employees */}
-            <div>
-              <select
-                name="employees"
-                value={form.employees}
-                onChange={handleChange}
-                className="w-full border px-3 py-3 rounded-md"
-              >
-                <option value="">Employees*</option>
-                <option>1-10</option>
-                <option>10-50</option>
-                <option>50+</option>
-              </select>
-              {errors.employees && <p className="text-red-500 text-sm">{errors.employees}</p>}
-            </div>
+            <select
+              name="employees"
+              value={form.employees}
+              onChange={handleChange}
+              className="w-full border px-3 py-3 rounded-md  bg-white text-gray-400"
+            >
+              <option value="">Employees*</option>
+              <option>1-10</option>
+              <option>10-50</option>
+              <option>50+</option>
+            </select>
 
-            {/* Country */}
             <div className="md:col-span-2">
               <select
                 name="country"
                 value={form.country}
                 onChange={handleChange}
-                className="w-full border px-3 py-3 rounded-md"
+                className="w-full border px-3 py-3 rounded-md bg-white text-gray-400"
               >
                 <option value="">Country*</option>
                 <option>India</option>
                 <option>USA</option>
               </select>
-              {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>}
             </div>
 
             {/* Submit */}
@@ -237,6 +220,13 @@ const DemoForm = ({
               >
                 {loading ? "Sending..." : "Get a Demo"}
               </button>
+
+              {/* 🔴 Single Error */}
+              {errors.global && (
+                <p className="text-red-500 text-sm mt-3 text-center">
+                  {errors.global}
+                </p>
+              )}
             </div>
 
           </form>

@@ -5,18 +5,17 @@ const faqs = [
   {
     question: "What is Axtelica?",
     answer:
-      "Axtelica is a next-generation data and analytics company that helps businesses transform raw data into actionable insights using AI, cloud technologies, and advanced analytics solutions. ",
+      "Axtelica is a next-generation data and analytics company that helps businesses transform raw data into actionable insights using AI, cloud technologies, and advanced analytics solutions.",
   },
   {
     question: "What industries does Axtelica work with?",
     answer:
-      "Axtelica works across multiple industries such as logistics, energy, and enterprise businesses—helping them solve data challenges, optimize operations, and improve decision-making. ",
+      "Axtelica works across multiple industries such as logistics, energy, and enterprise businesses—helping them solve data challenges, optimize operations, and improve decision-making.",
   },
- 
   {
     question: "Does Axtelica provide custom solutions?",
     answer:
-      "Absolutely. Axtelica designs tailored solutions based on each client’s business needs, ensuring scalability, efficiency, and measurable outcomes. ",
+      "Absolutely. Axtelica designs tailored solutions based on each client’s business needs, ensuring scalability, efficiency, and measurable outcomes.",
   },
   {
     question: "How can I get started with Axtelica?",
@@ -39,8 +38,7 @@ const FAQ = () => {
         py-12 sm:py-16 lg:py-24 
         bg-no-repeat 
         bg-left lg:bg-left 
-        bg-contain lg:bg-contain 
-        md:bg-contain bg-fixed
+        bg-contain 
       "
       style={{
         backgroundImage: "url('/assets/logo_bg_faq.jpg')",
@@ -50,23 +48,22 @@ const FAQ = () => {
         
         {/* Title */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h1 className="text-[clamp(24px,6vw,48px)] font-bold text-black">
+          <h1 className="text-[clamp(24px,6vw,48px)] text-black">
             Frequently Asked Questions
           </h1>
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-start">
+        {/* ✅ GRID (Already correct mobile behavior) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-start">
           
           {/* LEFT */}
-          <div>
-            <h2 className="text-[clamp(20px,5vw,48px)] font-semibold leading-tight text-black mb-4 sm:mb-6">
-              Why Axtelica for <br /> Smarter Insights?
+          <div className="text-center lg:text-left">
+            <h2 className="text-[clamp(20px,5vw,48px)] leading-tight text-black mb-4 sm:mb-6">
+              Why Choose Axtelica for <br className="hidden lg:block" /> Smarter Insights?
             </h2>
 
-            <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-lg">
-              Axtelica delivers AI-powered solutions designed to boost customer
-              growth, enhance productivity, and optimize costs. Our expertise in
+            <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+              Axtelica delivers AI-powered solutions designed to accelerate growth, enhance productivity, and optimize costs. Our expertise in
               analytics, cloud, and digital transformation helps businesses
               achieve sustainable success in the digital age.
             </p>
@@ -91,7 +88,7 @@ const FAQ = () => {
                     }`}
                   />
 
-                  <h3 className="text-sm sm:text-base md:text-lg font-poppins text-gray-900 leading-snug">
+                  <h3 className="text-sm sm:text-base md:text-lg text-gray-900 leading-snug">
                     {item.question}
                   </h3>
                 </div>

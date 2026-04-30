@@ -125,3 +125,21 @@ img {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+
+/* Reset + global font */
+*,
+*::before,
+*::after {
+  font-family: 'Poppins', sans-serif !important;
+}
+html, body {
+  font-family: 'Poppins', sans-serif;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: 'Poppins', sans-serif !important;
+}
