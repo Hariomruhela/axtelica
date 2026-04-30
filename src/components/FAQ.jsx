@@ -12,11 +12,7 @@ const faqs = [
     answer:
       "Axtelica works across multiple industries such as logistics, energy, and enterprise businesses—helping them solve data challenges, optimize operations, and improve decision-making. ",
   },
-  {
-    question: "What is CatalystCraft?",
-    answer:
-      "CatalystCraft is Axtelica’s proprietary solution accelerator toolkit that helps organizations quickly deploy data solutions, improve data quality, and gain insights faster. ",
-  },
+ 
   {
     question: "Does Axtelica provide custom solutions?",
     answer:

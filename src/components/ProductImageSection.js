@@ -1,8 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProductImageSection = ({ data }) => {
   const navigate=useNavigate();
+  const location=useLocation();
+   // ❌ Hide component on this route
+  if (location.pathname === "/product/Intelligent") {
+    return null;
+  }
+
   return (
     <section className="py-10 sm:py-20 px-4 md:px-10 bg-white">
       <div className="max-w-7xl mx-auto text-center">

@@ -18,7 +18,7 @@ const products = [
   },
   {
     title: "Intelligent Business Agents",
-    path: "/product/optimaorbit",
+    path: "/product/Intelligent",
     description:
       "Axtelica is developing intelligent agents to assist teams with analytics, validation, and automation.",
     image: "/assets/ai_agent_home_img.png",
@@ -116,6 +116,11 @@ const AIHub = () => {
                   {/* Title */}
                   <h3 className="text-gray-900 text-xl sm:text-2xl">
                     {item.title}
+                    {item.title === "Intelligent Business Agents" && (
+    <span className="text-[10px] sm:text-xs  text-gray-700  py-3  rounded-full">
+      -(Coming Soon)
+    </span>
+  )}
                   </h3>
 
                   {/* Hidden Content */}

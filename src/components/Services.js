@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import {  ArrowUpRight } from "lucide-react";
 import {
   FaDatabase,
   FaCloud,
@@ -120,13 +120,13 @@ const Services = () => {
                   </div>
 
                   {/* Button */}
-                  <div className="mt-6">
+                  {/* <div className="mt-6">
                     <button className="inline-flex items-center gap-2 
                     text-cyan-400 text-sm sm:text-base font-medium">
                       More Details 
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </button>
-                  </div>
+                  </div> */}
 
                 </div>
               </motion.div>

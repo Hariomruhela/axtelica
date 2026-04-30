@@ -39,8 +39,8 @@ const WhyChoose = () => {
         <div>
           
           {/* Heading */}
-          <h2 className="text-black font-bold 
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
+          <h2 className="text-black font-bold w-full
+          text-[16px] sm:text-xl md:text-xl lg:text-4xl leading-tight">
             Why Organizations Choose Axtelica
           </h2>
 

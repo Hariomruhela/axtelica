@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import { useLocation } from "react-router-dom";
 
 const DemoForm = ({
   title = "Ready to unlock the power of your data?",
@@ -17,7 +18,8 @@ const DemoForm = ({
     employees: "",
     country: "",
   });
-
+ const location=useLocation();
+  
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -95,6 +97,10 @@ const DemoForm = ({
         setLoading(false);
       });
   };
+   // ❌ Hide component on this route
+  if (location.pathname === "/product/Intelligent") {
+    return null;
+  }
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-8 sm:px-6 lg:px-10 bg-white">

@@ -9,7 +9,7 @@ const DemoFooter = () => {
         
         {/* LEFT TEXT */}
         <div className="text-sm text-gray-700 space-y-1">
-          <p>©2026 SentinelOne, All Rights Reserved.</p>
+          <p>©2026 Axtelica, All Rights Reserved.</p>
           <p className="cursor-pointer hover:underline">Privacy Notice</p>
           <p className="cursor-pointer hover:underline">Terms of Use</p>
         </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+// import { ArrowRight } from "lucide-react";
 
 const solutions = [
   {
@@ -108,9 +108,9 @@ const SolutionSection = () => {
                     {item.description}
                   </p>
 
-                  <button className="inline-flex items-center gap-2 mt-4 sm:mt-5 text-cyan-400 text-sm sm:text-base font-medium hover:gap-3 transition-all">
+                  {/* <button className="inline-flex items-center gap-2 mt-4 sm:mt-5 text-cyan-400 text-sm sm:text-base font-medium hover:gap-3 transition-all">
                     Learn More <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </motion.div>

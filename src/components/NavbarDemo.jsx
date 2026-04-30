@@ -63,7 +63,7 @@ const NavbarDemo = () => {
         [
           { name: "Axtream", path: "/product/axtream" },
           { name: "Infinisight", path: "/product/infinisight" },
-          { name: "Intelligent Business Agents", path: "/product/optimaorbit" },
+          { name: "Intelligent Business Agents", path: "/product/Intelligent" },
         ],
         [
           { name: "Product Tour", path: "https://axtream.axtelica.com/" },
