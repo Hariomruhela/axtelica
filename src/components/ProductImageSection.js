@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductImageSection = ({ data }) => {
+  const navigate=useNavigate();
   return (
     <section className="py-10 sm:py-20 px-4 md:px-10 bg-white">
       <div className="max-w-7xl mx-auto text-center">
@@ -50,7 +52,9 @@ const ProductImageSection = ({ data }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
 
           {/* Button 1 */}
-          <button className="w-full sm:w-fit bg-[#FF3366] text-white px-6 sm:px-7 py-3 
+          <button
+          onClick={() => (window.location.href = "https://axtream.axtelica.com/")}
+           className="w-full sm:w-fit bg-[#FF3366] text-white px-6 sm:px-7 py-3 
           rounded-md text-sm sm:text-lg font-poppins hover:bg-pink-600 hover:scale-105 transition">
             Product Tour
           </button>
@@ -58,7 +62,10 @@ const ProductImageSection = ({ data }) => {
           {/* Button 2 + Text */}
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
             
-            <button className="w-full sm:w-auto bg-gradient-to-r from-[#00bfff] via-[#4a5de2] to-[#8a2be2] 
+            <button
+            onClick={()=>navigate("/demo")}
+    
+             className="w-full sm:w-auto bg-gradient-to-r from-[#00bfff] via-[#4a5de2] to-[#8a2be2] 
             text-white px-5 sm:px-6 py-3 rounded-md text-sm sm:text-lg font-poppins 
             hover:from-[#8a2be2] hover:via-[#4a5de2] hover:to-[#00bfff] transition">
               Start free 7 day-Trial

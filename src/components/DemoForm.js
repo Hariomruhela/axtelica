@@ -1,94 +1,237 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 const DemoForm = ({
   title = "Ready to unlock the power of your data?",
   description = "Request a demo with an Axtelica AI product expert to see how you can:",
   points = [],
 }) => {
+
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    company: "",
+    email: "",
+    phone: "",
+    employees: "",
+    country: "",
+  });
+
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // 🔹 Handle Change
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  // 🔹 Validation
+  const validate = () => {
+    let newErrors = {};
+
+    if (!form.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!form.company.trim()) newErrors.company = "Company is required";
+
+    if (!form.email) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!form.phone) {
+      newErrors.phone = "Phone is required";
+    } else if (!/^\d{10}$/.test(form.phone)) {
+      newErrors.phone = "Phone must be exactly 10 digits";
+    }
+
+    if (!form.employees) newErrors.employees = "Select employees";
+    if (!form.country) newErrors.country = "Select country";
+
+    return newErrors;
+  };
+
+  // 🔹 Submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      toast.error("Please fix the errors in the form");
+      return;
+    }
+
+    setLoading(true);
+
+    emailjs.send(
+  process.env.REACT_APP_SERVICE_ID,
+  process.env.REACT_APP_TEMPLATE_ID,
+  { ...form, formType: "Demo Request" },
+  process.env.REACT_APP_PUBLIC_KEY
+)
+      .then(() => {
+        toast.success("Demo request sent successfully!");
+
+        setForm({
+          firstName: "",
+          lastName: "",
+          company: "",
+          email: "",
+          phone: "",
+          employees: "",
+          country: "",
+        });
+
+        setErrors({});
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Failed to send request");
+        setLoading(false);
+      });
+  };
+
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-8 sm:px-6 lg:px-10 bg-white">
-      
       <div className="max-w-[1400px] px-10 mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        
-        {/* LEFT CONTENT (Dynamic) */}
+
+        {/* LEFT */}
         <div className="max-w-xl">
-          <h1 className="text-[clamp(28px,5vw,48px)] font-poppins font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-[clamp(28px,5vw,48px)] font-bold text-gray-900 mb-6">
             {title}
           </h1>
 
-          <p className="text-gray-700 mb-6 text-xl font-poppins">
+          <p className="text-gray-700 mb-6 text-xl">
             {description}
           </p>
 
-          <ul className="space-y-4 text-gray-700 text-lg font-poppins">
+          <ul className="space-y-4 text-gray-700 text-lg">
             {points.map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-400 text-lg mt-1">
-                  ✓
-                </span>
+              <li key={i} className="flex gap-3">
+                <span>✓</span>
                 {item}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* RIGHT FORM (Same as before) */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            
-            {[
-              { label: "First Name*", type: "text" },
-              { label: "Last Name*", type: "text" },
-              { label: "Company*", type: "text" },
-              { label: "Business Email*", type: "email" },
-              { label: "Phone*", type: "text" },
-            ].map((field, i) => (
-              <div key={i}>
-                <label className="block text-lg font-poppins text-gray-600 mb-1">
-                  {field.label}
-                </label>
-                <input
-                  type={field.type}
-                  className="w-full border border-gray-300 rounded-md px-3 py-3 text-lg font-poppins focus:outline-none focus:ring-2 focus:ring-pink-400"
-                />
-              </div>
-            ))}
+        {/* FORM */}
+        <div className="bg-white border rounded-2xl p-6 sm:p-8 shadow-sm">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5 text-black">
 
+            {/* First Name */}
             <div>
-              <label className="block text-lg font-poppins text-gray-600 mb-1">
-                Employees*
-              </label>
-              <select className="w-full border border-gray-300 text-gray-500 rounded-md px-3 py-3 text-lg font-poppins">
-                <option>Select...</option>
+              <input
+                name="firstName"
+                value={form.firstName}
+                onChange={handleChange}
+                placeholder="First Name*"
+                className="w-full border px-3 py-3 rounded-md"
+              />
+              {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
+            </div>
+
+            {/* Last Name */}
+            <div>
+              <input
+                name="lastName"
+                value={form.lastName}
+                onChange={handleChange}
+                placeholder="Last Name*"
+                className="w-full border px-3 py-3 rounded-md"
+              />
+              {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
+            </div>
+
+            {/* Company */}
+            <div>
+              <input
+                name="company"
+                value={form.company}
+                onChange={handleChange}
+                placeholder="Company*"
+                className="w-full border px-3 py-3 rounded-md"
+              />
+              {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
+            </div>
+
+            {/* Email */}
+            <div>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="Business Email*"
+                className="w-full border px-3 py-3 rounded-md"
+              />
+              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+            </div>
+
+            {/* Phone */}
+            <div>
+              <input
+                name="phone"
+                value={form.phone}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, "");
+                  if (value.length <= 10) {
+                    setForm({ ...form, phone: value });
+                    setErrors({ ...errors, phone: "" });
+                  }
+                }}
+                placeholder="Phone*"
+                className="w-full border px-3 py-3 rounded-md"
+              />
+              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+            </div>
+
+            {/* Employees */}
+            <div>
+              <select
+                name="employees"
+                value={form.employees}
+                onChange={handleChange}
+                className="w-full border px-3 py-3 rounded-md"
+              >
+                <option value="">Employees*</option>
                 <option>1-10</option>
                 <option>10-50</option>
                 <option>50+</option>
               </select>
+              {errors.employees && <p className="text-red-500 text-sm">{errors.employees}</p>}
             </div>
 
+            {/* Country */}
             <div className="md:col-span-2">
-              <label className="block text-lg font-poppins text-gray-600 mb-1">
-                Country*
-              </label>
-              <select className="w-full border text-gray-500 border-gray-300 rounded-md px-3 py-3 font-poppins text-lg">
-                <option>Select...</option>
+              <select
+                name="country"
+                value={form.country}
+                onChange={handleChange}
+                className="w-full border px-3 py-3 rounded-md"
+              >
+                <option value="">Country*</option>
                 <option>India</option>
                 <option>USA</option>
               </select>
+              {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>}
             </div>
 
+            {/* Submit */}
             <div className="md:col-span-2 mt-4">
               <button
                 type="submit"
-                className="w-full bg-[#FF3366] text-white px-7 py-3 rounded-md text-lg font-poppins hover:bg-pink-600 hover:scale-105 transition"
+                disabled={loading}
+                className="w-full bg-[#FF3366] text-white py-3 rounded-md disabled:opacity-50"
               >
-                Get a Demo
+                {loading ? "Sending..." : "Get a Demo"}
               </button>
             </div>
-
-            <p className="md:col-span-2 text-lg font-poppins text-gray-500 leading-relaxed">
-              By clicking Request a Demo, you agree to our Privacy Policy and Terms.
-            </p>
 
           </form>
         </div>

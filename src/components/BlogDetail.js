@@ -79,12 +79,12 @@ const BlogDetail = () => {
           {blog.title}
         </h1>
 
-        {/* Image */}
+        {/* Image
         <img
           src={blog.image}
           alt={blog.title}
           className="w-[80%]  h-[400px] rounded-xl mb-8"
-        />
+        /> */}
 
         {/* Description */}
         <p className="text-gray-700 text-lg leading-relaxed mb-10">

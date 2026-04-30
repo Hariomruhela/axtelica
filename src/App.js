@@ -13,7 +13,7 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./components/BlogDetail";
 import DemoLanding from "./components/DemoLanding";
 import CaseStudies from "./pages/CaseStudies";
-
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
     <div className="text-white">
       <ScrollToTop/>
       <NavbarDemo/>
+      <Toaster position="top-right" />
      <Routes>
         <Route path="/" element={<Home/>} />
       </Routes>

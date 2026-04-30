@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 const ContactPage = () => {
   const [form, setForm] = useState({
@@ -13,15 +15,85 @@ const ContactPage = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // 🔹 Handle Change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
   };
 
+  // 🔹 Validation
+  const validate = () => {
+    let err = {};
+
+    if (!form.email) {
+      err.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      err.email = "Invalid email format";
+    }
+
+    if (!form.firstName.trim()) err.firstName = "First name is required";
+    if (!form.lastName.trim()) err.lastName = "Last name is required";
+    if (!form.company.trim()) err.company = "Company is required";
+
+    if (!form.phone) {
+      err.phone = "Phone is required";
+    } else if (!/^\d{10}$/.test(form.phone)) {
+      err.phone = "Phone must be 10 digits";
+    }
+
+    if (!form.department) err.department = "Select a department";
+
+    if (!form.message.trim()) err.message = "Message is required";
+
+    return err;
+  };
+
+  // 🔹 Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
-    // 👉 API call / backend integration here
+
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      toast.error("Please fill all required fields correctly");
+      return;
+    }
+
+    setLoading(true);
+
+    emailjs.send(
+  process.env.REACT_APP_SERVICE_ID,
+  process.env.REACT_APP_TEMPLATE_ID,
+  { ...form, formType: "Demo Request" },
+  process.env.REACT_APP_PUBLIC_KEY
+)
+      .then(() => {
+        toast.success("Message sent successfully!");
+
+        setForm({
+          email: "",
+          firstName: "",
+          lastName: "",
+          company: "",
+          phone: "",
+          department: "",
+          message: "",
+        });
+
+        setErrors({});
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Failed to send message");
+        setLoading(false);
+      });
   };
+
 
   return (
     <div>
@@ -78,99 +150,120 @@ const ContactPage = () => {
           </motion.div>
 
           {/* FORM */}
-          <motion.form
+           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-white rounded-2xl shadow-2xl p-8 space-y-5"
+            className="bg-white rounded-2xl p-8 space-y-4 text-black"
           >
+
             {/* Email */}
-            <input
-              type="email"
-              name="email"
-              placeholder="Business Email *"
-              required
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-            />
+            <div>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="Business Email *"
+                className="w-full border px-4 py-3 rounded-lg"
+              />
+              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+            </div>
 
-            {/* Name Row */}
+            {/* Names */}
             <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name *"
-                required
-                onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-              />
+              <div>
+                <input
+                  name="firstName"
+                  value={form.firstName}
+                  onChange={handleChange}
+                  placeholder="First Name *"
+                  className="w-full border px-4 py-3 rounded-lg"
+                />
+                {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
+              </div>
 
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name *"
-                required
-                onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-              />
+              <div>
+                <input
+                  name="lastName"
+                  value={form.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name *"
+                  className="w-full border px-4 py-3 rounded-lg"
+                />
+                {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
+              </div>
             </div>
 
             {/* Company */}
-            <input
-              type="text"
-              name="company"
-              placeholder="Company *"
-              required
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-            />
+            <div>
+              <input
+                name="company"
+                value={form.company}
+                onChange={handleChange}
+                placeholder="Company *"
+                className="w-full border px-4 py-3 rounded-lg"
+              />
+              {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
+            </div>
 
             {/* Phone */}
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number *"
-              required
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-            />
+            <div>
+              <input
+                name="phone"
+                value={form.phone}
+                onChange={(e) => {
+                  const val = e.target.value.replace(/\D/g, "");
+                  if (val.length <= 10) {
+                    setForm({ ...form, phone: val });
+                    setErrors({ ...errors, phone: "" });
+                  }
+                }}
+                placeholder="Phone Number *"
+                className="w-full border px-4 py-3 rounded-lg"
+              />
+              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+            </div>
 
             {/* Department */}
-            <select
-              name="department"
-              required
-              onChange={handleChange}
-              className="w-full border text-gray-400 border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-            >
-              <option value="">Select Department *</option>
-              <option value="Sales">Sales</option>
-              <option value="Support">Support</option>
-              <option value="Marketing">Marketing</option>
-              <option value="Other">Other</option>
-            </select>
+            <div>
+              <select
+                name="department"
+                value={form.department}
+                onChange={handleChange}
+                className="w-full border px-4 py-3 rounded-lg"
+              >
+                <option value="">Select Department *</option>
+                <option>Sales</option>
+                <option>Support</option>
+                <option>Marketing</option>
+                <option>Other</option>
+              </select>
+              {errors.department && <p className="text-red-500 text-sm">{errors.department}</p>}
+            </div>
 
             {/* Message */}
-            <textarea
-              name="message"
-              rows="4"
-              placeholder="Comments / Questions"
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-            />
+            <div>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                rows="4"
+                placeholder="Message *"
+                className="w-full border px-4 py-3 rounded-lg"
+              />
+              {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+            </div>
 
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-[#FF3366] text-white py-3 rounded-md font-medium hover:scale-105 transition"
+              disabled={loading}
+              className="w-full bg-[#FF3366] text-white py-3 rounded-md disabled:opacity-50"
             >
-              Submit
+              {loading ? "Sending..." : "Submit"}
             </button>
 
-            {/* Footer Note */}
-            <p className="text-sm text-gray-500 leading-relaxed">
-              By submitting this form, you agree to be contacted regarding our
-              services. You can unsubscribe anytime.
-            </p>
           </motion.form>
 
         </div>
