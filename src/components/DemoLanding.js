@@ -73,9 +73,9 @@ const DemoLanding = () => {
     }
 
     if (
-      !process.env.REACT_APP_SERVICE_ID ||
-      !process.env.REACT_APP_TEMPLATE_ID ||
-      !process.env.REACT_APP_PUBLIC_KEY
+      !"service_mq323ys" ||
+      !"template_ho7qo3m" ||
+      !"KUyOfe7nTxPUvWFdw"
     ) {
       toast.error("Email service not configured");
       console.error("Missing EmailJS environment variables");
@@ -86,8 +86,9 @@ const DemoLanding = () => {
 
     emailjs
       .send(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        "service_mq323ys",
+        "template_ho7qo3m",
+        
         {
           firstName: form.firstName,
           lastName: form.lastName,
@@ -97,7 +98,8 @@ const DemoLanding = () => {
           employees: form.employees,
           country: form.country,
           formType: "Demo Request",
-        }
+        },
+        "KUyOfe7nTxPUvWFdw",
       )
       .then((res) => {
         console.log("SUCCESS:", res);
