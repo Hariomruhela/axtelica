@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import DemoFooter from "./DemoFooter";
 import { Link } from "react-router-dom";
@@ -19,11 +19,22 @@ const DemoLanding = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
+  // ✅ Initialize EmailJS
+  useEffect(() => {
+    if (!process.env.REACT_APP_PUBLIC_KEY) {
+      console.error("EmailJS Public Key missing");
+      return;
+    }
+    emailjs.init(process.env.REACT_APP_PUBLIC_KEY);
+  }, []);
+
+  // ✅ Handle Input Change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
+  // ✅ Validation
   const validate = () => {
     let err = {};
 
@@ -39,8 +50,8 @@ const DemoLanding = () => {
 
     if (!form.phone) {
       err.phone = "Phone is required";
-    } else if (!/^\d{10}$/.test(form.phone)) {
-      err.phone = "Phone must be 10 digits";
+    } else if (!/^\d{7,15}$/.test(form.phone)) {
+      err.phone = "Invalid phone number";
     }
 
     if (!form.employees) err.employees = "Employees is required";
@@ -49,6 +60,7 @@ const DemoLanding = () => {
     return err;
   };
 
+  // ✅ Submit Handler
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -60,16 +72,35 @@ const DemoLanding = () => {
       return;
     }
 
+    if (
+      !process.env.REACT_APP_SERVICE_ID ||
+      !process.env.REACT_APP_TEMPLATE_ID ||
+      !process.env.REACT_APP_PUBLIC_KEY
+    ) {
+      toast.error("Email service not configured");
+      console.error("Missing EmailJS environment variables");
+      return;
+    }
+
     setLoading(true);
 
     emailjs
       .send(
         process.env.REACT_APP_SERVICE_ID,
         process.env.REACT_APP_TEMPLATE_ID,
-        { ...form, formType: "Demo Request" },
-        process.env.REACT_APP_PUBLIC_KEY
+        {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          company: form.company,
+          email: form.email,
+          phone: form.phone,
+          employees: form.employees,
+          country: form.country,
+          formType: "Demo Request",
+        }
       )
-      .then(() => {
+      .then((res) => {
+        console.log("SUCCESS:", res);
         toast.success("Demo request sent!");
 
         setForm({
@@ -83,13 +114,12 @@ const DemoLanding = () => {
         });
 
         setErrors({});
-        setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
-        toast.error("Failed to send request");
-        setLoading(false);
-      });
+        console.error("EmailJS Error:", err);
+        toast.error(err?.text || "Failed to send request");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -107,7 +137,7 @@ const DemoLanding = () => {
         <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 py-10 sm:py-16 md:py-24">
 
           {/* FORM */}
-          <div className="bg-white text-black p-6 sm:p-6 md:p-8 rounded-xl shadow-xl w-full max-w-full sm:max-w-lg mx-auto min-h-[520px] sm:min-h-0 flex flex-col justify-center">
+          <div className="bg-white text-black p-6 sm:p-6 md:p-8 rounded-xl shadow-xl w-full max-w-full sm:max-w-lg mx-auto flex flex-col justify-center">
             <form
               onSubmit={handleSubmit}
               className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
@@ -122,6 +152,7 @@ const DemoLanding = () => {
                   onChange={handleChange}
                   className="w-full border px-3 py-2.5 rounded-md mt-1 text-base"
                 />
+                {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
               </div>
 
               {/* Last Name */}
@@ -133,6 +164,7 @@ const DemoLanding = () => {
                   onChange={handleChange}
                   className="w-full border px-3 py-2.5 rounded-md mt-1 text-base"
                 />
+                {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
               </div>
 
               {/* Company */}
@@ -144,6 +176,7 @@ const DemoLanding = () => {
                   onChange={handleChange}
                   className="w-full border px-3 py-2.5 rounded-md mt-1 text-base"
                 />
+                {errors.company && <p className="text-red-500 text-xs">{errors.company}</p>}
               </div>
 
               {/* Email */}
@@ -156,6 +189,7 @@ const DemoLanding = () => {
                   onChange={handleChange}
                   className="w-full border px-3 py-2.5 rounded-md mt-1 text-base"
                 />
+                {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
               </div>
 
               {/* Phone */}
@@ -166,12 +200,13 @@ const DemoLanding = () => {
                   value={form.phone}
                   onChange={(e) => {
                     const val = e.target.value.replace(/\D/g, "");
-                    if (val.length <= 10) {
+                    if (val.length <= 15) {
                       setForm({ ...form, phone: val });
                     }
                   }}
                   className="w-full border px-3 py-2.5 rounded-md mt-1 text-base"
                 />
+                {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
               </div>
 
               {/* Employees */}
@@ -183,6 +218,7 @@ const DemoLanding = () => {
                   onChange={handleChange}
                   className="w-full border px-3 py-2.5 rounded-md mt-1 text-base"
                 />
+                {errors.employees && <p className="text-red-500 text-xs">{errors.employees}</p>}
               </div>
 
               {/* Country */}
@@ -194,6 +230,7 @@ const DemoLanding = () => {
                   onChange={handleChange}
                   className="w-full border px-3 py-2.5 rounded-md mt-1 text-base"
                 />
+                {errors.country && <p className="text-red-500 text-xs">{errors.country}</p>}
               </div>
 
               {/* Submit */}
@@ -214,7 +251,10 @@ const DemoLanding = () => {
               </div>
 
             </form>
-            <p className="text-[12px] mt-1 font-poppins text-gray-900">By clicking Request a Demo, I agree to the use of my personal data in accordance with Axtelica Privacy Notice. Axtelica will not sell, trade, lease, or rent your personal data to third parties.</p>
+
+            <p className="text-[12px] mt-2 text-gray-700">
+              By clicking Request a Demo, I agree to the use of my personal data in accordance with Axtelica Privacy Notice.
+            </p>
           </div>
 
           {/* RIGHT CONTENT */}
@@ -230,7 +270,10 @@ const DemoLanding = () => {
             <h1 className="text-xl sm:text-3xl lg:text-5xl font-semibold mb-5">
               AI Security Built for Speed and Scale
             </h1>
-            <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl mb-2 lg font-poppins">Request a demo with a Axtelica AI product expert to see how you can:</h3>
+
+            <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl mb-2 font-poppins">
+              Request a demo with an Axtelica AI product expert to see how you can:
+            </h3>
 
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
               <li>✔ Connect data from multiple sources</li>
