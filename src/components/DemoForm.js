@@ -81,10 +81,10 @@ const DemoForm = ({
 
     emailjs
       .send(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        "service_mq323ys",
+        "template_ho7qo3m",
         { ...form, formType: "Demo Request" },
-        process.env.REACT_APP_PUBLIC_KEY
+        "KUyOfe7nTxPUvWFdw",
       )
       .then(() => {
         toast.success("Demo request sent successfully!");
