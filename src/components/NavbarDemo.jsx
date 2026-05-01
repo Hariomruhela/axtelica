@@ -65,10 +65,10 @@ const NavbarDemo = () => {
           { name: "Infinisight", path: "/product/infinisight" },
           { name: "Intelligent Business Agents", path: "/product/Intelligent" },
         ],
-        [
-          { name: "Product Tour", path: "https://axtream.axtelica.com/" },
-          { name: "Product Tour", path: "https://infinisight.axtelica.com/" },
-        ],
+        // [
+        //   { name: "Product Tour", path: "https://axtream.axtelica.com/" },
+        //   { name: "Product Tour", path: "https://infinisight.axtelica.com/" },
+        // ],
       ],
     },
     case: {

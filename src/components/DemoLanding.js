@@ -131,7 +131,7 @@ const DemoLanding = () => {
         animate={{ opacity: 1 }}
         className="min-h-screen flex items-center justify-center text-white relative px-4"
         style={{
-          backgroundImage: "url('/assets/book_demo_pagebg_new.jpg')",
+          backgroundImage: "url('/assets/book_demo_pagebg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -59,7 +59,15 @@ const ProductImageSection = ({ data }) => {
 
           {/* Button 1 */}
           <button
-          onClick={() => (window.location.href = "https://axtream.axtelica.com/")}
+          onClick={() => {
+    const currentUrl = window.location.href;
+
+    if (currentUrl.includes("infinisight")) {
+      window.location.href = "https://infinisight.axtelica.com/";
+    } else {
+      window.location.href = "https://axtream.axtelica.com/";
+    }
+  }}
            className=" sm:w-fit bg-[#FF3366] text-white px-6 sm:px-7 py-3 
           rounded-md text-sm sm:text-lg font-poppins hover:bg-pink-600 hover:scale-105 transition">
             Product Tour
