@@ -180,7 +180,7 @@ const AboutSection = () => {
             whileHover={{ y: -8, scale: 1.02 }}
             className="bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-left border border-gray-100"
           >
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-poppins font-semibold text-gray-900 mb-4">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-poppins  text-gray-900 mb-4">
               Optimize Costs
             </h3>
 
