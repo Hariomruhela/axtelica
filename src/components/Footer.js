@@ -116,7 +116,7 @@ const Footer = () => {
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-end gap-3 sm:gap-4">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+            {["Global Data Policy","Privacy Policy", "Terms of Service", "Cookie Policy"].map(
               (t) => (
                 <button
                   key={t}

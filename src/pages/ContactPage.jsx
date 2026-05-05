@@ -16,12 +16,14 @@ const ContactPage = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [globalError, setGlobalError] = useState("");
   const [loading, setLoading] = useState(false);
 
   // 🔹 Handle Change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
+    setGlobalError(""); // clear global error
   };
 
   // 🔹 Validation
@@ -45,7 +47,6 @@ const ContactPage = () => {
     }
 
     if (!form.department) err.department = "Select a department";
-
     if (!form.message.trim()) err.message = "Message is required";
 
     return err;
@@ -55,22 +56,34 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ✅ Check ALL fields empty
+    const isAllEmpty = Object.values(form).every((val) => !val.trim());
+
+    if (isAllEmpty) {
+      setErrors({});
+      setGlobalError("All fields marked with * are mandatory");
+      return;
+    }
+
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      setGlobalError("");
       toast.error("Please fill all required fields correctly");
       return;
     }
 
+    setGlobalError("");
     setLoading(true);
 
-    emailjs.send(
+    emailjs
+      .send(
         "service_mq323ys",
         "template_ho7qo3m",
-  { ...form, formType: "Demo Request" },
-  "KUyOfe7nTxPUvWFdw",
-)
+        { ...form, formType: "Demo Request" },
+        "KUyOfe7nTxPUvWFdw"
+      )
       .then(() => {
         toast.success("Message sent successfully!");
 
@@ -85,22 +98,20 @@ const ContactPage = () => {
         });
 
         setErrors({});
-        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
         toast.error("Failed to send message");
-        setLoading(false);
-      });
+      })
+      .finally(() => setLoading(false));
   };
-
 
   return (
     <div>
       <section className="min-h-screen bg-[#0e1231] py-44 px-4">
         <div className="max-w-7xl mx-auto mt-10 grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT CONTENT */}
+          {/* LEFT CONTENT (UNCHANGED ✅) */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -150,7 +161,7 @@ const ContactPage = () => {
           </motion.div>
 
           {/* FORM */}
-           <motion.form
+          <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -263,6 +274,13 @@ const ContactPage = () => {
             >
               {loading ? "Sending..." : "Get a Demo"}
             </button>
+
+            {/* ✅ Global Error */}
+            {globalError && (
+              <p className="text-red-500 text-sm text-center">
+                {globalError}
+              </p>
+            )}
 
           </motion.form>
 

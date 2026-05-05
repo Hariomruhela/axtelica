@@ -64,8 +64,8 @@ const DemoForm = ({
 
     // ✅ Only global error if all empty
     if (isAllFieldsEmpty()) {
-      setErrors({ global: "Please fill all required fields" });
-      toast.error("Please fill all required fields");
+      setErrors({ global: "All fields marked with * are mandatory" });
+      toast.error("All fields marked with * are mandatory");
       return;
     }
 
