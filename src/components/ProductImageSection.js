@@ -58,38 +58,47 @@ const ProductImageSection = ({ data }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
 
           {/* Button 1 */}
-          <button
-          onClick={() => {
-    const currentUrl = window.location.href;
-
-    if (currentUrl.includes("infinisight")) {
-      window.location.href = "https://infinisight.axtelica.com/";
-    } else {
-      window.location.href = "https://axtream.axtelica.com/";
-    }
-  }}
-           className=" sm:w-fit bg-[#FF3366] text-white px-6 sm:px-7 py-3 
-          rounded-md text-sm sm:text-lg font-poppins hover:bg-pink-600 hover:scale-105 transition">
-            Product Tour
-          </button>
+          
 
           {/* Button 2 + Text */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
-            
-            <button
-            onClick={()=>navigate("/demo")}
+          <div className="flex flex-col items-center justify-center gap-4">
+
+  {/* BUTTONS */}
+  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
     
-             className="w-full sm:w-fit bg-gradient-to-r from-[#00bfff] via-[#4a5de2] to-[#8a2be2] 
-            text-white px-6 sm:px-7 py-3 rounded-md text-sm sm:text-lg font-poppins 
-            hover:from-[#8a2be2] hover:via-[#4a5de2] hover:to-[#00bfff] transition">
-              Start free 7 day-Trial
-            </button>
+    {/* Product Tour */}
+    <button
+      onClick={() => {
+        if (location.pathname.includes("infinisight")) {
+          window.location.href = "https://infinisight.axtelica.com/";
+        } else {
+          window.location.href = "https://axtream.axtelica.com/";
+        }
+      }}
+      className="w-full sm:w-auto bg-[#FF3366] text-white px-6 sm:px-7 py-3 
+      rounded-md text-sm sm:text-lg font-poppins hover:bg-pink-600 transition"
+    >
+      Product Tour
+    </button>
 
-            <p className="text-gray-600 text-xs sm:text-sm font-poppins max-w-[220px] sm:max-w-[250px]">
-              No Credit Card required. You will start trial with corporate email only.
-            </p>
+    {/* Trial Button */}
+    <button
+      onClick={() => navigate("/demo")}
+      className="w-full sm:w-auto bg-gradient-to-r from-[#00bfff] via-[#4a5de2] to-[#8a2be2] 
+      text-white px-6 sm:px-7 py-3 rounded-md text-sm sm:text-lg font-poppins 
+      hover:from-[#8a2be2] hover:via-[#4a5de2] hover:to-[#00bfff] transition"
+    >
+      Start free 7 day-Trial
+    </button>
 
-          </div>
+  </div>
+
+  {/* TEXT BELOW */}
+  <p className="text-gray-600 text-xs sm:text-sm font-poppins text-center max-w-[260px]">
+    No Credit Card required. You will start trial with corporate email only.
+  </p>
+
+</div>
         </div>
 
       </div>

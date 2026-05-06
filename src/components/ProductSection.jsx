@@ -154,12 +154,15 @@ const ProductSection = ({ data }) => {
           </AnimatePresence>
 
           {/* Button */}
-          <button
-            onClick={() => navigate("/demo")}
-            className="w-fit mt-4 ml-1 sm:ml-3 self-start bg-[#FF3366] text-white px-5 sm:px-7 py-2.5 sm:py-3 rounded-lg text-sm sm:text-lg font-poppins hover:bg-pink-600 hover:scale-105 transition"
-          >
-            Explore Solution
-          </button>
+         <button
+  onClick={() => navigate("/demo")}
+  className="w-fit mt-4 mx-auto sm:mx-0 sm:ml-3 self-center sm:self-start 
+  bg-[#FF3366] text-white px-5 sm:px-7 py-2.5 sm:py-3 
+  rounded-lg text-sm sm:text-lg font-poppins 
+  hover:bg-pink-600 hover:scale-105 transition"
+>
+  Explore Solution
+</button>
         </div>
       </div>
     </section>

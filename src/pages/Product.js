@@ -41,16 +41,20 @@ const Product = () => {
     initial={{ opacity: 0, x: -40 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.7 }}
-    className="flex justify-center lg:justify-start"
+     className={
+    data.id === "infinisight"
+      ? "flex justify-center w-full"
+      : "flex justify-center lg:justify-start"
+  }
   >
     <img
       src={data.axtreamlogo}
       alt="logo"
-      className="
-        w-[100px] sm:w-[130px] md:w-[160px] lg:w-auto
-        max-w-[200px]
-        h-auto object-contain
-      "
+      className={
+    productId === "infinisight"
+      ? " w-[200px] sm:w-[250px] md:w-[300px] lg:w-auto max-w-[500px] h-auto object-contain"
+      : "w-[100px] sm:w-[130px] md:w-[160px] lg:w-auto max-w-[200px] h-auto object-contain"
+  }
     />
   </motion.div>
 )}
