@@ -57,7 +57,7 @@ const CaseCard = ({ data, index, open, onToggle }) => {
 
               {/* Challenge */}
               <div className="mt-3">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1">
+                <h3 className="text-xs sm:text-sm  text-gray-900 mb-1">
                   THE CHALLENGE
                 </h3>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
@@ -67,7 +67,7 @@ const CaseCard = ({ data, index, open, onToggle }) => {
 
               {/* Solution */}
               <div className="mt-4">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1">
+                <h3 className="text-xs sm:text-sm  text-gray-900 mb-1">
                   THE SOLUTION
                 </h3>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
@@ -77,7 +77,7 @@ const CaseCard = ({ data, index, open, onToggle }) => {
 
               {/* Products */}
               <div className="mt-4">
-                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">
+                <h3 className="text-xs sm:text-sm  text-gray-900 mb-2">
                   PRODUCTS USED
                 </h3>
                 <ul className="list-disc list-inside text-sm sm:text-base text-gray-700 space-y-1">

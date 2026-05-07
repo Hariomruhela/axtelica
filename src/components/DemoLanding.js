@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import DemoFooter from "./DemoFooter";
 import { Link } from "react-router-dom";
-import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 
 const DemoLanding = () => {
@@ -20,20 +19,11 @@ const DemoLanding = () => {
   const [globalError, setGlobalError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // ✅ Initialize EmailJS
-  useEffect(() => {
-    if (!process.env.REACT_APP_PUBLIC_KEY) {
-      console.error("EmailJS Public Key missing");
-      return;
-    }
-    emailjs.init(process.env.REACT_APP_PUBLIC_KEY);
-  }, []);
-
   // ✅ Handle Input Change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
-    setGlobalError(""); // clear global error on typing
+    setGlobalError("");
   };
 
   // ✅ Validation
@@ -62,59 +52,71 @@ const DemoLanding = () => {
     return err;
   };
 
-  // ✅ Submit Handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // ✅ Submit (CONNECTED TO BACKEND)
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // ✅ Check if ALL fields are empty
-    const isAllEmpty = Object.values(form).every((val) => !val.trim());
+  const isAllEmpty = Object.values(form).every((val) => !val.trim());
 
-    if (isAllEmpty) {
-      setErrors({});
-      setGlobalError("All fields marked with * are mandatory");
-      return;
-    }
+  if (isAllEmpty) {
+    setErrors({});
+    setGlobalError("All fields marked with * are mandatory");
+    return;
+  }
 
-    const validationErrors = validate();
+  const validationErrors = validate();
 
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      setGlobalError("");
-      toast.error("Please fix the errors");
-      return;
-    }
-
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
     setGlobalError("");
-    setLoading(true);
+    toast.error("Please fix the errors");
+    return;
+  }
 
-    emailjs
-      .send(
-        "service_mq323ys",
-        "template_ho7qo3m",
-        { ...form, formType: "Demo Request" },
-        "KUyOfe7nTxPUvWFdw"
-      )
-      .then(() => {
-        toast.success("Demo request sent!");
+  setLoading(true);
 
-        setForm({
-          firstName: "",
-          lastName: "",
-          company: "",
-          email: "",
-          phone: "",
-          employees: "",
-          country: "",
-        });
+  try {
+    const res = await fetch("https://axtelica-backend.onrender.com/api/demo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
 
-        setErrors({});
-      })
-      .catch((err) => {
-        console.error("EmailJS Error:", err);
-        toast.error(err?.text || "Failed to send request");
-      })
-      .finally(() => setLoading(false));
-  };
+    const data = await res.json();
+
+    // ✅ HANDLE SERVER ERROR (IMPORTANT)
+    if (!res.ok) {
+      throw new Error(data.error || "Something went wrong");
+    }
+
+    // ✅ SUCCESS
+    toast.success("Demo request sent!");
+
+    setForm({
+      firstName: "",
+      lastName: "",
+      company: "",
+      email: "",
+      phone: "",
+      employees: "",
+      country: "",
+    });
+
+    setErrors({});
+    setGlobalError("");
+
+  } catch (err) {
+    console.error("Frontend Error:", err);
+
+    // ✅ SHOW REAL ERROR MESSAGE
+    setGlobalError(err.message);
+    toast.error(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
@@ -132,116 +134,69 @@ const DemoLanding = () => {
 
           {/* FORM */}
           <div className="bg-white text-black p-6 md:p-8 rounded-xl shadow-xl w-full max-w-lg mx-auto">
-            <form
-              onSubmit={handleSubmit}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-            >
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-              {/* First Name */}
               <div>
                 <label className="text-sm">First Name*</label>
-                <input
-                  name="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2.5 rounded-md mt-1"
-                />
+                <input name="firstName" value={form.firstName} onChange={handleChange}
+                  className="w-full border px-3 py-2.5 rounded-md mt-1" />
                 {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
               </div>
 
-              {/* Last Name */}
               <div>
                 <label className="text-sm">Last Name*</label>
-                <input
-                  name="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2.5 rounded-md mt-1"
-                />
+                <input name="lastName" value={form.lastName} onChange={handleChange}
+                  className="w-full border px-3 py-2.5 rounded-md mt-1" />
                 {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
               </div>
 
-              {/* Company */}
               <div>
                 <label className="text-sm">Company*</label>
-                <input
-                  name="company"
-                  value={form.company}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2.5 rounded-md mt-1"
-                />
+                <input name="company" value={form.company} onChange={handleChange}
+                  className="w-full border px-3 py-2.5 rounded-md mt-1" />
                 {errors.company && <p className="text-red-500 text-xs">{errors.company}</p>}
               </div>
 
-              {/* Email */}
               <div>
                 <label className="text-sm">Business Email*</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2.5 rounded-md mt-1"
-                />
+                <input type="email" name="email" value={form.email} onChange={handleChange}
+                  className="w-full border px-3 py-2.5 rounded-md mt-1" />
                 {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
               </div>
 
-              {/* Phone */}
               <div>
                 <label className="text-sm">Phone*</label>
-                <input
-                  name="phone"
-                  value={form.phone}
+                <input name="phone" value={form.phone}
                   onChange={(e) => {
                     const val = e.target.value.replace(/\D/g, "");
-                    if (val.length <= 15) {
-                      setForm({ ...form, phone: val });
-                    }
+                    if (val.length <= 15) setForm({ ...form, phone: val });
                   }}
-                  className="w-full border px-3 py-2.5 rounded-md mt-1"
-                />
+                  className="w-full border px-3 py-2.5 rounded-md mt-1" />
                 {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
               </div>
 
-              {/* Employees */}
               <div>
                 <label className="text-sm">Employees*</label>
-                <input
-                  name="employees"
-                  value={form.employees}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2.5 rounded-md mt-1"
-                />
+                <input name="employees" value={form.employees} onChange={handleChange}
+                  className="w-full border px-3 py-2.5 rounded-md mt-1" />
                 {errors.employees && <p className="text-red-500 text-xs">{errors.employees}</p>}
               </div>
 
-              {/* Country */}
-              <div className="col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label className="text-sm">Country*</label>
-                <input
-                  name="country"
-                  value={form.country}
-                  onChange={handleChange}
-                  className="w-full border px-3 py-2.5 rounded-md mt-1"
-                />
+                <input name="country" value={form.country} onChange={handleChange}
+                  className="w-full border px-3 py-2.5 rounded-md mt-1" />
                 {errors.country && <p className="text-red-500 text-xs">{errors.country}</p>}
               </div>
 
-              {/* Submit */}
-              <div className="col-span-1 sm:col-span-2 mt-3">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-[#FF3366] text-white py-3.5 rounded-full disabled:opacity-50"
-                >
+              <div className="col-span-2 mt-3">
+                <button type="submit" disabled={loading}
+                  className="w-full bg-[#FF3366] text-white py-3.5 rounded-full disabled:opacity-50">
                   {loading ? "Sending..." : "Get a Demo"}
                 </button>
 
-                {/* ✅ Global Error */}
                 {globalError && (
-                  <p className="text-red-500 text-sm mt-3 text-center">
-                    {globalError}
-                  </p>
+                  <p className="text-red-500 text-sm mt-3 text-center">{globalError}</p>
                 )}
               </div>
 
@@ -252,14 +207,11 @@ const DemoLanding = () => {
             </p>
           </div>
 
-          {/* RIGHT CONTENT */}
+          {/* RIGHT CONTENT (UNCHANGED) */}
           <div className="flex flex-col justify-center text-center lg:text-left mt-8 lg:mt-0">
             <Link to="/">
-              <img
-                src="/assets/Logo_header_white.png"
-                alt="axtelica"
-                className="mb-6 mx-auto lg:mx-0 w-32 sm:w-auto"
-              />
+              <img src="/assets/Logo_header_white.png" alt="axtelica"
+                className="mb-6 mx-auto lg:mx-0 w-32 sm:w-auto" />
             </Link>
 
             <h1 className="text-xl sm:text-3xl lg:text-5xl mb-5">

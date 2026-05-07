@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
-import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 
 const ContactPage = () => {
@@ -23,7 +22,7 @@ const ContactPage = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
-    setGlobalError(""); // clear global error
+    setGlobalError("");
   };
 
   // 🔹 Validation
@@ -52,11 +51,10 @@ const ContactPage = () => {
     return err;
   };
 
-  // 🔹 Submit
-  const handleSubmit = (e) => {
+  // 🔹 Submit (CONNECTED TO BACKEND)
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ Check ALL fields empty
     const isAllEmpty = Object.values(form).every((val) => !val.trim());
 
     if (isAllEmpty) {
@@ -74,17 +72,20 @@ const ContactPage = () => {
       return;
     }
 
-    setGlobalError("");
     setLoading(true);
 
-    emailjs
-      .send(
-        "service_mq323ys",
-        "template_ho7qo3m",
-        { ...form, formType: "Demo Request" },
-        "KUyOfe7nTxPUvWFdw"
-      )
-      .then(() => {
+    try {
+      const res = await fetch("https://axtelica-backend.onrender.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
         toast.success("Message sent successfully!");
 
         setForm({
@@ -98,12 +99,16 @@ const ContactPage = () => {
         });
 
         setErrors({});
-      })
-      .catch((error) => {
-        console.error(error);
-        toast.error("Failed to send message");
-      })
-      .finally(() => setLoading(false));
+      } else {
+        toast.error(data.error || "Failed to send message");
+      }
+
+    } catch (error) {
+      console.error(error);
+      toast.error("Server error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -168,118 +173,54 @@ const ContactPage = () => {
             className="bg-white rounded-2xl p-8 space-y-4 text-black"
           >
 
-            {/* Email */}
-            <div>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Business Email *"
-                className="w-full border px-4 py-3 rounded-lg"
-              />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-            </div>
+            <input type="email" name="email" value={form.email}
+              onChange={handleChange} placeholder="Business Email *"
+              className="w-full border px-4 py-3 rounded-lg" />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
-            {/* Names */}
             <div className="grid grid-cols-2 gap-4">
-              <div>
-                <input
-                  name="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  placeholder="First Name *"
-                  className="w-full border px-4 py-3 rounded-lg"
-                />
-                {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
-              </div>
-
-              <div>
-                <input
-                  name="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  placeholder="Last Name *"
-                  className="w-full border px-4 py-3 rounded-lg"
-                />
-                {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
-              </div>
+              <input name="firstName" value={form.firstName}
+                onChange={handleChange} placeholder="First Name *"
+                className="border px-4 py-3 rounded-lg" />
+              <input name="lastName" value={form.lastName}
+                onChange={handleChange} placeholder="Last Name *"
+                className="border px-4 py-3 rounded-lg" />
             </div>
 
-            {/* Company */}
-            <div>
-              <input
-                name="company"
-                value={form.company}
-                onChange={handleChange}
-                placeholder="Company *"
-                className="w-full border px-4 py-3 rounded-lg"
-              />
-              {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
-            </div>
+            <input name="company" value={form.company}
+              onChange={handleChange} placeholder="Company *"
+              className="w-full border px-4 py-3 rounded-lg" />
 
-            {/* Phone */}
-            <div>
-              <input
-                name="phone"
-                value={form.phone}
-                onChange={(e) => {
-                  const val = e.target.value.replace(/\D/g, "");
-                  if (val.length <= 10) {
-                    setForm({ ...form, phone: val });
-                    setErrors({ ...errors, phone: "" });
-                  }
-                }}
-                placeholder="Phone Number *"
-                className="w-full border px-4 py-3 rounded-lg"
-              />
-              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
-            </div>
+            <input name="phone" value={form.phone}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, "");
+                if (val.length <= 10) setForm({ ...form, phone: val });
+              }}
+              placeholder="Phone Number *"
+              className="w-full border px-4 py-3 rounded-lg" />
 
-            {/* Department */}
-            <div>
-              <select
-                name="department"
-                value={form.department}
-                onChange={handleChange}
-                className="w-full border px-4 py-3 rounded-lg"
-              >
-                <option value="">Select Department *</option>
-                <option>Sales</option>
-                <option>Support</option>
-                <option>Marketing</option>
-                <option>Other</option>
-              </select>
-              {errors.department && <p className="text-red-500 text-sm">{errors.department}</p>}
-            </div>
+            <select name="department" value={form.department}
+              onChange={handleChange}
+              className="w-full border px-4 py-3 rounded-lg">
+              <option value="">Select Department *</option>
+              <option>Sales</option>
+              <option>Support</option>
+              <option>Marketing</option>
+              <option>Other</option>
+            </select>
 
-            {/* Message */}
-            <div>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                rows="4"
-                placeholder="Message *"
-                className="w-full border px-4 py-3 rounded-lg"
-              />
-              {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-            </div>
+            <textarea name="message" value={form.message}
+              onChange={handleChange} rows="4"
+              placeholder="Message *"
+              className="w-full border px-4 py-3 rounded-lg" />
 
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-[#FF3366] text-white py-3 rounded-md disabled:opacity-50"
-            >
-              {loading ? "Sending..." : "Get a Demo"}
+            <button type="submit" disabled={loading}
+              className="w-full bg-[#FF3366] text-white py-3 rounded-md">
+              {loading ? "Sending..." : "Send Message"}
             </button>
 
-            {/* ✅ Global Error */}
             {globalError && (
-              <p className="text-red-500 text-sm text-center">
-                {globalError}
-              </p>
+              <p className="text-red-500 text-sm text-center">{globalError}</p>
             )}
 
           </motion.form>

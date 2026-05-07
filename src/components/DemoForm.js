@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+
 import toast from "react-hot-toast";
 import { useLocation } from "react-router-dom";
 
@@ -59,55 +59,60 @@ const DemoForm = ({
   };
 
   // 🔹 Submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // ✅ Only global error if all empty
-    if (isAllFieldsEmpty()) {
-      setErrors({ global: "All fields marked with * are mandatory" });
-      toast.error("All fields marked with * are mandatory");
-      return;
-    }
+  if (isAllFieldsEmpty()) {
+    setErrors({ global: "All fields marked with * are mandatory" });
+    toast.error("All fields marked with * are mandatory");
+    return;
+  }
 
-    const validationErrors = validate();
+  const validationErrors = validate();
 
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors({ global: "Please enter valid details in all fields" });
-      toast.error("Please fix the form");
-      return;
-    }
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors({ global: "Please enter valid details in all fields" });
+    toast.error("Please fix the form");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    emailjs
-      .send(
-        "service_mq323ys",
-        "template_ho7qo3m",
-        { ...form, formType: "Demo Request" },
-        "KUyOfe7nTxPUvWFdw",
-      )
-      .then(() => {
-        toast.success("Demo request sent successfully!");
+  try {
+    const res = await fetch("https://axtelica-backend.onrender.com/api/demo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
 
-        setForm({
-          firstName: "",
-          lastName: "",
-          company: "",
-          email: "",
-          phone: "",
-          employees: "",
-          country: "",
-        });
+    const data = await res.json();
 
-        setErrors({});
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        toast.error("Failed to send request");
-        setLoading(false);
+    if (data.success) {
+      toast.success("Demo request sent successfully!");
+
+      setForm({
+        firstName: "",
+        lastName: "",
+        company: "",
+        email: "",
+        phone: "",
+        employees: "",
+        country: "",
       });
-  };
+
+      setErrors({});
+    } else {
+      toast.error(data.error || "Failed to send request");
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error("Server error");
+  } finally {
+    setLoading(false);
+  }
+};
 // ❌ Hide component on this route
   if (location.pathname === "/product/Intelligent") {
     return null;
